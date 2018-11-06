@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: ./git-images/duckdns.jpg
+---
+
 # Projekt Home Automation
 
 Im Herbst 2017 hatte ich mich für Home Automation mit dem Hauptziel der Steuerung mehrerer Heizkörper in meiner angemieteten Wohnung interessiert...
@@ -25,6 +29,10 @@ Unter `Internet / My!FRITZ-Konto` muss ein **MyFRITZ!-Konto** eingerichtet und a
 Der Anbieter [DuckDNS](http://duckdns.org) ist kostenlos und man sich ohne einen neuen Account anlegen zu müssen, einfach mit seiner googlemail-Adresse anmelden.
 
 Nun einfach eine Domain (z.B. https://mydomain.duckdns.org) erzeugen und die IPv4- und/oder IPv6-Adresse eintragen. Anschließend kann man die Verbindung mit `ping mydomain.duckdns.org` prüfen.
+
+```html
+<img src="https://github.com/hajo62/HomeAutomation/blob/master/git-images/duckdns.jpg" style="zoom:50%" />
+```
 
 Damit sich ändernde IP-Adressen dem dynDNS-Dienst bekannt gegeben werden, muss in der Fritzbox unter Internet / Freigaben / DynDNS noch die Update-Url (z.B.
 
