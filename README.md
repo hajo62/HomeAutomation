@@ -12,7 +12,8 @@ Mein Internet-Provider [1&amp;1](http://www.1und1.de/) hatte meinen DSL-Anschlus
 
 <img src="./images4git/FritzboxDS-Lite.jpg" width="500" border="1">
 Erstaunlicherweise genügte aber ein Anruf bei der Hotline (+49 721 9600) und mein Anschluss wurde nach wenigen Minuten auf einen _vollen_ DSL-Anschluss mit dynamischer IPv4-Adresse umgestellt.
-<img src="./images4git/FritzboxInternet.jpg" width="500" border="1">
+
+<img src="./images4git/Fritzbox-Internet.jpg" width="500" border="1" align="center">
 
 ### DynDNS
 
