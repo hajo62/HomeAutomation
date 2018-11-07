@@ -8,7 +8,7 @@ Im Herbst 2018 habe ich nun begonnen, an einer Raspberry Pi basierte Lösung zu 
 ## Vorarbeiten
 ### Heimnetz von außen erreichbar machen
 #### DS-Lite-Tunnel
-Mein Internet-Provider [1&amp;1](http://www.1und1.de/) hatte meinen DSL-Anschluss vor einiger Zeit auf einen  [DS-Lite-Tunnel](https://de.wikipedia.org/wiki/IPv6#Dual-Stack_Lite_(DS-Lite)) umgestellt. Dadurch wurde meinem Anschluss keine IPv4-IP-Adresse mehr zugeteilt und ein im Heimnetz betriebener Rechner ist von außen nicht über das IPv4-Netz erreichbar. Da die 4in6-Tunnel-Anbieter **sixXS** oder **gogo6** ihre Dienste eingestellt haben, scheinen solche Tunnel nicht mehr verfügbar zu sein.
+Mein Internet-Provider [1&amp;1](http://www.1und1.de/) hatte meinen DSL-Anschluss vor einiger Zeit auf einen  [DS-Lite-Tunnel](https://de.wikipedia.org/wiki/IPv6#Dual-Stack_Lite_(DS-Lite)) umgestellt. Dadurch wurde meinem Anschluss keine IPv4-IP-Adresse mehr zugeteilt und ein im Heimnetz betriebener Rechner ist von außen nicht über das IPv4-Netz erreichbar. (Siehe dazu z.B. [hier](https://avm.de/service/fritzbox/fritzbox-7490/wissensdatenbank/publication/show/1611_Was-ist-DS-Lite-und-wie-funktioniert-es/)). Abhilfe würde hier ein [4in6-Tunnel](https://de.wikipedia.org/wiki/4in6) schaffen. Da die 4in6-Tunnel-Anbieter **sixXS** oder **gogo6** ihre Dienste eingestellt haben, scheinen solche Tunnel nicht mehr verfügbar zu sein.
 
 <img src="./images4git/FritzboxDS-Lite.jpg" width="500" border="1">
 
@@ -31,12 +31,13 @@ Unter `Internet / My!FRITZ-Konto` muss ein **MyFRITZ!-Konto** eingerichtet und a
 
 #### dynDNS von Internetanbietern
 
-Der Anbieter [DuckDNS](http://duckdns.org) ist kostenlos und man sich ohne einen neuen Account anlegen zu müssen, einfach z.B. mit seiner googlemail-Adresse anmelden.
+Der Anbieter [DuckDNS](http://duckdns.org) ist kostenlos und man sich ohne einen weiteren Account anlegen und sich merken zu müssen, einfach z.B. mit seiner googlemail-Adresse anmelden.
 
-Nun einfach eine Domain (z.B. https://mydomain.duckdns.org) erzeugen und die IPv4- und/oder IPv6-Adresse eintragen. Anschließend kann man die Verbindung mit `ping mydomain.duckdns.org` prüfen.
+Nun einfach eine Domain (z.B. https://mydomain.duckdns.org) erzeugen und die IPv4- und/oder IPv6-Adresse eintragen. Anschließend kann man die Verbindung mit `ping <mydomain>.duckdns.org` prüfen.
 
 
 <img src="./images4git/duckdns.jpg" width="700">
 
-Damit die geänderten IP-Adressen dem dynDNS-Dienst bekannt gegeben werden, muss in der Fritzbox unter `Internet / Freigaben / DynDNS`  noch die Update-Url (z.B. https://www.duckdns.org/update?domains=mydomain.duckdns.org&token=token-von-dyndns&ip=<ipaddr>&ipv6=<ip6addr>) hinterlegt werden.
+Damit die geänderten IP-Adressen dem dynDNS-Dienst bekannt gegeben werden, muss in der Fritzbox unter `Internet / Freigaben / DynDNS`  noch die Update-Url (z.B.
+"https://www.duckdns.org/update?domains=mydomain.duckdns.org&<token=token-von-dyndns>&ip=<ipaddr>&ipv6=<ip6addr>") hinterlegt werden.
 [Hier](https://8300111.de/fritzbox-mit-os-6-60-dynamic-dns-mit-duck-dns-einrichten-schnell-und-kostenlos) findet sich dazu eine kurze Beschreibung.
