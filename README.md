@@ -9,6 +9,7 @@ Im Herbst 2018 habe ich nun begonnen, an einer Raspberry Pi basierte Lösung zu 
 ### Heimnetz von außen erreichbar machen
 #### DS-Lite-Tunnel
 Mein Internet-Provider [1&amp;1](http://www.1und1.de/) hatte meinen DSL-Anschluss vor einiger Zeit auf einen  [DS-Lite-Tunnel](https://de.wikipedia.org/wiki/IPv6#Dual-Stack_Lite_(DS-Lite)) umgestellt. Dadurch wurde meinem Anschluss keine IPv4-IP-Adresse mehr zugeteilt und ein im Heimnetz betriebener Rechner ist von außen nicht über das IPv4-Netz erreichbar. Da die 4in6-Tunnel-Anbieter **sixXS** oder **gogo6** ihre Dienste eingestellt haben, scheinen solche Tunnel nicht mehr verfügbar zu sein.
+
 <img src="./images4git/FritzboxDS-Lite.jpg" width="500" border="1">
 Erstaunlicherweise genügte aber ein Anruf bei der Hotline (+49 721 9600) und mein Anschluss wurde nach wenigen Minuten auf einen _vollen_ DSL-Anschluss mit dynamischer IPv4-Adresse umgestellt.
 <img src="./images4git/FritzboxInternet.jpg" width="500" border="1">
