@@ -1,43 +1,37 @@
 # Projekt Home Automation
 
 ## Wie es begann
-Im Herbst 2017 hatte ich mich für Home Automation mit dem Hauptziel der Steuerung mehrerer Heizkörper in meiner angemieteten Wohnung interessiert. Um nicht erst nach Ende der Heizsaison fertig zu sein, habe ich zuerst nach einer fertigen Lösung gesucht und mich für [homee](https://hom.ee/) entschieden.
+Im Herbst 2017 hatte ich mich für Home Automation mit dem Hauptziel der Steuerung mehrerer Heizkörper in meiner angemieteten Wohnung interessiert. Eine zwingende Anforderung war also, dass alle Teile der Home Automation einfach und ohne Zustimmung des Eigentümers zu montieren bzw. wieder zu demontieren sein müssen. Außerdem wollte ich mit Sensoren und Aktoren nicht an einen bestimmten Hersteller gebunden sein. Meine Wahl ist hier auf den Funkstandart [z-wave](https://www.z-wave.com/) gefallen.
+Um nicht erst nach Ende der Heizsaison fertig zu sein, habe ich für die Zentrale Steuerungseinhait zuerst nach einer fertigen Lösung gesucht; hier ist meine Wahl auf [homee](https://hom.ee/) gefallen, da homee neben WLAN und z-wave auch [Zigbee](https://www.zigbee.org/) und [EnOcean](https://www.enocean.com/de/) Geräte steuern könnte.
 
-Im Herbst 2018 habe ich nun begonnen, an einer Raspberry Pi basierte Lösung zu *basteln*.
+Da mir die kommerziellen Produkte aber zu abgeschlossen sind, habe ich im Herbst 2018 begonnen, an einer [Raspberry Pi](https://de.wikipedia.org/wiki/Raspberry_Pi) basierte Lösung zu *basteln*.
 
-## Vorarbeiten
-### Heimnetz von außen erreichbar machen
-#### DS-Lite-Tunnel
-Mein Internet-Provider [1&amp;1](http://www.1und1.de/) hatte meinen DSL-Anschluss vor einiger Zeit auf einen  [DS-Lite-Tunnel](https://de.wikipedia.org/wiki/IPv6#Dual-Stack_Lite_(DS-Lite)) umgestellt. Dadurch wurde meinem Anschluss keine IPv4-IP-Adresse mehr zugeteilt und ein im Heimnetz betriebener Rechner ist von außen nicht über das IPv4-Netz erreichbar. (Siehe dazu z.B. [hier](https://avm.de/service/fritzbox/fritzbox-7490/wissensdatenbank/publication/show/1611_Was-ist-DS-Lite-und-wie-funktioniert-es/)). Abhilfe würde hier ein [4in6-Tunnel](https://de.wikipedia.org/wiki/4in6) schaffen. Da die 4in6-Tunnel-Anbieter **sixXS** oder **gogo6** ihre Dienste eingestellt haben, scheinen solche Tunnel nicht mehr verfügbar zu sein.
-
-<img src="./images4git/FritzboxDS-Lite.jpg" width="500" border="1">
-
-Erstaunlicherweise genügte aber ein Anruf bei der Hotline (+49 721 9600) und mein Anschluss wurde nach wenigen Minuten auf einen *vollen* DSL-Anschluss mit dynamischer IPv4-Adresse umgestellt.
-
-<img src="./images4git/Fritzbox-Internet.jpg" width="500" border="1" align="center">
+* [Vorarbeiten](doc/vorarbeiten.md) - Erreichbarkeit von außen
 
 ---
 
-### DynDNS
+## nginx
+https://howtoraspberrypi.com/install-nginx-raspbian-and-accelerate-your-raspberry-web-server/
 
-Da meinem DSL-Anschluss keine feste IP-Adresse zugeordnet ist und diese sich bei jedem Verbindungsneuaufbau ändern kann, ist es notwendig, meinem Netz über **dynDNS** einen festen Domain-Namen zuzuweisen (&quot;Dynamic Updates in the Domain Name System (DNS UPDATE)&quot;.
+```
+sudo apt install nginx php-fpm
+sudo nginx
+```
 
-Hier bieten sich mehrere Möglichkeiten (Mit welchen Vor- bzw-Nachteilen?):
-
-#### dynDNS der Fritzbox
-
-Unter `Internet / My!FRITZ-Konto` muss ein **MyFRITZ!-Konto** eingerichtet und anschließend die Option **MyFRITZ!-Internetzugriff** aktiviert werden.
-
-
-#### dynDNS von Internetanbietern
-
-Der Anbieter [DuckDNS](http://duckdns.org) ist kostenlos und man sich ohne einen weiteren Account anlegen und sich merken zu müssen, einfach z.B. mit seiner googlemail-Adresse anmelden.
-
-Nun einfach eine Domain (z.B. https://mydomain.duckdns.org) erzeugen und die IPv4- und/oder IPv6-Adresse eintragen. Anschließend kann man die Verbindung mit `ping <mydomain>.duckdns.org` prüfen.
+Anschließend im Browser `http://localhost` aufrufen:
+<img src="./images4git/nginx-welcome.jpg" width="700">
 
 
-<img src="./images4git/duckdns.jpg" width="700">
+Warum php-fpm?
 
-Damit die geänderten IP-Adressen dem dynDNS-Dienst bekannt gegeben werden, muss in der Fritzbox unter `Internet / Freigaben / DynDNS`  noch die Update-Url (z.B.
-"https://www.duckdns.org/update?domains=mydomain.duckdns.org&<token=token-von-dyndns>&ip=<ipaddr>&ipv6=<ip6addr>") hinterlegt werden.
-[Hier](https://8300111.de/fritzbox-mit-os-6-60-dynamic-dns-mit-duck-dns-einrichten-schnell-und-kostenlos) findet sich dazu eine kurze Beschreibung.
+By default, Nginx is not bound to PHP. During the development of Nginx, the choice was made to use PHP-FMP (a faster version of PHP) rather than a more traditional PHP. Therefore, we will install php-fpm to manage PHP files with Nginx.
+
+Automatically start nginx on boot
+
+This is an easy one. We just issue the following command to make sure the nginx webserver is always started on bootup:
+
+sudo update-rc.d -f nginx defaults;
+
+
+
+Zeitserver einstellen
