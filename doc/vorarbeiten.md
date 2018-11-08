@@ -31,5 +31,5 @@ Nun einfach eine Domain (z.B. <div style="display: inline">https://mydomain.duck
 <img src="../images4git/duckdns.jpg" width="700">
 
 Damit die geänderten IP-Adressen dem dynDNS-Dienst bekannt gegeben werden, muss in der Fritzbox unter `Internet / Freigaben / DynDNS`  noch die Update-Url (z.B.
-"https://www.duckdns.org/update?domains=mydomain.duckdns.org&&lt;token=token-von-dyndns&gt;&ip=&lt;ipaddr&gt;&ipv6=&lt;ip6addr&gt;") hinterlegt werden.
+"https://www.duckdns.org/update?domains=mydomain.duckdns.org&lt;token=token-von-dyndns&gt;&ip=&lt;ipaddr&gt;&ipv6=&lt;ip6addr&gt;") hinterlegt werden.
 [Hier](https://8300111.de/fritzbox-mit-os-6-60-dynamic-dns-mit-duck-dns-einrichten-schnell-und-kostenlos) findet sich dazu eine kurze Beschreibung.
