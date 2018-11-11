@@ -6,9 +6,26 @@ Um nicht erst nach Ende der Heizsaison fertig zu sein, habe ich für die Zentral
 
 Da mir die kommerziellen Produkte aber zu abgeschlossen sind, habe ich im Herbst 2018 begonnen, an einer [Raspberry Pi](https://de.wikipedia.org/wiki/Raspberry_Pi) basierte Lösung zu *basteln*.
 
-* [Vorarbeiten](doc/vorarbeiten.md) - Erreichbarkeit von außen
+* [Vorarbeiten](doc/vorarbeiten.md) - Erreichbarkeit des eigenen Netzes von außen
+* Welche Hardware?
+* [Betriebssystem](doc/betriebssystem.md) installieren
 
 ---
+
+sudo apt update
+sudo apt upgrade
+
+VNC aktivieren: Dazu realvnc installieren
+sudo apt-get install realvnc-vnc-server realvnc-vnc-viewer
+
+sudo raspi-config
+Da zum Menüpunkt **Interfacing Options** gehen;  anschließend zur Option **VNC**.
+
+---
+
+
+
+
 
 ## nginx
 https://howtoraspberrypi.com/install-nginx-raspbian-and-accelerate-your-raspberry-web-server/
