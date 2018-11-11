@@ -12,21 +12,6 @@ Da mir die kommerziellen Produkte aber zu abgeschlossen sind, habe ich im Herbst
 
 ---
 
-sudo apt update
-sudo apt upgrade
-
-VNC aktivieren: Dazu realvnc installieren
-sudo apt-get install realvnc-vnc-server realvnc-vnc-viewer
-
-sudo raspi-config
-Da zum Menüpunkt **Interfacing Options** gehen;  anschließend zur Option **VNC**.
-
----
-
-
-
-
-
 ## nginx
 https://howtoraspberrypi.com/install-nginx-raspbian-and-accelerate-your-raspberry-web-server/
 
