@@ -33,7 +33,3 @@ Automatically start nginx on boot
 This is an easy one. We just issue the following command to make sure the nginx webserver is always started on bootup:
 
 sudo update-rc.d -f nginx defaults;
-
-
-
-Zeitserver einstellen

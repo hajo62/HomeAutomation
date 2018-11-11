@@ -38,4 +38,6 @@ sudo raspi-config
 ```
 
 Zum Menüpunkt **Interfacing Options** gehen;  anschließend zur Option **VNC** und dieses aktivieren.
-<img src="./images4git/activate-vnc.jpg" width="700">
+<img src="../images4git/activate-vnc.jpg" width="700">
+
+Da der Raspberry Pi über keine Echtzeituhr ([Real Time Clock - RTC](https://de.wikipedia.org/wiki/Echtzeituhr)) verfügt, sollte man die Zeit mit einem NTP-Zeitdienst automatisch aktualisieren. Mit dem Kommando `timedatectl status` lässt sich der Status überprüfen. Nach meiner Interpretation bedeuten  `Network time on: yes`und `NTP synchronized: yes`, dass dies per Default aktiviert ist.
