@@ -9,7 +9,7 @@ Da mir die kommerziellen Produkte aber zu abgeschlossen sind, habe ich im Herbst
 * Welche Hardware?
 * [Betriebssystem](doc/betriebssystem.md) installieren
 * [Backup](doc/backup.md)
-* Remote-Zugriff
+* [Remote-Zugriff](doc/remote.md)
 
 ---
 
