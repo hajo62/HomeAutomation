@@ -10,27 +10,3 @@ Da mir die kommerziellen Produkte aber zu abgeschlossen sind, habe ich im Herbst
 * [Betriebssystem](doc/betriebssystem.md) installieren
 * [Backup](doc/backup.md)
 * [Remote-Zugriff](doc/remote.md)
-
----
-
-## nginx
-https://howtoraspberrypi.com/install-nginx-raspbian-and-accelerate-your-raspberry-web-server/
-
-```
-sudo apt install nginx php-fpm
-sudo nginx
-```
-
-Anschließend im Browser `http://localhost` aufrufen:
-<img src="./images4git/nginx-welcome.jpg" width="700">
-
-
-Warum php-fpm?
-
-By default, Nginx is not bound to PHP. During the development of Nginx, the choice was made to use PHP-FMP (a faster version of PHP) rather than a more traditional PHP. Therefore, we will install php-fpm to manage PHP files with Nginx.
-
-Automatically start nginx on boot
-
-This is an easy one. We just issue the following command to make sure the nginx webserver is always started on bootup:
-
-sudo update-rc.d -f nginx defaults;
