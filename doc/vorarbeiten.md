@@ -15,7 +15,7 @@ Erstaunlicherweise genügte aber ein Anruf bei der Hotline (+49 721 9600) und me
 
 Da meinem DSL-Anschluss keine feste IP-Adresse zugeordnet ist und diese sich bei jedem Verbindungsneuaufbau ändern kann, ist es notwendig, meinem Netz über [**dynDNS**](https://de.wikipedia.org/wiki/Dynamisches_DNS) einen festen Domain-Namen zuzuweisen (&quot;Dynamic Updates in the Domain Name System (DNS UPDATE)&quot;).
 
-Die einfachste Möglichkeit bietet hier gleich die Fritzbox selbst; solle einem die kryptische Domain nicht zusagen, kann man über einen dynDNS-ANbieter eine sprechendere Domain erstellen. (Weitere Unterschiede bzw. Vor- oder Nachteile sind mir nicht bekannt).
+Die einfachste Möglichkeit bietet hier gleich die Fritzbox selbst; sollte einem die kryptische Domain nicht zusagen, kann man über einen dynDNS-ANbieter eine sprechendere Domain erstellen. (Weitere Unterschiede bzw. Vor- oder Nachteile sind mir nicht bekannt).
 
 ### dynDNS der Fritzbox
 

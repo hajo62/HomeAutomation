@@ -6,9 +6,10 @@ Um nicht erst nach Ende der Heizsaison fertig zu sein, habe ich für die Zentral
 
 Da mir die kommerziellen Produkte aber zu abgeschlossen sind, habe ich im Herbst 2018 begonnen, an einer [Raspberry Pi](https://de.wikipedia.org/wiki/Raspberry_Pi) basierte Lösung zu *basteln*.
 
-* [Vorarbeiten](doc/vorarbeiten.md) - Erreichbarkeit des eigenen Netzes von außen
 * Welche Hardware?
 * [Betriebssystem](doc/betriebssystem.md) installieren
+* [Backup](doc/backup.md)
+* Remote-Zugriff
 
 ---
 
