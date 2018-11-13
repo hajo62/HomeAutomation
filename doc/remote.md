@@ -9,6 +9,10 @@ Dazu in der Datei `/etc/ssh/sshd_config` die Zeile `PermitRootLogin prohibit-pas
 
 >*Anmerkung: Bei mir war die Anmeldung auch vorher nicht möglich.*
 
+## Portfreigabe in FRITZBox einrichten
+Eine genaue Beschreibung findet sich [hier](https://avm.de/service/fritzbox/fritzbox-7390/wissensdatenbank/publication/show/893_Statische-Portfreigaben-einrichten/): Der Standartport für ssh ist 22; nach *aussen* kann man nun ebenfalls Port 22 freigeben oder einen beliebigen anderen freien Port wählen. Für VNC muss zusätzlich Port 5900 freigeben werden.
+<img src="../images4git/ssh-portfreigabe.jpg" width="700">
+
 ## nginx
 Der Webserver [nginx](https://de.wikipedia.org/wiki/Nginx) kann u.a. auch als [Reverse-Proxy](https://de.wikipedia.org/wiki/Reverse_Proxy) zur Erhöhung der Sicherheit eingesetzt werden. Eine Beschreibung zur Installation findet sich [hier](https://howtoraspberrypi.com/install-nginx-raspbian-and-accelerate-your-raspberry-web-server).
 
