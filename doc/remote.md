@@ -47,7 +47,7 @@ Ausführen des Kommandos: `sudo update-rc.d -f nginx defaults`
 
 Die im Repo vorhandene Version ist recht alt (Nov 18: v0.10.2). Daher nutze ich das Installationsskript. Darauf achten, dass Port 80 vorübergehend auf den Raspberry weitergeleitet wird [Portfreigabe](#portfreigabe-in-fritzbox-einrichten).
 
-Vor der Erstellung des Zertifikates sind noch eine Einstellungen zu machen:
+Vor der Erstellung des Zertifikates sind noch einige Einstellungen zu machen:
 
 Damit certbot die Identität überprüfen kann:
 
@@ -58,11 +58,12 @@ location ^~ /.well-known/acme-challenge/ {
  root /var/www/letsencrypt;
 }
 ```
+Anschließend folgende Kommandos ausführen:
 ```
 sudo mkdir -p /var/www/letsencrypt/.well-known/acme-challenge
 sudo nano /etc/nginx/sites-available/default
 ```
-Dort unterhalb von `listen [::]:80 default_server;` die Zeile `include /etc/nginx/snippets/letsencrypt.conf;`  einfügen.
+Nun unterhalb von `listen [::]:80 default_server;` die Zeile `include /etc/nginx/snippets/letsencrypt.conf;`  einfügen.
 ```
 server {
         listen 80 default_server;
@@ -123,3 +124,39 @@ server {
     }
 }
 ```
+
+## GeoIP installieren
+Über GeoIP kann herausgefunden werden, aus welchem Land eine Anfrage kommt, so dass man bestimmte Länder zulassen oder blockieren kann.
+```
+sudo apt-get install geoip-database libgeoip1
+cd /usr/share/GeoIP/
+sudo wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
+sudo gunzip GeoIP.dat.gz
+```
+Nun die Datei `/etc/nginx/nginx.conf` bearbeiten und direkt im „http“ Block die GeoIP Einstellungen hinzufügen:
+```
+    # GeoIP Settings
+    # Nur Länder aus erlaubten IP Bereichen dürfen den ReverseProxy
+    # passieren!
+    # https://www.howtoforge.de/anleitung/nginx-besucher-mit-dem-geoip-modul-nach-landern-blocken-debianubuntu/
+    ##
+    geoip_country /usr/share/GeoIP/GeoIP.dat;
+    map $geoip_country_code $allowed_country {
+        default no;
+        DE yes;
+    }
+```
+>*Achtung:* Man kommt dann auch selbst nicht durch, wenn man sich im Ausland befindet.
+
+Nun mit `sudo nano /etc/nginx/conf.d/<mydomain>.conf` die Konfigurationsdatei im Server-Block erweitern:
+```
+server {
+    [...]
+    ## Blocken, wenn Zugriff aus einem nicht erlaubten Land erfolgt ##
+    if ($allowed_country = no) {
+        return 444;
+    }
+    [...]
+}
+```
+Nach dem Neustart von NGINX mit `sudo service nginx restart` ist die Änderung aktiv.
