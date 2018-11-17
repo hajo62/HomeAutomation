@@ -31,17 +31,7 @@ sudo apt-get update
 sudo apt-get upgrade
 ```
 
-Um auch den Desktop des Raspberry Pi remote öffnen zu können, installiert man einfach [VNC](https://wiki.ubuntuusers.de/VNC/).
-```
-sudo apt-get install realvnc-vnc-server realvnc-vnc-viewer
-sudo raspi-config
-```
-
-Zum Menüpunkt **Interfacing Options** gehen;  anschließend zur Option **VNC** und dieses aktivieren.
-<img src="../images4git/activate-vnc.jpg" width="700">
-
-Den VNC-Viewer für MAC gibt es [hier](https://www.realvnc.com/en/connect/download/viewer).
-
+### Zeitsynchronisation
 Da der Raspberry Pi über keine Echtzeituhr ([Real Time Clock - RTC](https://de.wikipedia.org/wiki/Echtzeituhr)) verfügt, sollte man die Zeit mit einem NTP-Zeitdienst automatisch aktualisieren. Mit dem Kommando `timedatectl status` lässt sich der Status überprüfen.
 ```
 $ timedatectl status
@@ -54,3 +44,35 @@ NTP synchronized: yes
  RTC in local TZ: no
 ```
  Nach meiner Interpretation bedeuten  `Network time on: yes` und `NTP synchronized: yes`, dass dies per Default aktiviert ist.
+
+### aliases einrichten
+Ich bin gewohnt, dass man `ls -l` durch das Kommando `ll` abkürzen kann.
+
+Hierfür einfach die gewünschten aliases mit dem Kommando `nano .bask_aliases` in die Datei `.bash_aliases` eintragen. Die Syntax für solche Einträge lautet:
+```
+alias ll='/bin/ls -l'
+```
+
+### Remote Desktop
+Um auch den Desktop des Raspberry Pi remote öffnen zu können, installiert man einfach [VNC](https://wiki.ubuntuusers.de/VNC/).
+```
+sudo apt-get install realvnc-vnc-server realvnc-vnc-viewer
+sudo raspi-config
+```
+
+Zum Menüpunkt **Interfacing Options** gehen;  anschließend zur Option **VNC** und dieses aktivieren.
+<img src="../images4git/activate-vnc.jpg" width="700">
+
+Den VNC-Viewer für MAC gibt es [hier](https://www.realvnc.com/en/connect/download/viewer).
+
+### Zusätzliche Software-Pakete
+#### node
+Ein Beschreibung findest sich z.B. [hier](https://www.instructables.com/id/Install-Nodejs-and-Npm-on-Raspberry-Pi/):
+```
+cd /tmp
+get https://nodejs.org/dist/v10.13.0/node-v10.13.0-linux-armv6l.tar.xz
+tar -xf node-v10.13.0-linux-armv6l.tar.xz
+cd node-v10.13.0-linux-armv6l/
+sudo cp -R * /usr/local/
+```
+Überprüfen mit `npm -v` und `node -v.
