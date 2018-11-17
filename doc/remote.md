@@ -125,7 +125,7 @@ server {
 }
 ```
 
-## GeoIP installieren
+## GeoIP installieren und konfigurieren
 Über GeoIP kann herausgefunden werden, aus welchem Land eine Anfrage kommt, so dass man bestimmte Länder zulassen oder blockieren kann.
 ```
 sudo apt-get install geoip-database libgeoip1
@@ -160,3 +160,17 @@ server {
 }
 ```
 Nach dem Neustart von NGINX mit `sudo service nginx restart` ist die Änderung aktiv.
+
+## Weitere Sicherungsmaßnahmen
+[Hier](https://www.cyberciti.biz/tips/linux-unix-bsd-nginx-webserver-security.html) kann man einige Einstellungen zur Abwehr von bots, spammern und ähnlichem nachlesen. Es gilt die nginx-Konfigurationsdatei mit `sudo nano /etc/nginx/conf.d/<mydomain>.conf` im Server-Block zu erweitern:
+```
+if ($http_user_agent ~* LWP::Simple|BBBike|wget) {
+    return 403;
+}
+if ($http_user_agent ~* msnbot|scrapbot) {
+    return 403;
+}
+if ( $http_referer ~* (babes|forsale|girl|jewelry|love|nudit|organic|poker|porn|sex|teen) ) {
+    return 403;
+}
+```
