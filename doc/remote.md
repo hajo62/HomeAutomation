@@ -45,7 +45,7 @@ Ausführen des Kommandos: `sudo update-rc.d -f nginx defaults`
 ## NGINX als ReverseProxy konfigurieren
 [Hier](https://www.smarthomeng.de/nginx-als-reverseproxy) und [hier](https://www.home-assistant.io/docs/ecosystem/certificates/lets_encrypt) gibt es eine sehr ausführliche Beschreibung, wie man sein Home Automation durch einen Reverse Proxy mit SSL-Zertifikat (siehe [hier](https://goneuland.de/debian-9-stretch-lets-encrypt-zertifikate-mit-certbot-erstellen/)) sichern kann.
 
-Die im Repo vorhandene Version ist recht alt (Nov 18: 0.10.2). Daher nutze ich das Installationsskript. Darauf achten, dass Port 80 vorübergehend auf den Raspberry weitergeleitet wird [Portfreigabe](portfreigabe-in-fritzbox-einrichten).
+Die im Repo vorhandene Version ist recht alt (Nov 18: v0.10.2). Daher nutze ich das Installationsskript. Darauf achten, dass Port 80 vorübergehend auf den Raspberry weitergeleitet wird [Portfreigabe](#portfreigabe-in-fritzbox-einrichten).
 
 Vor der Erstellung des Zertifikates sind noch eine Einstellungen zu machen:
 
