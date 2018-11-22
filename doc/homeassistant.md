@@ -10,7 +10,7 @@ Nachdem man einen User angelegt hat, muss man sich diesem ein erstes mal anmelde
 
 <img src="../images4git/ha-first_login.jpg" width="500" border="1">
 <a href="../images4git/ha-first_login.jpg" target="_blank">
- <img src="../images4git/ha-first_login.jpg" width="240" height="180" border="10" />
+ <img src="../images4git/ha-first_login.jpg" width="240" border=10 />
 </a>
 
 >**Hinweis:** Bei mir hat der Login nicht funktioniert. Erst nachdem ich den hass-Prozess gestoppt und erneut gestartet habe.
