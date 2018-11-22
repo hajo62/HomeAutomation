@@ -181,6 +181,8 @@ if ( $http_referer ~* (babes|forsale|girl|jewelry|love|nudit|organic|poker|porn|
 ## Client Zertifikat
 Für die Sicherung des Raspberry Pi durch Client-Zertifikate gibt es [hier](https://www.smarthomeng.de/nginx-als-reverseproxy) und [hier](https://medium.com/@pavelevstigneev/setting-nginx-with-letsencrypt-and-client-ssl-certificates-3ae608bb0e66) hilfreiche Anleitungen.
 
+>**Anmerkung:** *pi* in den Dateinamen (z.B. *pi.key* ist beliebig gewählt.
+
 Erstellung eines eigenen rootca-Zertifikates-Privatekeys mit 4096 bit Schlüssellänge und Encryption des erstellten privaten Keys mit einem Kennwort:
 
 `sudo openssl genrsa -des3 -out /etc/ssl/ca/private/ca.key 4096`
@@ -205,7 +207,7 @@ Abschließend exportieren wir das Clientzertifikat und den Key übertragungstaug
 ```
 sudo openssl pkcs12 -export -clcerts -in /etc/ssl/ca/certs/users/pi.crt -inkey /etc/ssl/ca/certs/users/pi.key -out /etc/ssl/ca/certs/users/pi.p12
 
-sudo cp /etc/ssl/ca/certs/users/<USERNAME>.p12 /home/pi
+sudo cp /etc/ssl/ca/certs/users/pi.p12 /home/pi
 cd /home/pi/
-sudo chown pi <USERNAME>.p12
+sudo chown pi pi.p12
 ```
