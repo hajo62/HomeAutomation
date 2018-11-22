@@ -181,7 +181,7 @@ if ( $http_referer ~* (babes|forsale|girl|jewelry|love|nudit|organic|poker|porn|
 ## Client Zertifikat
 Für die Sicherung des Raspberry Pi durch Client-Zertifikate gibt es [hier](https://www.smarthomeng.de/nginx-als-reverseproxy) und [hier](https://medium.com/@pavelevstigneev/setting-nginx-with-letsencrypt-and-client-ssl-certificates-3ae608bb0e66) hilfreiche Anleitungen.
 
->**Anmerkung:** *pi* in den Dateinamen (z.B. *pi.key* ist beliebig gewählt.
+>**Anmerkung:** *pi* in den Dateinamen (z.B. *pi.key*) ist beliebig gewählt.
 
 Erstellung eines eigenen rootca-Zertifikates-Privatekeys mit 4096 bit Schlüssellänge und Encryption des erstellten privaten Keys mit einem Kennwort:
 

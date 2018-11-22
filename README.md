@@ -10,3 +10,4 @@ Da mir die kommerziellen Produkte aber zu abgeschlossen sind, habe ich im Herbst
 * [Betriebssystem](doc/betriebssystem.md) installieren
 * [Backup](doc/backup.md)
 * [Remote-Zugriff](doc/remote.md)
+* Installation von [Home Assistant](doc/homeassistant.md)
