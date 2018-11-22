@@ -45,7 +45,7 @@ Ausführen des Kommandos: `sudo update-rc.d -f nginx defaults`
 ## NGINX als ReverseProxy konfigurieren
 [Hier](https://www.smarthomeng.de/nginx-als-reverseproxy) und [hier](https://www.home-assistant.io/docs/ecosystem/certificates/lets_encrypt) gibt es eine sehr ausführliche Beschreibung, wie man sein Home Automation durch einen Reverse Proxy mit SSL-Zertifikat (siehe [hier](https://goneuland.de/debian-9-stretch-lets-encrypt-zertifikate-mit-certbot-erstellen/)) sichern kann.
 
-Die im Repo vorhandene Version ist recht alt (Nov 18: v0.10.2). Daher nutze ich das Installationsskript. Darauf achten, dass Port 80 vorübergehend auf den Raspberry weitergeleitet wird [Portfreigabe](#portfreigabe-in-fritzbox-einrichten).
+Die im Repo vorhandene Version ist recht alt (Nov 18: v0.10.2). Daher nutze ich das Installationsskript. Darauf achten, dass Port 80 vorübergehend auf den Raspberry weitergeleitet wird (siehe [Portfreigabe](#portfreigabe-in-fritzbox-einrichten)).
 
 Vor der Erstellung des Zertifikates sind noch einige Einstellungen zu machen:
 
@@ -124,6 +124,9 @@ server {
     }
 }
 ```
+#### Zertifikat erneuern
+Mit `sudo ./certbot/certbot-auto renew --dry-run` kann man testen, ob die automatische Erneuerung des Zertifikates funktionieren würde.
+
 
 ## GeoIP installieren und konfigurieren
 Über GeoIP kann herausgefunden werden, aus welchem Land eine Anfrage kommt, so dass man bestimmte Länder zulassen oder blockieren kann.
@@ -173,4 +176,30 @@ if ($http_user_agent ~* msnbot|scrapbot) {
 if ( $http_referer ~* (babes|forsale|girl|jewelry|love|nudit|organic|poker|porn|sex|teen) ) {
     return 403;
 }
+```
+
+## Client Zertifikat
+Für die Sicherung des Raspberry Pi durch Client-Zertifikate gibt es [hier](https://www.smarthomeng.de/nginx-als-reverseproxy) und [hier](https://medium.com/@pavelevstigneev/setting-nginx-with-letsencrypt-and-client-ssl-certificates-3ae608bb0e66) hilfreiche Anleitungen.
+
+Erstellung eines eigenen rootca-Zertifikates-Privatekeys mit 4096 bit Schlüssellänge und Encryption des erstellten privaten Keys mit einem Kennwort:
+`sudo openssl genrsa -des3 -out /etc/ssl/ca/private/ca.key 4096`
+
+Erstellen eines Serverzertifikats mit 3 Jahren Gültigkeit:
+`sudo openssl req -new -x509 -days 1095 -key /etc/ssl/ca/private/ca.key -out /etc/ssl/ca/certs/ca.crt`
+
+Erstellen eines Keys für einen ersten Client. - Hier 4096 oder nur 1024
+`sudo openssl genrsa -des3 -out /etc/ssl/ca/certs/users/pi.key 1024`
+
+Für den soeben erstellten Client-Key erstellen wir nun eine Zertifikatsanforderung (CSR):
+`sudo openssl req -new -key /etc/ssl/ca/certs/users/pi.key -out /etc/ssl/ca/certs/users/pi.csr`
+
+Jetzt signieren wir die Zertifikatsanforderung (CSR) des Clients gegen unser Serverzertifikat und erstellen ein Client-Zertifikat:
+`sudo openssl x509 -req -days 1095 -in /etc/ssl/ca/certs/users/pi.csr -CA /etc/ssl/ca/certs/ca.crt -CAkey /etc/ssl/ca/private/ca.key -CAserial /etc/ssl/ca/serial -CAcreateserial -out /etc/ssl/ca/certs/users/pi.crt`
+
+Abschließend exportieren wir das Clientzertifikat und den Key übertragungstauglich in PKCS12-Format:
+```sudo openssl pkcs12 -export -clcerts -in /etc/ssl/ca/certs/users/pi.crt -inkey /etc/ssl/ca/certs/users/pi.key -out /etc/ssl/ca/certs/users/pi.p12
+
+sudo cp /etc/ssl/ca/certs/users/<USERNAME>.p12 /home/pi
+cd /home/pi/
+sudo chown pi <USERNAME>.p12
 ```
