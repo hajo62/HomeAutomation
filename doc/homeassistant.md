@@ -9,10 +9,13 @@ Der erste Aufruf des Systems mit dem Kommando `hass` dauert einige Minuten; nach
 Nachdem man einen User angelegt hat, muss man sich diesem ein erstes mal anmelden:
 
 <img src="../images4git/ha-first_login.jpg" width="500" border="1">
+<a href="../images4git/ha-first_login.jpg" target="_blank">
+ <img src="../images4git/ha-first_login.jpg" width="240" height="180" border="10" />
+</a>
 
 >**Hinweis:** Bei mir hat der Login nicht funktioniert. Erst nachdem ich den hass-Prozess gestoppt und erneut gestartet habe.
 
-*** Autostart aktivieren
+### Autostart aktivieren
 [Hier](https://www.home-assistant.io/docs/autostart/systemd) gibt es eine Bescheibung, wie man ein Programm beim Systemstart automatisch startet. Mit `sudo nano /etc/systemd/system/home-assistant@homeassistant.service` wird die Datei `home-assistant@homeassistant.service` mit folgendem Inhalt angelegt:
 
 ```
@@ -37,7 +40,7 @@ Service enablen, damit dieser nach dem booten gestartet wird:
 
 `sudo systemctl enable home-assistant@homeassistant`
 
-Den Service jetzt **start** en, ohne zu booten. Oder **stop** bzw. **restart**.
+Den Service jetzt **start**en, ohne zu booten. Oder **stop** bzw. **restart**.
 
 `sudo systemctl start home-assistant@homeassistant`
 
