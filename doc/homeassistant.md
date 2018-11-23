@@ -53,10 +53,36 @@ cd /home/homeassistant/.homeassistant
 wget https://raw.githubusercontent.com/danielperna84/hass-configurator/master/configurator.py
 sudo chown homeassistant configurator.py
 sudo chmod a+x configurator.py
-sudo ./configurator.py
 ```
 
-Nun mit `sudo nano configurator.py` editieren und das Kenntwort eintragen:
-`HASS_API_PASSWORD = Password`
+Mit `sudo nano configuration.yaml` editieren und Folgendes ergänzen:
 
-Das selbe Kennwort muss noch in der Datei **configuration.yaml** _oder_ **secrets.yaml** im selben Verzeichnis hinterlegt werden.
+```
+[...]
+http:
+  api_password: !secret http.api_password
+[...]
+# Enable Panel iFrames
+panel_iframe:
+  configurator:
+    title: Configurator
+    icon: mdi:wrench
+    url: !secret configurator_url
+[...]    
+```
+Nun mit `sudo nano configurator.py` editieren und ein frei gewähltes Kenntwort eintragen:
+`HASS_API_PASSWORD = "<password>"`
+
+Mit `sudo nano secrets.yaml` das Kennwort und die url zum aufruf des Konfigurators in folgendem Format eintragen:
+```
+configurator_url: http://<PI-IP>:3218
+http.api_password: <password>
+```
+
+Im letzten Schritt wird der Konfigurator gestartet und der Home Assistant restartet.
+```
+sudo ./configurator.py
+sudo systemctl restart home-assistant@homeassistant
+```
+
+<img src="../images4git/configurator.jpg" width="500" border="1">
