@@ -95,7 +95,7 @@ Anschließend sollte der Konfigurator im Menü des Home Assistant erschienen sei
 <img src="../images4git/configurator.jpg" width="500" border="1">
 
 #### Autostart des Konfigurators
-Analog zu [Autostart aktivieren](#autostart-aktivieren) muss im Verzeichnis  `/etc/systemd/system` mit dem Befehl `sudo nano /etc/systemd/system/configurator@homeassistant.service` (Der Dateiname kann beliebig vergeben werden.) eine Datei mit folgendem Inhalt angelegt werden:
+Analog zu [Autostart aktivieren](#autostart-aktivieren) für den Home Assistant muss im Verzeichnis  `/etc/systemd/system` mit dem Befehl `sudo nano /etc/systemd/system/configurator@homeassistant.service` (Der Dateiname kann beliebig vergeben werden.) eine Datei mit folgendem Inhalt angelegt werden:
 ```
 [Unit]
 Description=Home Assistant
@@ -108,4 +108,11 @@ ExecStart=/usr/bin/python3  /home/homeassistant/.homeassistant/configurator.py
 
 [Install]
 WantedBy=multi-user.target
+```
+
+Damit der Service noch aktiviert und beim Booten gestartet wird, müssen noch folgende Kommandos ausgeführt werden:
+```
+sudo systemctl --system daemon-reload
+sudo systemctl start hass-configurator@homeassistant.service
+sudo systemctl enable hass-configurator@homeassistant.service
 ```
