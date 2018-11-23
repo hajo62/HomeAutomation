@@ -1,0 +1,2 @@
+# Raspberry Pi 3 Model B+
+Das aktuelle Modell (Nov 2018) hat einen 64-Bit-Quad-Core-Prozessor mit 1.4GHz, Dualband-WLAN mit 2.4GHz und 5GHz, Bluetooth 4.2/BLE und schnelleres Ethernet. Den Raspberry Pi gibt es z.B. [hier](https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_id=114&ipn=icep&toolid=20004&campid=5338436153&mpre=https%3A%2F%2Fwww.ebay.de%2Fitm%2FNeu-Raspberry-Pi-3-Model-B-BCM2837B0-SoC-IoT-PoE-Enabled-RP01048%2F273110053778%3Fepid%3D19018199270%26hash%3Ditem3f96a0b392%3Ag%3A-K4AAOSwIKNb8-u1)
