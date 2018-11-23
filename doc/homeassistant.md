@@ -84,5 +84,8 @@ Im letzten Schritt wird der Konfigurator gestartet und der Home Assistant restar
 sudo ./configurator.py
 sudo systemctl restart home-assistant@homeassistant
 ```
+Anschließend sollte der Konfigurator im Menü des Home Assistant erschienen sein.
 
 <img src="../images4git/configurator.jpg" width="500" border="1">
+
+Autostart des Konfigurators fehlt noch ;)
