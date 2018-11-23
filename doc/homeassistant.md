@@ -71,9 +71,15 @@ panel_iframe:
 [...]    
 ```
 Nun mit `sudo nano configurator.py` editieren und ein frei gewähltes Kenntwort eintragen:
-`HASS_API_PASSWORD = "<password>"`
+```
+[...]  
+HASS_API_PASSWORD = "<password>"
+[...]  
+BASEPATH = "/home/homeassistant/.homeassistant/"
+[...]  
+```
 
-Mit `sudo nano secrets.yaml` das Kennwort und die url zum aufruf des Konfigurators in folgendem Format eintragen:
+Mit `sudo nano secrets.yaml` das Kennwort und die url zum Aufruf des Konfigurators in folgendem Format eintragen:
 ```
 configurator_url: http://<PI-IP>:3218
 http.api_password: <password>
@@ -88,4 +94,18 @@ Anschließend sollte der Konfigurator im Menü des Home Assistant erschienen sei
 
 <img src="../images4git/configurator.jpg" width="500" border="1">
 
-Autostart des Konfigurators fehlt noch ;)
+#### Autostart des Konfigurators
+Analog zu [Autostart aktivieren](#autostart aktivieren) muss im Verzeichnis  `/etc/systemd/system` mit dem Befehl `sudo nano /etc/systemd/system/configurator@homeassistant.service` (Der Dateiname kann beliebig vergeben werden.) eine Datei mit folgendem Inhalt angelegt werden:
+```
+[Unit]
+Description=Home Assistant
+After=network-online.target
+
+[Service]
+Type=simple
+User=%i
+ExecStart=/usr/bin/python3  /home/homeassistant/.homeassistant/configurator.py
+
+[Install]
+WantedBy=multi-user.target
+```
