@@ -116,3 +116,31 @@ sudo systemctl --system daemon-reload
 sudo systemctl start hass-configurator@homeassistant.service
 sudo systemctl enable hass-configurator@homeassistant.service
 ```
+
+### Erste Einstellungen
+In der Datei `configuration.yaml` folgende Einstellungen eingeben:
+
+´´´
+# Name of the location where Home Assistant is running
+name: !secret homeassistant.name
+latitude: !secret latitude
+longitude: !secret longitude
+elevation: 53
+unit_system: metric
+time_zone: Europe/Berlin
+´´´
+
+`secrets.yaml`:
+
+```
+# Use this file to store secrets like usernames and passwords.
+# Learn more at https://home-assistant.io/docs/configuration/secrets
+
+# Basic Variables
+homeassistant.name: <name>
+latitude: <lat>
+longitude: <lang>
+Fritz_url: http://<PI-IP>
+configurator_url: http://<PI-IP>:3218
+http.api_password: <password>
+```
