@@ -120,7 +120,7 @@ sudo systemctl enable hass-configurator@homeassistant.service
 ### Erste Einstellungen
 In der Datei `configuration.yaml` folgende Einstellungen eingeben:
 
-´´´
+```
 # Name of the location where Home Assistant is running
 name: !secret homeassistant.name
 latitude: !secret latitude
@@ -128,7 +128,7 @@ longitude: !secret longitude
 elevation: 53
 unit_system: metric
 time_zone: Europe/Berlin
-´´´
+```
 
 `secrets.yaml`:
 
