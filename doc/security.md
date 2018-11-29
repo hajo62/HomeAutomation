@@ -1,4 +1,4 @@
-# security
+# Security
 
 ##	ssh für root ausschalten
 Siehe z.B. [Securing Home Assistant](https://www.home-assistant.io/docs/configuration/securing), [Sichere SSH Konfiguration](https://blog.buettner.xyz/sichere-ssh-konfiguration) und [Absicherung eines Debian Servers](https://www.thomas-krenn.com/de/wiki/Absicherung_eines_Debian_Servers#SSH_Konfiguration).
@@ -22,6 +22,13 @@ Zuerst wird auf dem Client das Schlüsselpaar - bestehend aus public und private
 
 Schlüsselpaar generieren: `ssh-keygen -b 4096 -f ~/.ssh/pi_rsa`
 
-Öffentlichen Schlüssel auf den Ziel-Server übertragen: `ssh-copy-id -i ~/.ssh/pi_rsa.pub pi@192.168.178.111 -p 53122`
+Öffentlichen Schlüssel auf den Ziel-Server übertragen: `ssh-copy-id -i ~/.ssh/pi_rsa.pub -p 53122 pi@192.168.178.111`
 
-Privaten Schlüssel auf dem Mac in der keychain speichern: `ssh-add -K ~/.ssh/[your-private-key]`
+Da es lästig ist, immer wieder das Kennwort für den private key eingeben zu müssen, kann man diesen in der keychain des eigenen Clients speichern. Unter MacOS sieht geschieht dies mit: `ssh-add -K ~/.ssh/[your-private-key]`
+
+Von nun ist es möglich, von diesem Client den Pi ohne Eingabe eines Kennwortes zu erreichen. Auch das _passende_ Zertifikat wird automatisch _gefunden_:
+```
+ssh -p 53122 pi@192.168.178.111
+sftp -P 53122 pi@192.168.178.111
+scp -P 53122 /tmp/tst pi@192.168.178.111:/tmp/tst
+```
