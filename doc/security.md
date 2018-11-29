@@ -15,14 +15,17 @@ Port 53122
 #AddressFamily any
 [...]
 ```
-Nun noch mit `sudo service ssh restart` den ssh-Dämon neu starten, damit die geänderte Konfiguration aktiv wird. Ab jetzt muss bei jedem Remote Login der Port mit angegeben werden: `ssh pi@192.168.178.111 -p 53122`
+Nun noch mit `sudo service ssh restart` den ssh-Dämon neu starten, damit die geänderte Konfiguration aktiv wird. Ab jetzt muss bei jedem Remote Login der Port mit angegeben werden:  
+`ssh pi@192.168.178.111 -p 53122`
 
 ## OpenSSH Public Key Authentifizierung konfigurieren
 Zuerst wird auf dem Client das Schlüsselpaar - bestehend aus public und private key - generiert und anschließend der public key zum Server übertragen. Der Private Schlüssel sollte mit einem Kennwort gesichert werden.
 
-Schlüsselpaar generieren: `ssh-keygen -b 4096 -f ~/.ssh/pi_rsa`
+Schlüsselpaar generieren:  
+`ssh-keygen -b 4096 -f ~/.ssh/pi_rsa`
 
-Öffentlichen Schlüssel auf den Ziel-Server übertragen: `ssh-copy-id -i ~/.ssh/pi_rsa.pub -p 53122 pi@192.168.178.111`
+Öffentlichen Schlüssel auf den Ziel-Server übertragen:  
+`ssh-copy-id -i ~/.ssh/pi_rsa.pub -p 53122 pi@192.168.178.111`
 
 Da es lästig ist, immer wieder das Kennwort für den private key eingeben zu müssen, kann man diesen in der keychain des eigenen Clients speichern. Unter MacOS sieht geschieht dies mit: `ssh-add -K ~/.ssh/pi_rsa`
 
@@ -45,8 +48,10 @@ PasswordAuthentication no
 [...]
 ```
 
-Nun wie schon bekannt, den ssh-Dämon neu starten: `sudo service ssh restart`
+Nun wie schon bekannt, den ssh-Dämon neu starten:  
+`sudo service ssh restart`
 
-Ein Anmeldeversuch von einem Rechner ohne Zertifikat führt nun zu: `pi@192.168.178.111: Permission denied (publickey).`
+Ein Anmeldeversuch von einem Rechner ohne Zertifikat führt nun zu:  
+`pi@192.168.178.111: Permission denied (publickey).`
 
 Wenn man nun einen weiteren Client zulassen möchte, muss man kurzfristig den ssh-login mit Kennwort wieder aktivieren.
