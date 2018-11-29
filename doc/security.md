@@ -27,6 +27,7 @@ Schlüsselpaar generieren:
 Öffentlichen Schlüssel auf den Ziel-Server übertragen:  
 `ssh-copy-id -i ~/.ssh/pi_rsa.pub -p 53122 pi@192.168.178.111`
 
+### Privaten Schlüssel in keychain speichern
 Da es lästig ist, immer wieder das Kennwort für den private key eingeben zu müssen, kann man diesen in der keychain des eigenen Clients speichern. Unter MacOS sieht geschieht dies mit: `ssh-add -K ~/.ssh/pi_rsa`
 
 Von nun ist es möglich, von diesem Client den Pi ohne Eingabe eines Kennwortes zu erreichen. Auch das _passende_ Zertifikat wird automatisch _gefunden_:
