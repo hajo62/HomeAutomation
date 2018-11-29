@@ -24,7 +24,7 @@ Schlüsselpaar generieren: `ssh-keygen -b 4096 -f ~/.ssh/pi_rsa`
 
 Öffentlichen Schlüssel auf den Ziel-Server übertragen: `ssh-copy-id -i ~/.ssh/pi_rsa.pub -p 53122 pi@192.168.178.111`
 
-Da es lästig ist, immer wieder das Kennwort für den private key eingeben zu müssen, kann man diesen in der keychain des eigenen Clients speichern. Unter MacOS sieht geschieht dies mit: `ssh-add -K ~/.ssh/[your-private-key]`
+Da es lästig ist, immer wieder das Kennwort für den private key eingeben zu müssen, kann man diesen in der keychain des eigenen Clients speichern. Unter MacOS sieht geschieht dies mit: `ssh-add -K ~/.ssh/pi_rsa`
 
 Von nun ist es möglich, von diesem Client den Pi ohne Eingabe eines Kennwortes zu erreichen. Auch das _passende_ Zertifikat wird automatisch _gefunden_:
 ```
@@ -32,3 +32,19 @@ ssh -p 53122 pi@192.168.178.111
 sftp -P 53122 pi@192.168.178.111
 scp -P 53122 /tmp/tst pi@192.168.178.111:/tmp/tst
 ```
+
+## ssh-login mit Kennwort deaktivieren
+>*Achtung:* Wenn dies durchgeführt hat, kann man den Pi über ssh nicht mehr ohne die Private Key-Datei erreichen!
+```
+[...]
+# To disable tunneled clear text passwords, change to no here!
+PasswordAuthentication no
+#PermitEmptyPasswords no
+[...]
+```
+
+Nun wie schon bekannt, den ssh-Dämon neu starten: `sudo service ssh restart`
+
+Ein Anmeldeversuch von einem Rechner ohne Zertifikat führt nun zu: `pi@192.168.178.111: Permission denied (publickey).`
+
+Wenn man nun einen weiteren Client zulassen möchte, muss man kurzfristig den ssh-login mit Kennwort wieder aktivieren.
