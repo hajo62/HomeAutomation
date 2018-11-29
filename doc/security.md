@@ -35,6 +35,8 @@ scp -P 53122 /tmp/tst pi@192.168.178.111:/tmp/tst
 
 ## ssh-login mit Kennwort deaktivieren
 >*Achtung:* Wenn dies durchgeführt ist, kann man den Pi über ssh nicht mehr ohne die Private-Key-Datei erreichen!
+
+In der Konfigurationsdatei `/etc/ssh/sshd_config` den Schlüssel `PasswordAuthentication` auf `no` setzen.
 ```
 [...]
 # To disable tunneled clear text passwords, change to no here!
