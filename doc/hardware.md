@@ -25,7 +25,7 @@ Der Raspberry ist angeblich recht empfindlich, was die Stromversorgung angeht (s
 
 
 
-Da ich aber prinzipiell nicht bei Amazon kaufe (warum? Siehe z.B. [Zeit online](https://www.zeit.de/2017/13/amazon-wal-mart-us-wirtschaft-ausbeutung-arbeitnehmer-lohnniveau) oder [PC WELT](https://www.pcwelt.de/a/stop-bezos-politiker-will-amazon-ausbeutung-stoppen,3452252)) und die meisten Angebote z.B. auf ebay eher zweifelhafte Shops zu sein scheinen, war das Ganze etwas mühsam.
+Da ich aber prinzipiell nicht bei Amazon kaufe (warum? Siehe z.B. [Zeit online](https://www.zeit.de/2017/13/amazon-wal-mart-us-wirtschaft-ausbeutung-arbeitnehmer-lohnniveau) oder [PC WELT](https://www.pcwelt.de/a/stop-bezos-politiker-will-amazon-ausbeutung-stoppen,3452252)) und die meisten Angebote z.B. auf ebay eher zweifelhafte Shops zu sein scheinen, hat es etwas gedauert, ehe ich [dieses Angebot](https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_id=114&ipn=icep&toolid=20004&campid=5338436153&mpre=https%3A%2F%2Fwww.ebay.de%2Fitm%2Foffizielles-Raspberry-Pi-3-Netzteil-microUSB-5-1V-2-5A-schwarz%2F153097906752%3Fhash%3Ditem23a558aa40%3Ag%3Af40AAOSwmLlX2pn5%3Ark%3A2%3Apf%3A0) gefunden habe.
 
 
 
