@@ -5,6 +5,7 @@ Den Raspberry Pi gibt es für unter 40€ z.B. [hier](https://rover.ebay.com/rov
 
 <img src="https://www.raspberrypi.org/app/uploads/2018/03/770A5842-1612x1080.jpg" width="400">
 
+
 ## Speicher
 Als permanenter Speicher (Festplatte) für den Raspberry wird zuerst meist eine SD-Karte verwendet. Das Risiko hier ist aber die relativ geringe Haltbarkeit durch die limitierte Überschreibbarkeit, die von den Herstellern mit ca. 10.000 bis 100.000 Schreibzyklen angegeben wird. Die Ursache für den schnellen Ausfall ist das häufige Beschreiben der selben Speicherstellen, da SD-Karten meist kein ausreichendes _[wear leveling](https://www.chip.de/artikel/SSD-So-haelt-die-Hightech-Festplatte-8x-laenger-3_139999723.html)_ aufweisen.
 
@@ -17,6 +18,8 @@ Unabhängig davon habe ich mich derzeit noch für [diese](https://rover.ebay.com
 In diesem [Artikel](https://buyzero.de/blogs/news/raspberry-pi-sd-karten-korruption-vermeiden-geheimnisse-der-microsd-karte) sind SD-Karten in Raspberry Pis ganz gut beschrieben. Da steht auch, was man machen könnte, um die Lebensdauer der Karten zu erhöhen; ausprobiert habe ich davon noch nichts.
 
 
+## Netzteil
+Der Raspberry ist angeblich recht empfindlich, was die Stromversorgung angeht (sie z.B. [hier](https://www.datenreise.de/raspberry-pi-stromversorgung-netzteil-empfehlung/)). Wenn man nach Netzteilen sucht, finden sich zahlreiche billige Importe; hier hört man jedoch häufig, dass die angegebene Leistung nicht erreicht wird. Einiges Suchen hat mich zu Netzteilen von [Leicke](https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_id=114&ipn=icep&toolid=20004&campid=5338436153&mpre=https%3A%2F%2Fwww.ebay.de%2Fsch%2Fi.html%3FLH_PrefLoc%3D1%26_sop%3D15%26_osacat%3D0%26_odkw%3Dleicke%2B5v%2BUSB%26LH_EbayPlus%3D1%26_from%3DR40%26_trksid%3Dm570.l1313%26_nkw%3Dleicke%2B5v%2B%26_sacat%3D0), [Aukru](https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_id=114&ipn=icep&toolid=20004&campid=5338436153&mpre=https%3A%2F%2Fwww.ebay.de%2Fsch%2Fi.html%3FLH_PrefLoc%3D1%26_sop%3D15%26_osacat%3D0%26_odkw%3DAukru%2B5v%2Braspberry%26LH_EbayPlus%3D1%26_from%3DR40%26_trksid%3Dm570.l1313%26_nkw%3DAukru%2B%2Braspberry%26_sacat%3D0) oder eben zum original [Netzteil](https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_id=114&ipn=icep&toolid=20004&campid=5338436153&mpre=https%3A%2F%2Fwww.ebay.de%2Fsch%2Fi.html%3F_blrs%3Dspell_check%26_from%3DR40%26_nkw%3Doffizielles%2Braspberry%2Bpi%2Bnetzteil%2B%26_sacat%3D0%26_sop%3D15%26LH_PrefLoc%3D1%26rt%3Dnc%26LH_EbayPlus%3D1) von Raspberry geführt, für das ich mich entschieden habe. Da ich aber prinzipiell nicht bei Amazon kaufe (warum? Siehe z.B. [Zeit online](https://www.zeit.de/2017/13/amazon-wal-mart-us-wirtschaft-ausbeutung-arbeitnehmer-lohnniveau) oder [PC WELT](https://www.pcwelt.de/a/stop-bezos-politiker-will-amazon-ausbeutung-stoppen,3452252)) und die meisten Angebote z.B. auf ebay eher zweifelhafte Shops zu sein scheinen, war das Ganze etwas mühsam.
 
 
 
