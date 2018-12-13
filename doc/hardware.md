@@ -34,6 +34,10 @@ Mit einem HDMI-Kabel kann man seinen Fernseher als Bildschirm für den Raspi ver
 
 <img src="https://picscdn.redblue.de/doi/pixelboxx-mss-49978190/fee_325_225_png/HAMA-1-5-m-High-Speed-HDMI-Kabel" width="100">
 
+## Tastatur
+Für's initiale Einrichten ist eine USB-Tastatur hilfreich. Ich habe dazu eine _alte_ von Dell verwendet.
+<img src="https://snpi.dell.com/snp/images/products/large/de-de~580-ADHEr1/580-ADHEr1.jpg" width="200">  
+Ansonsten gibt's [hier](https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_id=114&ipn=icep&toolid=20004&campid=5338436153&mpre=https%3A%2F%2Fwww.ebay.de%2Fsch%2Fi.html%3F_sop%3D15%26LH_ItemCondition%3D1000%26Tastatur%25252FKeypad%3DTastatur%26_oaa%3D1%26Schnittstelle%3DUSB%26_osacat%3D33963%26_odkw%3Dusb%2Btastatur%2B-numerisch%26LH_BIN%3D1%26Tastaturlayout%3DQWERTZ%252520%252528Standard%252529%26_dcat%3D33963%26rt%3Dnc%26Verbindung%3DKabelgebunden%26_from%3DR40%26_trksid%3Dm570.l1313%26_nkw%3Dusb%2Btastatur%2B-numerische%26_sacat%3D33963) günstige Tastaturen.
 
 
 
