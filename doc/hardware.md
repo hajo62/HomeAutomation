@@ -32,7 +32,7 @@ Da ich aber prinzipiell nicht bei Amazon kaufe (warum? Siehe z.B. [Zeit online](
 ## HDMI-Kabel
 Mit einem HDMI-Kabel kann man seinen Fernseher als Bildschirm für den Raspi verwenden. Ich habe hier [dieses](https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_id=114&ipn=icep&toolid=20004&campid=5338436153&mpre=https%3A%2F%2Fwww.ebay.de%2Fsch%2FVideokabel-stecker%2F32834%2Fi.html%3F_from%3DR40%26_nkw%3DHAMA%2B1%252C5%2Bm%2BHigh%2BSpeed%2BHDMI-Kabel%26_in_kw%3D1%26_ex_kw%3D%26_sacat%3D32834%26_mPrRngCbx%3D1%26_udlo%3D%26_udhi%3D7%26_ftrt%3D901%26_ftrv%3D1%26_sabdlo%3D%26_sabdhi%3D%26_samilow%3D%26_samihi%3D%26_sadis%3D10%26_fpos%3D%26LH_SALE_CURRENCY%3D0%26_sop%3D15%26_dmd%3D1%26_ipg%3D50%26_fosrp%3D1) günstige Kabel für 5 € bei [Mediamarkt](https://www.mediamarkt.de/de/product/_hama-1-5-m-high-speed-1148936.html?uympq=vpqr&rbtc=%7C%7C%7CTV%20%2B%20Audio%20%3E%20Fernseher%20%3E%20Zubeh%C3%B6r%20TV%7Cp%7C%7C&gclid=CjwKCAiAo8jgBRAVEiwAJUXKqDvjs6uAOkE7mwqvfGVKYN-icwWOhv-fx75grmIJaLGQ1jhZVkmf-RoCl80QAvD_BwE&gclsrc=aw.ds) gekauft.
 
-<img src="https://picscdn.redblue.de/doi/pixelboxx-mss-49978190/fee_325_225_png/HAMA-1-5-m-High-Speed-HDMI-Kabel" width="400">
+<img src="https://picscdn.redblue.de/doi/pixelboxx-mss-49978190/fee_325_225_png/HAMA-1-5-m-High-Speed-HDMI-Kabel" width="100">
 
 
 
