@@ -1,6 +1,6 @@
 # Backup des Raspberry Pi
 
-Ich habe mich entschlossen, gelegentlich eine komplette Sicherung der SD-Karte mit **dd** durchzuführen und regelmäßig eine Sicherung der sich ändernden Datein.
+Ich habe mich entschlossen, gelegentlich eine komplette Sicherung der SD-Karte mit **dd** durchzuführen und regelmäßig eine Sicherung der sich ändernden Dateien.
 
 ## Erstellen eines bootfähigen Images
 Hierzu _sollte_ der Raspi herunter gefahren werden und die Sicherung auf einem anderen Rechner durchgeführt werden. Sicher ist es auch möglich, die Sicherung auf dem laufenden Raspi selbst durchzuführen; dies ist jedoch weniger sicher, da einige Dateien während des Sicherungsprozesses verändert werden und kein konsistenter Stand gesichert wird. Zur Sicherung selbst verwende ich das uralte Linux-[dd](https://wiki.archlinux.de/title/Image-Erstellung_mit_dd)-Kommando.
@@ -15,12 +15,13 @@ Der Restore erfolgt mit dem gleichen Kommando wie die Sicherung, aber mit vertau
 - Image auf SD-Karte schreiben: `sudo dd if=32gb.img of=/dev/mmcblk0 bs=4M`
 
 ## Regelmäßiges Backup auf NAS
+<img src="https://static.slickdealscdn.com/attachment/1/3/0/7/2/4/5/5/6810047.attach" width="200">  
+
 Auf meinem Western Digital NAS habe ich in Anlehnung an [diese Beschreibung](https://trendblog.net/how-to-mount-your-media-server-or-nas-drive-to-a-raspberry-pi/) einen Share nur für die Backups des Raspberry Pi eingerichtet.
 
 Erstellen des Mount-Point: `sudo mkdir /mnt/myCloud`
 
-Mounten des Shares:
-`sudo mount <IP>:/nfs/<Share> /mnt/myCloud/`
+Mounten des Shares: `sudo mount <IP>:/nfs/<Share> /mnt/myCloud/`
 
 Für die eigentliche Sicherung gibt es eine Vielzahl von Möglichkeiten.
 Ich nutze aktuell [restic](https://restic.net/):
