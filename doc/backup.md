@@ -1,5 +1,19 @@
 # Backup des Raspberry Pi
 
+Ich habe mich entschlossen, gelegentlich eine komplette Sicherung der SD-Karte mit **dd** durchzuführen und regelmäßig eine Sicherung der sich ändernden Datein.
+
+## Erstellen eines bootfähigen Images
+Hierzu _sollte_ der Raspi herunter gefahren werden und die Sicherung auf einem anderen Rechner durchgeführt werden. Sicher ist es auch möglich, die Sicherung auf dem laufenden Raspi selbst durchzuführen; dies ist jedoch weniger sicher, da einige Dateien während des Sicherungsprozesses verändert werden und kein konsistenter Stand gesichert wird. Zur Sicherung selbst verwende ich das uralte Linux-[dd](https://wiki.archlinux.de/title/Image-Erstellung_mit_dd)-Kommando.
+
+- Raspi herunterfahren: `sudo shutdown now`  
+- SD-Karte entnehmen und in einen anderen Rechner stecken. Falls die Partitionen automatisch gemounted wurden, diese wieder unmounten.  
+- Namen des Devices herausfinden. Z.B. mit: `sudo lsblk`  
+- Erstellen des Images: `sudo dd if=/dev/mmcblk0 of=32gb.img bs=4M` - Für meine 32GB-Karte hat dies ca. 30 Minuten gedauert.
+
+### Restore eines Images
+Der Restore erfolgt mit dem gleichen Kommando wie die Sicherung, aber mit vertauschtem In- und Output.
+- Image auf SD-Karte schreiben: `sudo dd if=32gb.img of=/dev/mmcblk0 bs=4M`
+
 ## Regelmäßiges Backup auf NAS
 Auf meinem Western Digital NAS habe ich in Anlehnung an [diese Beschreibung](https://trendblog.net/how-to-mount-your-media-server-or-nas-drive-to-a-raspberry-pi/) einen Share nur für die Backups des Raspberry Pi eingerichtet.
 
