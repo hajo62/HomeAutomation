@@ -8,8 +8,8 @@ Hierzu _sollte_ der Raspi herunter gefahren werden und die Sicherung auf einem a
 - Raspi herunterfahren: `sudo shutdown now`  
 - SD-Karte entnehmen und in einen anderen Rechner stecken. Falls die Partitionen automatisch gemounted wurden, diese wieder unmounten.  
 - Namen des Devices herausfinden. Z.B. mit: `sudo lsblk`  
-- Erstellen des Images: `sudo dd if=/dev/mmcblk0 of=32gb.img bs=4M`
-Für meine [32GB-Karte](./hardware#Speicher) hat dies knapp 30 Minuten gedauert.
+- Erstellen des Images: `sudo dd if=/dev/mmcblk0 of=32gb.img bs=4M`  
+Für meine [32GB-Karte](./hardware.md#Speicher) hat dies knapp 30 Minuten gedauert.
 
 ### Restore eines Images
 Der Restore erfolgt mit dem gleichen Kommando wie die Sicherung, aber mit vertauschtem In- und Output.
