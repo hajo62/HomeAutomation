@@ -86,9 +86,6 @@ nginx: [emerg] bind() to [::]:80 failed (98: Address already in use)
 Tat es aber trotzdem... Falls nicht:
 `sudo fuser 80/tcp` zeigt die Prozesse, die auf Port 80 zugreifen und `sudo fuser -k 80/tcp` stoppt die Prozesse.
 
-Anschließend auf dem Pi im Browser `http://localhost` oder auf dem Client `http://192.168.178.111` aufrufen, um die Funktion zu überprüfen:  
-<img src="../images4git/nginx-welcome.jpg" width="700">
-
 #### Warum php-fpm?
 In den Paketrepositories ist Nginx nicht an PHP gebunden. Bei der Entwicklung von Nginx wurde die Entscheidung getroffen, PHP-FMP (eine schnellere Version von PHP) anstelle eines herkömmlicheren PHP zu verwenden. Daher werden wir php-fpm installieren, um PHP-Dateien mit Nginx zu verwalten.
 
@@ -124,6 +121,9 @@ Bei mir ist Installation nicht _glatt_ durchgelaufen; zwei der Meldungen habe ic
 Ausführen des Kommandos:  
 `sudo update-rc.d -f nginx defaults`
 
+### nginx-Funktionaltät prüfen
+Auf dem Pi im Browser `http://localhost` oder auf dem Client `http://192.168.178.111` aufrufen, um die Funktion zu überprüfen:  
+<img src="../images4git/nginx-welcome.jpg" width="700">
 
 ### NGINX als ReverseProxy konfigurieren
 [Hier](https://www.smarthomeng.de/nginx-als-reverseproxy) und [hier](https://www.home-assistant.io/docs/ecosystem/certificates/lets_encrypt) gibt es eine sehr ausführliche Beschreibung, wie man sein Home Automation durch einen Reverse Proxy mit SSL-Zertifikat (siehe [hier](https://goneuland.de/debian-9-stretch-lets-encrypt-zertifikate-mit-certbot-erstellen/)) absichern kann.
