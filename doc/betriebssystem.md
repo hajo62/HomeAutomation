@@ -81,4 +81,4 @@ tar -xf node-v10.14.2-linux-armv6l.tar.xz
 cd node-v10.14.2-linux-armv6l/
 sudo cp -R * /usr/local/
 ```
-Überprüfen mit `npm -v` und `node -v.
+Überprüfen mit `npm -v` und `node -v`.
