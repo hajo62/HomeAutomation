@@ -54,7 +54,7 @@ sudo /usr/sbin/locale-gen
 ### aliases einrichten
 Ich bin gewohnt, dass man `ls -l` durch das Kommando `ll` abkürzen kann.
 
-Hierfür einfach die gewünschten aliases mit dem Kommando `nano .bask_aliases` in die Datei `.bash_aliases` eintragen. Die Syntax für solche Einträge lautet:
+Hierfür einfach die gewünschten aliases mit dem Kommando `nano .bash_aliases` in die Datei `.bash_aliases` eintragen. Die Syntax für solche Einträge lautet:
 ```
 alias ll='/bin/ls -l'
 ```
