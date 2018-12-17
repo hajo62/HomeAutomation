@@ -93,12 +93,12 @@ Anschließend auf dem Pi im Browser `http://localhost` oder auf dem Client `http
 In den Paketrepositories ist Nginx nicht an PHP gebunden. Bei der Entwicklung von Nginx wurde die Entscheidung getroffen, PHP-FMP (eine schnellere Version von PHP) anstelle eines herkömmlicheren PHP zu verwenden. Daher werden wir php-fpm installieren, um PHP-Dateien mit Nginx zu verwalten.
 
 ### nginx auf aktuellere Version bringen
-Allerdings ist die aktuelle Version **(v1.14.1)** nicht ganz so einfach zu installieren, da man hierfür den **testing branch** von **Raspbian** den Paketquellen hinzufügen muss. Eine Beschreibung der Installation habe ich [hier](https://getgrav.org/blog/raspberrypi-nginx-php7-dev) gefunden.
+Allerdings ist die aktuelle Version **(Dez 2018: v1.14.2-1)** nicht ganz so einfach zu installieren, da man hierfür den **testing branch** von **Raspbian** den Paketquellen hinzufügen muss. Eine Beschreibung der Installation habe ich [hier](https://getgrav.org/blog/raspberrypi-nginx-php7-dev) gefunden.
 
 Anlegen der Datei `/etc/apt/sources.list.d/10-buster.list` mit folgendem Inhalt:  
 `deb http://mirrordirector.raspbian.org/raspbian/ buster main contrib non-free rpi`
 
-Anlegen der Datei `/etc/apt/sources.list.d/10-buster` mit folgendem Inhalt:  
+Anlegen der Datei `/etc/apt/preferences.d/10-buster` mit folgendem Inhalt:  
 ```
 Package: *
 Pin: release n=stretch
