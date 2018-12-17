@@ -71,7 +71,7 @@ Wenn man nun einen weiteren Client zulassen möchte, muss man kurzfristig den ss
 ## Reverse Proxy mit nginx
 ### nginx installieren
 Der Webserver [nginx](https://de.wikipedia.org/wiki/Nginx) kann u.a. auch als [Reverse-Proxy](https://de.wikipedia.org/wiki/Reverse_Proxy) zur Erhöhung der Sicherheit eingesetzt werden. Eine Beschreibung zur Installation findet sich z.B.  [hier](https://howtoraspberrypi.com/install-nginx-raspbian-and-accelerate-your-raspberry-web-server).  
-Im November 2018 war im Raspbian-Paketrepository eine ziemlich alte nginx-Version **(v1.10)** verfügbar. Zwischenzeitlich gibt es neue Versionen, die vermeintlich schneller und sicherer seien. Ein wenig weiter [unten](#nginx auf aktuellere version bringen) habe ich die Installation der aktuellen Version beschreiben.  
+Im November 2018 war im Raspbian-Paketrepository eine ziemlich alte nginx-Version **(v1.10)** verfügbar. Zwischenzeitlich gibt es neue Versionen, die vermeintlich schneller und sicherer seien. Ein wenig weiter [unten](#nginx_auf_aktuellere_version_bringen) habe ich die Installation der aktuellen Version beschreiben.  
 
 ```
 sudo apt install nginx php-fpm
