@@ -22,7 +22,7 @@ network={
        key_mgmt=WPA-PSK
 }
 ```
-Die SD-Karte in den Raspberry einlegen und diesen einschalten. Nach vielleicht einer Minute sollte sich der Raspberry im Netzwerk angemeldet haben und über `ssh pi@<ip-adresse>` erreichbar sein.
+Die SD-Karte in den Raspberry einlegen und diesen einschalten. Nach vielleicht einer Minute sollte sich der Raspberry im Netzwerk angemeldet haben und über `ssh pi@<ip-adresse>` erreichbar sein. Das Kennwort für den User pi lautet `raspberry` und natürlich sofort geändert werden.
 
 Nun gilt es noch ggf. vorhandene Updates einzuspielen:
 Dazu einloggen auf dem Raspberry Pi und mit apt-get aktualisieren.
@@ -43,7 +43,13 @@ $ timedatectl status
 NTP synchronized: yes
  RTC in local TZ: no
 ```
- Nach meiner Interpretation bedeuten  `Network time on: yes` und `NTP synchronized: yes`, dass dies per Default aktiviert ist.
+Nach meiner Interpretation bedeuten  `Network time on: yes` und `NTP synchronized: yes`, dass dies per Default aktiviert ist.  
+Sollte die Zeitzone nicht korrekt sein, diese mit `sudo dpkg-reconfigure tzdata` korrigieren.  
+Ggf. noch die `locale` z.B. auf `de_DE.UTF-8 UTF-8` setzten. Dazu in der Datei `/etc/locale.gen` die entsprechende Zeile entkommentieren.
+```
+sudo nano /etc/locale.gen
+sudo /usr/sbin/locale-gen
+```
 
 ### aliases einrichten
 Ich bin gewohnt, dass man `ls -l` durch das Kommando `ll` abkürzen kann.
@@ -70,9 +76,9 @@ Den VNC-Viewer für MAC gibt es [hier](https://www.realvnc.com/en/connect/downlo
 Ein Beschreibung findest sich z.B. [hier](https://www.instructables.com/id/Install-Nodejs-and-Npm-on-Raspberry-Pi/):
 ```
 cd /tmp
-get https://nodejs.org/dist/v10.13.0/node-v10.13.0-linux-armv6l.tar.xz
-tar -xf node-v10.13.0-linux-armv6l.tar.xz
-cd node-v10.13.0-linux-armv6l/
+wget https://nodejs.org/dist/v10.14.2/node-v10.14.2-linux-armv6l.tar.xz
+tar -xf node-v10.14.2-linux-armv6l.tar.xz
+cd node-v10.14.2-linux-armv6l/
 sudo cp -R * /usr/local/
 ```
 Überprüfen mit `npm -v` und `node -v.
