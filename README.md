@@ -9,7 +9,11 @@ Da mir die kommerziellen Produkte aber zu abgeschlossen sind, habe ich im Herbst
 * Welche [Hardware](doc/hardware.md) wird benötigt?
 * Prüfen, ob das Heimnetz von außen erreichbar ist.  
 Sonst diese [Vorbereitungen](doc/vorarbeiten.md) durchführen.
-* [Betriebssystem](doc/betriebssystem.md) installieren
+* [Betriebssystem](doc/betriebssystem.md) und einige weitere Pakete installieren und ein paar Einstellungen vornehmen.
+* Grundlegende Maßnahmen zur [Sicherung](doc/security.md) des Systems durchführen.
+
+
+
 * [Backup](doc/backup.md)
 * Auf der Fritzbox den [Remote-Zugriff](doc/remote.md) konfigurieren.
 * Installation von [Home Assistant](doc/homeassistant.md)

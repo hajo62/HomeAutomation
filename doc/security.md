@@ -19,7 +19,7 @@ Nun noch mit `sudo service ssh restart` den ssh-Dämon neu starten, damit die ge
 `ssh pi@192.168.178.111 -p 53122`
 
 ### OpenSSH Public Key Authentifizierung konfigurieren
-Zuerst wird auf dem Client das Schlüsselpaar - bestehend aus public und private key - generiert und anschließend der public key zum Server übertragen. Der Private Schlüssel sollte mit einem Kennwort gesichert werden.
+Zuerst wird auf dem _Client_ das Schlüsselpaar - bestehend aus public und private key - generiert und anschließend der public key zum Server übertragen. Der Private Schlüssel sollte mit einem Kennwort gesichert werden.
 
 Schlüsselpaar generieren:  
 `ssh-keygen -b 4096 -f ~/.ssh/pi_rsa`
@@ -38,8 +38,17 @@ sftp -P 53122 pi@192.168.178.111
 scp -P 53122 /tmp/tst pi@192.168.178.111:/tmp/tst
 ```
 
+#### Permission denied (publickey)
+Nach einem Update meines Macs auf Mojave funktionierte der ssh-Login nicht mehr. Abhilfe schuf das Kommando `ssh-add ~/.ssh/pi_rsa`:
+```
+ssh-add ~/.ssh/pi_rsa
+Enter passphrase for /Users/hajo/.ssh/pi_rsa:
+Identity added: /Users/hajo/.ssh/pi_rsa (/Users/hajo/.ssh/pi_rsa)
+```
+
+
 ### ssh-login mit Kennwort deaktivieren
->*Achtung:* Wenn dies durchgeführt ist, kann man den Pi über ssh nicht mehr ohne die Private-Key-Datei erreichen!
+> **Achtung:** Wenn dies durchgeführt ist, kann man den Pi über ssh nicht mehr ohne die Private-Key-Datei erreichen!
 
 In der Konfigurationsdatei `/etc/ssh/sshd_config` den Schlüssel `PasswordAuthentication` auf `no` setzen.
 ```
@@ -61,7 +70,9 @@ Wenn man nun einen weiteren Client zulassen möchte, muss man kurzfristig den ss
 ---
 ## Reverse Proxy mit nginx
 ### nginx installieren
-Der Webserver [nginx](https://de.wikipedia.org/wiki/Nginx) kann u.a. auch als [Reverse-Proxy](https://de.wikipedia.org/wiki/Reverse_Proxy) zur Erhöhung der Sicherheit eingesetzt werden. Eine Beschreibung zur Installation findet sich z.B.  [hier](https://howtoraspberrypi.com/install-nginx-raspbian-and-accelerate-your-raspberry-web-server).
+Der Webserver [nginx](https://de.wikipedia.org/wiki/Nginx) kann u.a. auch als [Reverse-Proxy](https://de.wikipedia.org/wiki/Reverse_Proxy) zur Erhöhung der Sicherheit eingesetzt werden. Eine Beschreibung zur Installation findet sich z.B.  [hier](https://howtoraspberrypi.com/install-nginx-raspbian-and-accelerate-your-raspberry-web-server).  
+Im November 2018 war im Raspbian-Paketrepository eine ziemlich alte nginx-Version **(v1.10)** verfügbar. Zwischenzeitlich gibt es neue Versionen, die vermeintlich schneller und sicherer seien. Ein wenig weiter [unten](#nginx auf aktuellere version bringen) habe ich die Installation der aktuellen Version beschreiben.  
+
 ```
 sudo apt install nginx php-fpm
 sudo nginx
@@ -82,7 +93,7 @@ Anschließend auf dem Pi im Browser `http://localhost` oder auf dem Client `http
 In den Paketrepositories ist Nginx nicht an PHP gebunden. Bei der Entwicklung von Nginx wurde die Entscheidung getroffen, PHP-FMP (eine schnellere Version von PHP) anstelle eines herkömmlicheren PHP zu verwenden. Daher werden wir php-fpm installieren, um PHP-Dateien mit Nginx zu verwalten.
 
 ### nginx auf aktuellere Version bringen
-Im November 2018 war im Raspbian-Paketrepository eine ziemlich alte nginx-Version **(v1.10)** verfügbar. Zwischenzeitlich gibt es neue Versionen, die vermeintlich schneller und sicherer seien. Allerdings ist die aktuelle Version **(v1.14.1)** nicht ganz so einfach zu installieren, da man hierfür den **testing branch** von **Raspbian** den Paketquellen hinzufügen muss. Eine Beschreibung der Installation habe ich [hier](https://getgrav.org/blog/raspberrypi-nginx-php7-dev) gefunden.
+Allerdings ist die aktuelle Version **(v1.14.1)** nicht ganz so einfach zu installieren, da man hierfür den **testing branch** von **Raspbian** den Paketquellen hinzufügen muss. Eine Beschreibung der Installation habe ich [hier](https://getgrav.org/blog/raspberrypi-nginx-php7-dev) gefunden.
 
 Anlegen der Datei `/etc/apt/sources.list.d/10-buster.list` mit folgendem Inhalt:  
 `deb http://mirrordirector.raspbian.org/raspbian/ buster main contrib non-free rpi`
@@ -140,7 +151,7 @@ Anschließend folgende Kommandos ausführen:
 sudo mkdir -p /var/www/letsencrypt/.well-known/acme-challenge
 sudo nano /etc/nginx/sites-available/default
 ```
-Nun unterhalb von `listen [::]:80 default_server;` die Zeile `include /etc/nginx/snippets/letsencrypt.conf;` einfügen.
+Nun unterhalb von `listen [::]:80 default_server;` die Zeile `include /etc/nginx/snippets/letsencrypt.conf;` einfügen, so dass die eben erstellte Datei inkludiert wird.
 ```
 server {
         listen 80 default_server;
@@ -160,7 +171,8 @@ chmod u+x certbot-auto
 sudo ./certbot/certbot-auto certonly --rsa-key-size 4096 --webroot -w /var/www/letsencrypt --email <myMail> -d <myDNSName>
 ```
 
-Beim ersten Aufruf wird die benötigte Software installiert und anschließend das Zertifikat herunter geladen. Mit dem Kommando `sudo ls -l /etc/letsencrypt/live` kann man überprüfen, dass ein Ordner mit dem Namen der eigenen dynDNS angelegt wurde.
+Beim ersten Aufruf wird die benötigte Software installiert, bei späteren Aufrufen ggf. aktualisiert (0.29.1) und anschließend das Zertifikat herunter geladen. Mit dem Kommando `sudo ls -l /etc/letsencrypt/live` kann man überprüfen, dass ein Ordner mit dem Namen der eigenen dynDNS angelegt wurde.
+(Warum soll man Port 80 freigaben)
 
 Nun noch mit `sudo nano /etc/nginx/conf.d/<mydomain>.conf` die Konfigurationsdatei für die eigene Domäne erstellen. Hier der erste minimale Inhalt dieser Datei in Anlehnung an das oben erwähnte [Tutorial](https://www.smarthomeng.de/nginx-als-reverseproxy).
 
@@ -203,3 +215,11 @@ server {
 
 ##### Zertifikat erneuern
 Mit `sudo ./certbot/certbot-auto renew --dry-run` kann man testen, ob die automatische Erneuerung des Zertifikates funktionieren würde.
+
+
+
+
+---
+
+sshguard?
+https://www.pilgermaske.org/2018/06/sshguard-schnell-und-einfach-ssh-absichern/
