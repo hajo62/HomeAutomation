@@ -1,4 +1,4 @@
-# Heimnetz von außen erreichbar machen
+# Internetzugriff auf die FritzBox
 ## DS-Lite-Tunnel
 Mein Internet-Provider [1&amp;1](http://www.1und1.de/) hatte meinen DSL-Anschluss vor einiger Zeit auf einen  [DS-Lite-Tunnel](https://de.wikipedia.org/wiki/IPv6#Dual-Stack_Lite_(DS-Lite)) umgestellt. Dadurch wurde meinem Anschluss keine IPv4-IP-Adresse mehr zugeteilt und ein im Heimnetz betriebener Rechner ist von außen nicht über das IPv4-Netz erreichbar. (Siehe dazu z.B. [hier](https://avm.de/service/fritzbox/fritzbox-7490/wissensdatenbank/publication/show/1611_Was-ist-DS-Lite-und-wie-funktioniert-es/)). Abhilfe würde hier ein [4in6-Tunnel](https://de.wikipedia.org/wiki/4in6) schaffen. Da die 4in6-Tunnel-Anbieter **sixXS** oder **gogo6** ihre Dienste eingestellt haben, scheinen solche Tunnel nicht mehr verfügbar zu sein.
 
