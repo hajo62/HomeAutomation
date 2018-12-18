@@ -53,3 +53,5 @@ Eine genaue Beschreibung zur Portfreigabe von avm findet sich [hier](https://avm
 
 Nachdem die Freigabe z.B. für Port 22 aktiviert wurde, ist der Raspberry Pi nun per SSH auch von außen über den dynDNS-Name erreichbar:  
 `ssh -p 53122 pi@xxxxx.myfritz.net`
+
+Nun wird [nginx](./nginx.md) installiert und als Reverse Proxy konfiguriert.

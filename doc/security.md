@@ -66,3 +66,5 @@ Ein Anmeldeversuch von einem Rechner ohne Zertifikat führt nun zu:
 `pi@192.168.178.111: Permission denied (publickey).`
 
 Wenn man nun einen weiteren Client zulassen möchte, muss man kurzfristig den ssh-login mit Kennwort wieder aktivieren.
+
+Als nächstes wird der [Internetzugriff](./fritzbox.md) auf die FritzBox zugelassen.

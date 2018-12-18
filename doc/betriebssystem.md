@@ -82,3 +82,5 @@ cd node-v10.14.2-linux-armv6l/
 sudo cp -R * /usr/local/
 ```
 Überprüfen mit `npm -v` und `node -v`.
+
+Als nächstes gilt es, den Raspberry Pi [abzusichern](./security.md).
