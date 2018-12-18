@@ -10,11 +10,10 @@ Da mir die kommerziellen Produkte aber zu abgeschlossen sind, habe ich im Herbst
 * [Betriebssystem](doc/betriebssystem.md) und einige weitere Pakete installieren und ein paar Einstellungen vornehmen.
 * Grundlegende Maßnahmen zur [Absicherung](doc/security.md) des Systems durchführen.
 * [Internetzugriff](doc/fritzbox.md) auf die FritzBox mit festem Namen zulassen..
-
+* [nginx](doc/nginx.mg) installieren und als Remote Proxy konfigurieren.
 
 
 ---
 
 * [Backup](doc/backup.md)
-* Auf der Fritzbox den [Remote-Zugriff](doc/remote.md) konfigurieren.
 * Installation von [Home Assistant](doc/homeassistant.md)
