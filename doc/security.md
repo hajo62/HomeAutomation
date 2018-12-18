@@ -171,8 +171,10 @@ chmod u+x certbot-auto
 sudo ./certbot/certbot-auto certonly --rsa-key-size 4096 --webroot -w /var/www/letsencrypt --email <myMail> -d <myDNSName>
 ```
 
-Beim ersten Aufruf wird die benötigte Software installiert, bei späteren Aufrufen ggf. aktualisiert (0.29.1) und anschließend das Zertifikat herunter geladen. Mit dem Kommando `sudo ls -l /etc/letsencrypt/live` kann man überprüfen, dass ein Ordner mit dem Namen der eigenen dynDNS angelegt wurde.
-(Warum soll man Port 80 freigaben)
+Beim ersten Aufruf wird die benötigte Software installiert, bei späteren Aufrufen ggf. aktualisiert (0.29.1) und anschließend das Zertifikat herunter geladen.
+Damit der LetsEncrypt-Server die angegebene Domain überprüfen kann, muss **kurzfristig** Port 80 freigegeben werden. Ist dies nicht der Fall, erhält man eine Fehlermeldung: `The server could not connect to the client to verify the domain`.
+
+Mit dem Kommando `sudo ls -l /etc/letsencrypt/live` kann man überprüfen, dass ein Ordner mit dem Namen der eigenen dynDNS angelegt wurde.
 
 Nun noch mit `sudo nano /etc/nginx/conf.d/<mydomain>.conf` die Konfigurationsdatei für die eigene Domäne erstellen. Hier der erste minimale Inhalt dieser Datei in Anlehnung an das oben erwähnte [Tutorial](https://www.smarthomeng.de/nginx-als-reverseproxy).
 
@@ -212,6 +214,11 @@ server {
     }
 }
 ```
+
+Mit `sudo service nginx restart` nginx neu starten.
+
+
+
 
 ##### Zertifikat erneuern
 Mit `sudo ./certbot/certbot-auto renew --dry-run` kann man testen, ob die automatische Erneuerung des Zertifikates funktionieren würde.
