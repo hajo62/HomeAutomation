@@ -7,12 +7,13 @@ Um nicht erst nach Ende der Heizsaison fertig zu sein, habe ich für die Zentral
 Da mir die kommerziellen Produkte aber zu abgeschlossen sind, habe ich im Herbst 2018 begonnen, an einer [Raspberry Pi](https://de.wikipedia.org/wiki/Raspberry_Pi) basierte Lösung zu *basteln*.
 
 * Welche [Hardware](doc/hardware.md) wird benötigt?
-* Prüfen, ob das Heimnetz von außen erreichbar ist.  
-Sonst diese [Vorbereitungen](doc/vorarbeiten.md) durchführen.
 * [Betriebssystem](doc/betriebssystem.md) und einige weitere Pakete installieren und ein paar Einstellungen vornehmen.
-* Grundlegende Maßnahmen zur [Sicherung](doc/security.md) des Systems durchführen.
+* Grundlegende Maßnahmen zur [Absicherung](doc/security.md) des Systems durchführen.
+* [Internetzugriff](doc/fritzbox.md) auf die FritzBox mit festem Namen zulassen..
 
 
+
+---
 
 * [Backup](doc/backup.md)
 * Auf der Fritzbox den [Remote-Zugriff](doc/remote.md) konfigurieren.
