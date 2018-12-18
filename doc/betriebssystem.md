@@ -107,7 +107,9 @@ server.listen(port, hostname, () => {
 });
 
 ```
+
 Bei Bedarf die kleine Web-App mit `node ~/Documents/HelloWorld/app.js` starten und mit `http://127.0.0.1:3000` prüfen.
+
 ---
 
 Als nächstes gilt es, den Raspberry Pi [abzusichern](./security.md).
