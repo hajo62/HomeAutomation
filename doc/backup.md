@@ -13,7 +13,8 @@ Für meine [32GB-Karte](./hardware.md#Speicher) hat dies knapp 30 Minuten gedaue
 
 ### Restore eines Images
 Der Restore erfolgt mit dem gleichen Kommando wie die Sicherung, aber mit vertauschtem In- und Output.
-- Image auf SD-Karte schreiben: `sudo dd if=32gb.img of=/dev/mmcblk0 bs=4M` - Für meine 32GB-Karte hat dies ca. 35 Minuten gedauert.
+- Image auf SD-Karte schreiben: `sudo dd if=32gb.img of=/dev/mmcblk0 bs=4M`  
+Für meine [32GB-Karte](./hardware.md#Speicher) hat dies ca. 35 Minuten gedauert.
 
 Anschließend die SD-Karte in den Raspi stecken und booten. Das ist erstaunlich einfach und hat gut funktioniert.
 

@@ -2,7 +2,7 @@
 
 [Hier](https://www.home-assistant.io/docs/installation) gibt es Beschreibungen zu verschiedenen Installationsverfahren für **Home Assistant**. Ich habe mich für die [hier](https://www.home-assistant.io/docs/installation/raspberry-pi/) beschriebene manuelle Installation auf einen bereits vorbereiteten Raspberry Pi entschieden.
 
-Der erste Aufruf des Systems mit dem Kommando `hass` dauert einige Minuten; nach Abschluss ist Home Assistant über `http://<ipaddress>:8123` erreichbar.
+Der erste Aufruf des Systems mit dem Kommando `hass` dauert einige Minuten; nach Abschluss ist Home Assistant über `http://<PI-IP>:8123` erreichbar.
 
 <img src="../images4git/ha-create_user.jpg" width="300" border="1">
 
@@ -144,3 +144,5 @@ Fritz_url: http://<PI-IP>
 configurator_url: http://<PI-IP>:3218
 http.api_password: <password>
 ```
+
+Umrechnung der eigenen Adresse in Latitude und Longitude kann man z.B. [hier](https://www.latlong.net/convert-address-to-lat-long.html) machen.
