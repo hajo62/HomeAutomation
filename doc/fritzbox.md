@@ -38,14 +38,18 @@ Damit die geänderten IP-Adressen dem dynDNS-Dienst bekannt gegeben werden, muss
 [Hier](https://8300111.de/fritzbox-mit-os-6-60-dynamic-dns-mit-duck-dns-einrichten-schnell-und-kostenlos) findet sich dazu eine kurze Beschreibung.
 
 ## Portfreigabe(n) in FRITZBox einrichten
-Damit der Raspberry Pi von außen erreichbar wird, müssen die gewünschten Ports auf der Fritzbox freigegeben und ggf. auf andere Ports weitergeleitet werden. Die wichtigen Ports sind:  
-| Protokoll | Port  
-|-----------|------   
-| http      | 80  
-| https     | 443  
-| ssh       | 22  
-| vnc       | 5900  
+Damit der Raspberry Pi von außen erreichbar wird, müssen die gewünschten Ports auf der Fritzbox freigegeben und ggf. auf andere Ports weitergeleitet werden. Die wichtigsten Ports sind:  
 
 
-Eine genaue Beschreibung von avm findet sich [hier](https://avm.de/service/fritzbox/fritzbox-7390/wissensdatenbank/publication/show/893_Statische-Portfreigaben-einrichten/): Der Standartport für ssh ist 22; nach *aussen* kann man nun ebenfalls Port 22 freigeben oder einen beliebigen anderen freien Port wählen. Für VNC muss zusätzlich Port 5900 freigeben werden.  
+| Protokoll     | Port (intern) | Port (extern) |
+| ------------- | ------------- | ------------- |
+| http          | 80            | 80 - Nur kurz für letsencrypt freigeben
+| https         | 443           | 443
+| ssh           | 22            | ändern z.B. 53122
+| vnc           | 5900          | ändern z.B. 53123
+
+Eine genaue Beschreibung von avm findet sich [hier](https://avm.de/service/fritzbox/fritzbox-7390/wissensdatenbank/publication/show/893_Statische-Portfreigaben-einrichten/):  
 <img src="../images4git/ssh-portfreigabe.jpg" width="700">
+
+Nachdem die Freigabe z.B. für Port 22 aktiviert wurde, ist der Raspberry Pi nun per SSH auch von außen über den dynDNS-Name erreichbar:  
+`ssh -p 53122 pi@xxxxx.myfritz.net`
