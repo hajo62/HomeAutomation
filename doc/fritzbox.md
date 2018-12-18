@@ -36,3 +36,16 @@ Nun einfach eine Domain (z.B. <div style="display: inline">https://mydomain.duck
 
 Damit die geänderten IP-Adressen dem dynDNS-Dienst bekannt gegeben werden, muss in der Fritzbox unter `Internet / Freigaben / DynDNS`  noch die Update-Url (z.B. https://www.duckdns.org/update?domains=mydomain.duckdns.org&<token=token-von-dyndns>&amp.ip=<ipaddr>&amp.ipv6=<ip6addr>) hinterlegt werden.
 [Hier](https://8300111.de/fritzbox-mit-os-6-60-dynamic-dns-mit-duck-dns-einrichten-schnell-und-kostenlos) findet sich dazu eine kurze Beschreibung.
+
+## Portfreigabe(n) in FRITZBox einrichten
+Damit der Raspberry Pi von außen erreichbar wird, müssen die gewünschten Ports auf der Fritzbox freigegeben und ggf. auf andere Ports weitergeleitet werden. Die wichtigen Ports sind:  
+| Protokoll | Port  
+|-----------|------   
+| http      | 80  
+| https     | 443  
+| ssh       | 22  
+| vnc       | 5900  
+
+
+Eine genaue Beschreibung von avm findet sich [hier](https://avm.de/service/fritzbox/fritzbox-7390/wissensdatenbank/publication/show/893_Statische-Portfreigaben-einrichten/): Der Standartport für ssh ist 22; nach *aussen* kann man nun ebenfalls Port 22 freigeben oder einen beliebigen anderen freien Port wählen. Für VNC muss zusätzlich Port 5900 freigeben werden.  
+<img src="../images4git/ssh-portfreigabe.jpg" width="700">
