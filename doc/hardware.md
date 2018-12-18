@@ -1,4 +1,4 @@
-#Hardware
+# Hardware
 Hier die Liste der benötigten Dinge:
 - [Raspberry Pi](#raspberry pi 3 model b+)
 - [SD-Karte als Speichermedium](#speicher)
