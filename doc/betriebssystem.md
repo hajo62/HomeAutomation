@@ -83,6 +83,31 @@ sudo cp -R * /usr/local/
 ```
 Überprüfen mit `npm -v` und `node -v`.
 
+Nun kann man eine erste minimale Hello World Web-Applikation erstellen:  
+```
+mkdir ~/Documents/HelloWorld
+cd ~/Documents/HelloWorld
+nano app.js
+```
+In die Datei `app.js` folgenden Inhalt eingeben:  
+```node
+const http = require('http');
+
+const hostname = '127.0.0.1';
+const port = 3000;
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World\n');
+});
+
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
+
+```
+
 ---
 
 Als nächstes gilt es, den Raspberry Pi [abzusichern](./security.md).
