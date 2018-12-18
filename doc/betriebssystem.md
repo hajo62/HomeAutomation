@@ -83,4 +83,6 @@ sudo cp -R * /usr/local/
 ```
 Überprüfen mit `npm -v` und `node -v`.
 
+---
+
 Als nächstes gilt es, den Raspberry Pi [abzusichern](./security.md).

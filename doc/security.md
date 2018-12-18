@@ -67,4 +67,6 @@ Ein Anmeldeversuch von einem Rechner ohne Zertifikat führt nun zu:
 
 Wenn man nun einen weiteren Client zulassen möchte, muss man kurzfristig den ssh-login mit Kennwort wieder aktivieren.
 
+---
+
 Als nächstes wird der [Internetzugriff](./fritzbox.md) auf die FritzBox zugelassen.
