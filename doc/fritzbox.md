@@ -16,7 +16,7 @@ Nun ist die Fritzbox von außen erreichbar.
 ###	Certificate
 Die Browser-Verbindung auf die Fritzbox ist über ein **Self-Signed-Certificate** gesichert; bei jedem ersten Browser-Zugriff gibt es eine Sicherheits-Warnung. Um die Warnung zu Umgehen bietet die Fritzbox die Möglichkeit, ein Certficate von [letsencrypt.org](https://letsencrypt.org) zu holen und automatisch alles 60 Tage zu erneuern.
 
-Dazu unter `Internet/MyFRITZ-Konto` `Zertifikat von letsencrypt.org verwenden` aktivieren.
+Dazu unter `Internet/MyFRITZ-Konto` die Option `Zertifikat von letsencrypt.org verwenden` aktivieren.
 
 ## DynDNS
 

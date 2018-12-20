@@ -60,7 +60,8 @@ Auf dem Pi im Browser `http://localhost` oder auf dem Client `http://192.168.178
 <img src="../images4git/nginx-welcome.jpg" width="700">
 
 ### NGINX als ReverseProxy konfigurieren
-[Hier](https://www.smarthomeng.de/nginx-als-reverseproxy) und [hier](https://www.home-assistant.io/docs/ecosystem/certificates/lets_encrypt) gibt es eine sehr ausführliche Beschreibung, wie man sein Home Automation durch einen Reverse Proxy mit SSL-Zertifikat (siehe [hier](https://goneuland.de/debian-9-stretch-lets-encrypt-zertifikate-mit-certbot-erstellen/)) absichern kann.
+([Hier](https://www.smarthomeng.de/nginx-als-reverseproxy) und [hier](https://www.home-assistant.io/docs/ecosystem/certificates/lets_encrypt) gibt es eine sehr ausführliche Beschreibung, wie man sein Home Automation durch einen Reverse Proxy mit SSL-Zertifikat (siehe [hier](https://goneuland.de/debian-9-stretch-lets-encrypt-zertifikate-mit-certbot-erstellen/)) absichern kann.  
+Leider habe ich das bisher nicht hinbekommen.)
 
 <!---
 Die im Repo vorhandene Version ist recht alt (Nov 18: v0.10.2).
@@ -155,44 +156,13 @@ Mit `sudo service nginx restart` nginx neu starten.
 
 
 ##### Zertifikat erneuern
-Mit `sudo ./certbot/certbot-auto renew --dry-run` kann man testen, ob die automatische Erneuerung des Zertifikates funktionieren würde.
+Mit `sudo ./certbot/certbot-auto renew --dry-run` kann man testen, ob die automatische Erneuerung des Zertifikates funktionieren würde.  
+Es fehlt noch, diese Erneuerung alle 2 Monate zu automatisieren
 
 
-
-
----
-
-sshguard?
+##### sshguard?
+Wird das überhaupt benötigt, wenn man sich ohnehin nicht mit Kennwort anmelden kann?  
 https://www.pilgermaske.org/2018/06/sshguard-schnell-und-einfach-ssh-absichern/
-
-
-
-
-
-
-
-
-
-
-# AB HIER TUT'S NICHT
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----
-
-
 
 ## GeoIP installieren und konfigurieren
 Über GeoIP kann herausgefunden werden, aus welchem Land eine Anfrage kommt, so dass man bestimmte Länder zulassen oder blockieren kann.
@@ -223,12 +193,48 @@ server {
     [...]
     ## Blocken, wenn Zugriff aus einem nicht erlaubten Land erfolgt ##
     if ($allowed_country = no) {
-        return 444;
+        return 403;
     }
     [...]
 }
 ```
 Nach dem Neustart von NGINX mit `sudo service nginx restart` ist die Änderung aktiv.
+
+## Custom Error Pages
+Um eine angepasste Seite bei Errors anzeigen zu können, muss eine entsprechende Seite erstellt und die <mydomain>.conf-Datei in der Server-Section angepasst werden.  
+<mydomain>.conf:  
+```
+    if ($allowed_country = no) {
+       return 403;
+    }
+    error_page 403 = @403;
+    location @403 {
+        root /var/www/html/;
+        try_files /403.html =403;
+    }
+```
+403.html:  
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Simple HttpErrorPages | MIT License | https://github.com/AndiDittrich/HttpErrorPages -->
+    <meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-$
+    <title>Access Denied</title>
+    <style type="text/css">
+    html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,$
+</head>
+<body>
+    <div class="cover"><h1>Access Denied</h1><p class="lead"><small>Error 403</small></p></div>
+</body>
+</html>
+```
+
+
+
+# AB HIER TUT'S NICHT
+
+
 
 ## Weitere Sicherungsmaßnahmen
 [Hier](https://www.cyberciti.biz/tips/linux-unix-bsd-nginx-webserver-security.html) kann man einige Einstellungen zur Abwehr von bots, spammern und ähnlichem nachlesen. Es gilt die nginx-Konfigurationsdatei mit `sudo nano /etc/nginx/conf.d/<mydomain>.conf` im Server-Block zu erweitern:
