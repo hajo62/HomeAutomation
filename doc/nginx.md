@@ -230,13 +230,7 @@ Um eine angepasste Seite bei Errors anzeigen zu können, muss eine entsprechende
 </html>
 ```
 
-
-
-# AB HIER TUT'S NICHT
-
-
-
-## Weitere Sicherungsmaßnahmen
+## Weitere Maßnahmen zur Sicherung
 [Hier](https://www.cyberciti.biz/tips/linux-unix-bsd-nginx-webserver-security.html) kann man einige Einstellungen zur Abwehr von bots, spammern und ähnlichem nachlesen. Es gilt die nginx-Konfigurationsdatei mit `sudo nano /etc/nginx/conf.d/<mydomain>.conf` im Server-Block zu erweitern:
 ```
 if ($http_user_agent ~* LWP::Simple|BBBike|wget) {
@@ -252,7 +246,7 @@ if ( $http_referer ~* (babes|forsale|girl|jewelry|love|nudit|organic|poker|porn|
 
 
 
-
+# AB HIER BEKOMME ICH ES NICHT ANS LAUFEN
 
 
 
