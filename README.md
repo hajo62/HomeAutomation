@@ -11,7 +11,7 @@ Da mir die kommerziellen Produkte aber zu abgeschlossen sind, habe ich im Herbst
 * Grundlegende Maßnahmen zur [Absicherung](doc/security.md) des Systems durchführen.
 * [Internetzugriff](doc/fritzbox.md) auf die FritzBox mit festem Namen zulassen.
 * [nginx](doc/nginx.md) installieren und als Remote Proxy konfigurieren.
-* [Backup % Recovery](doc/backup.md).
+* [Backup & Recovery](doc/backup.md).
 
 ---
 
