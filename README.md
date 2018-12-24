@@ -9,11 +9,10 @@ Da mir die kommerziellen Produkte aber zu abgeschlossen sind, habe ich im Herbst
 * Welche [Hardware](doc/hardware.md) wird benötigt?
 * [Betriebssystem](doc/betriebssystem.md) und einige weitere Pakete installieren und ein paar Einstellungen vornehmen.
 * Grundlegende Maßnahmen zur [Absicherung](doc/security.md) des Systems durchführen.
-* [Internetzugriff](doc/fritzbox.md) auf die FritzBox mit festem Namen zulassen..
+* [Internetzugriff](doc/fritzbox.md) auf die FritzBox mit festem Namen zulassen.
 * [nginx](doc/nginx.md) installieren und als Remote Proxy konfigurieren.
-
+* [Backup % Recovery](doc/backup.md).
 
 ---
 
-* [Backup](doc/backup.md)
 * Installation von [Home Assistant](doc/homeassistant.md)
