@@ -59,7 +59,6 @@ sudo umount /mnt/myCloud
 ```
 
 ## Regelmäßiges Backup
-_Über crontab - fehlt noch_
 [Hier](https://github.com/vinayaugustine/backup.sh) gibt es ein Script zu Sicherung mit restic, das ich als Vorlage für [mein Script](../scripts/backup.sh) genommen habe, um es dann über den cron auszuführen. Das Script habe ich `/root/backup.sh` abgespeichert.
 
 Als erster Schritt wird das Script mit dem Parameter `setup` aufgerufen; hierdurch wird das Kennwort und die Backup-Konfigurationsdatei gespeichert und die Datei mit den nicht zu sichernden Verzeichnissen angelegt. Mit dem Aufruf `./backup.sh backup` wird eine Sicherung durchgeführt.

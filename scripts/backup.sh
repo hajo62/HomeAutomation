@@ -18,6 +18,11 @@ config() {
     echo Repository:    $RESTIC_REPOSITORY
 }
 
+prune() {
+    read_config
+    restic prune
+}
+
 setup() {
     which restic
     if [ $? -ne 0 ]; then
@@ -63,10 +68,11 @@ help() {
     echo Wrapper script for backing up the home directory to B2 with restic
     echo -e '\t' $0 backup: Execute a backup with restic.
     echo -e '\t' $0 config: Print the restic repository.
-    echo -e '\t' $0 setup: Setup restic for backup on my NAS.
+    echo -e '\t' $0 prune:  Delete unneeded data to reduce repo size.
+    echo -e '\t' $0 setup:  Setup restic for backup on my NAS.
 }
 
-if [[ $1 =~ ^(backup|config|setup|help)$ ]]; then
+if [[ $1 =~ ^(backup|config|prune|setup|help)$ ]]; then
   "$@"
 else
   help
