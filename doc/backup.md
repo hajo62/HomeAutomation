@@ -40,12 +40,12 @@ sudo mv restic_0.9.3_linux_arm /bin/restic
 
 Als nächstes eine Datei mit allen _**nicht**_ zu sichernden Dateien und Verzeichnissen anlegen:
 ```
-echo "/mnt/*
+sudo echo "/mnt/*
 /proc/*
 /sys/*
 /dev/*
 /run/*
-/tmp/*" > ~/restic.excludes
+/tmp/*" > ~/.restic/restic.excludes
 ```
 
 Nun das Restic-Repository anlegen: `restic init -r /mnt/myCloud/restic.repo`  
@@ -54,9 +54,16 @@ Nun das Restic-Repository anlegen: `restic init -r /mnt/myCloud/restic.repo`
 Durchführen der Sicherung:
 ```
 sudo mount 192.168.178.2:/nfs/homeassistant /mnt/myCloud/
-sudo restic backup --exclude-file ~/restic.excludes -r /mnt/myCloud/restic.repo /
+sudo restic backup --exclude-file ~/.restic/restic.excludes -r /mnt/myCloud/restic.repo /
 sudo umount /mnt/myCloud
 ```
 
 ## Regelmäßiges Backup
-Über crontab - fehlt noch
+_Über crontab - fehlt noch_
+[Hier](https://github.com/vinayaugustine/backup.sh) gibt es ein Script zu Sicherung mit restic, das ich als Vorlage für [mein Script](../scripts/backup.sh) genommen habe, um es dann über den cron auszuführen. Das Script habe ich `/root/backup.sh` abgespeichert.
+
+Als erster Schritt wird das Script mit dem Parameter `setup` aufgerufen; hierdurch wird das Kennwort und die Backup-Konfigurationsdatei gespeichert und die Datei mit den nicht zu sichernden Verzeichnissen angelegt. Mit dem Aufruf `./backup.sh backup` wird eine Sicherung durchgeführt.
+
+### crontab
+Die crontab-Datei wird mit `crontab -e` editiert. Hier fügt man eine Zeile in dieser Art ein:  
+`30 11 * * * /root/backup.sh backup`: Tägliche Sicherung um 11:30 Uhr
