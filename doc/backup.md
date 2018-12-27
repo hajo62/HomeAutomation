@@ -71,7 +71,7 @@ sudo echo "/mnt/*
 /tmp/*" > ~/.restic/restic.excludes
 ```
 
-Nun das Restic-Repository anlegen: `restic init -r /mnt/myCloud/restic.repo`  
+Nun das Restic-Repository anlegen: `sudo restic init -r /mnt/myCloud/restic.repo`  
 **Wichtig**: Kennwort merken, da man das nicht mehr anzeigen lassen kann!
 
 Durchführen der Sicherung:
@@ -97,4 +97,5 @@ Um den Restore auf einem **Linux**-Rechner durchführen zu können, muss zuerst 
 Anschließend mounten des Shares: `sudo mount 192.168.178.2:/nfs/homeassistant /mnt/myCloud/`
 
 - Image auf SD-Karte schreiben: `sudo dd if=32gb.img of=/dev/mmcblk0 bs=4M`  
-- Aktualisieren auf den letzten Sicherungsstand: `sudo restic restore -r /mnt/myCloud/restic.repo `
+- Aktualisieren auf den letzten Sicherungsstand: `sudo restic restore -r /mnt/myCloud/restic.repo`  
+Da die SD-Karte nicht leer ist, schmeisst restic tausende von Fehlern für Dateien, die es nicht restaurieren kann, weil sie schon vorhanden sind. Im Ergbnis erhält man aber trotzdem einen wiederhergestellen Raspi.
