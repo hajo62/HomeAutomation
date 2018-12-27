@@ -1,6 +1,18 @@
 ## Home Assistant
 
 [Hier](https://www.home-assistant.io/docs/installation) gibt es Beschreibungen zu verschiedenen Installationsverfahren für **Home Assistant**. Ich habe mich für die [hier](https://www.home-assistant.io/docs/installation/raspberry-pi/) beschriebene manuelle Installation auf einen bereits vorbereiteten Raspberry Pi entschieden.
+```
+sudo apt-get install python3 python3-venv python3-pip
+sudo useradd -rm homeassistant -G dialout,gpio
+cd /srv
+sudo mkdir homeassistant
+sudo chown homeassistant:homeassistant homeassistant
+
+sudo -u homeassistant -H -s
+cd /srv/homeassistant
+python3 -m venv .
+source bin/activate
+```
 
 Der erste Aufruf des Systems mit dem Kommando `hass` dauert einige Minuten; nach Abschluss ist Home Assistant über `http://<PI-IP>:8123` erreichbar.
 
@@ -55,7 +67,7 @@ sudo chown homeassistant configurator.py
 sudo chmod a+x configurator.py
 ```
 
-Mit `sudo nano configuration.yaml` editieren und Folgendes ergänzen:
+Mit `sudo nano /home/homeassistant/.homeassistant/configuration.yaml` editieren und Folgendes ergänzen:
 
 ```
 [...]
@@ -95,7 +107,7 @@ Anschließend sollte der Konfigurator im Menü des Home Assistant erschienen sei
 <img src="../images4git/configurator.jpg" width="500" border="1">
 
 #### Autostart des Konfigurators
-Analog zu [Autostart aktivieren](#autostart-aktivieren) für den Home Assistant muss im Verzeichnis  `/etc/systemd/system` mit dem Befehl `sudo nano /etc/systemd/system/configurator@homeassistant.service` (Der Dateiname kann beliebig vergeben werden.) eine Datei mit folgendem Inhalt angelegt werden:
+Analog zu [Autostart aktivieren](#autostart-aktivieren) für den Home Assistant muss im Verzeichnis  `/etc/systemd/system` mit dem Befehl `sudo nano /etc/systemd/system/hass-configurator@homeassistant.service` (Der Dateiname kann beliebig vergeben werden.) eine Datei mit folgendem Inhalt angelegt werden:
 ```
 [Unit]
 Description=Home Assistant
@@ -118,7 +130,7 @@ sudo systemctl enable hass-configurator@homeassistant.service
 ```
 
 ### Erste Einstellungen
-In der Datei `configuration.yaml` folgende Einstellungen eingeben:
+In der Datei `/home/homeassistant/.homeassistant/configuration.yaml` folgende Einstellungen eingeben:
 
 ```
 # Name of the location where Home Assistant is running

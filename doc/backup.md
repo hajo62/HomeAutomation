@@ -99,3 +99,7 @@ Anschließend mounten des Shares: `sudo mount 192.168.178.2:/nfs/homeassistant /
 - Image auf SD-Karte schreiben: `sudo dd if=32gb.img of=/dev/mmcblk0 bs=4M`  
 - Aktualisieren auf den letzten Sicherungsstand: `sudo restic restore -r /mnt/myCloud/restic.repo`  
 Da die SD-Karte nicht leer ist, schmeisst restic tausende von Fehlern für Dateien, die es nicht restaurieren kann, weil sie schon vorhanden sind. Im Ergbnis erhält man aber trotzdem einen wiederhergestellen Raspi.
+
+---
+
+Nun noch die [Installation von HomeAssistant](./install_homeassistant.md) und dann kann es _endlich_ losgehen.

@@ -12,7 +12,4 @@ Da mir die kommerziellen Produkte aber zu abgeschlossen sind, habe ich im Herbst
 * [Internetzugriff](doc/fritzbox.md) auf die FritzBox mit festem Namen zulassen.
 * [nginx](doc/nginx.md) installieren und als Remote Proxy konfigurieren.
 * [Backup & Recovery](doc/backup.md).
-
----
-
-* Installation von [Home Assistant](doc/homeassistant.md)
+* Installation von [Home Assistant](doc/install_homeassistant.md).
