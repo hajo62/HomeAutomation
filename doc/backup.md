@@ -18,15 +18,13 @@ Für meine [32GB-Karte](./hardware.md#Speicher) hat dies ca. 35 Minuten gedauert
 
 Anschließend die SD-Karte in den Raspi stecken und booten. Das ist erstaunlich einfach und hat gut funktioniert.  
 Als ssh mit einer Fehlermeldung antwortet, habe ich in der Datei known_hosts die betreffende Zeile entfernt.
-´´´
+```
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @       WARNING: POSSIBLE DNS SPOOFING DETECTED!          @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-The ECDSA host key for [pip5knackd8zgc4.myfritz.net]:53122 has changed,
-and the key for the corresponding IP address [88.133.131.172]:53122
-is unknown. This could either mean that
-DNS SPOOFING is happening or the IP address for the host
-and its host key have changed at the same time.
+The ECDSA host key for [pip5knack8zack.myfritz.net]:53122 has changed,
+and the key for the corresponding IP address [88.133.133.177]:53122 is unknown. This could either mean that
+DNS SPOOFING is happening or the IP address for the host and its host key have changed at the same time.
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -38,9 +36,9 @@ SHA256:ntUENAIdbA98+hlDrnKDS581oGZdJBsOQvVBB3MMd.
 Please contact your system administrator.
 Add correct host key in /Users/hajo/.ssh/known_hosts to get rid of this message.
 Offending ECDSA key in /Users/hajo/.ssh/known_hosts:28
-ECDSA host key for [pip5knackd8zgc4.myfritz.net]:53122 has changed and you have requested strict checking.
+ECDSA host key for [pip5knack8zack.myfritz.net]:53122 has changed and you have requested strict checking.
 Host key verification failed.
-´´´
+```
 
 
 ## Regelmäßiges Backup auf NAS
