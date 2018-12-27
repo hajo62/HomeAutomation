@@ -2,12 +2,14 @@
 # Vorlage von https://github.com/vinayaugustine/backup.sh
 read_config() {
     source ~/.restic/repo_config
+    /bin/mount 192.168.178.2:/nfs/homeassistant /mnt/myCloud/
 }
 
 backup() {
     read_config
     restic backup / --exclude-file $RESTIC_EXCLUDE_FILE
     restic forget --host $HOSTNAME --keep-daily 7 --keep-weekly 5 --keep-monthly 6
+    /bin/umount /mnt/myCloud
 }
 
 config() {
@@ -16,11 +18,13 @@ config() {
     echo Password file: $RESTIC_PASSWORD_FILE
     echo Exclude file:  $RESTIC_EXCLUDE_FILE
     echo Repository:    $RESTIC_REPOSITORY
+    /bin/umount /mnt/myCloud
 }
 
 prune() {
     read_config
     restic prune
+    /bin/umount /mnt/myCloud
 }
 
 setup() {
@@ -42,11 +46,10 @@ setup() {
     echo export RESTIC_PASSWORD_FILE=$RESTIC_PASSWORD_FILE >> ~/.restic/repo_config
     echo export RESTIC_EXCLUDE_FILE=$RESTIC_EXCLUDE_FILE >> ~/.restic/repo_config
 
-    echo "/mnt/*
+    echo "/dev/*
+    /mnt/*
     /proc/*
     /sys/*
-    /dev/*
-    /run/*
     /tmp/*
     /var/log/*" > ~/.restic/restic.excludes
 
@@ -55,13 +58,15 @@ setup() {
     echo
     echo $REPO_PASSWORD > $RESTIC_PASSWORD_FILE
 
+    # Anlegen des Repos, sofern noch nicht vorhanden.
+    # Evtl. statt des restic check einfach testen, ob das Verzeichnis oder die COnfig-Datei da ist?
+    # Und die Ausgabe umleiten...
     read_config
-    #restic check --no-lock
-
-#    if [ $? -ne 0 ]; then
-        # TODO need to read input for password
-#        restic init
-#    fi
+    restic check --no-lock
+    if [ $? -ne 0 ]; then
+        restic init
+    fi
+    /bin/umount /mnt/myCloud
 }
 
 help() {

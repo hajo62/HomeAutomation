@@ -156,7 +156,7 @@ Mit `sudo service nginx restart` nginx neu starten.
 
 
 ##### Zertifikat erneuern
-Mit `sudo ./certbot/certbot-auto renew --dry-run` kann man testen, ob die automatische Erneuerung des Zertifikates funktionieren würde.  
+Mit `sudo ./certbot/certbot-auto renew --dry-run` kann man testen, ob die automatische Erneuerung des Zertifikates funktionieren würde. Hierzu vorher Port 80 weiterleiten.   
 Es fehlt noch, diese Erneuerung alle 2 Monate zu automatisieren
 
 
@@ -251,7 +251,7 @@ Nun ist es langsam an der Zeit, sich um [Backups](./backup.md) zu kümmern.
 ---
 
 
-  
+
 # AB HIER BEKOMME ICH ES NICHT ANS LAUFEN
 
 

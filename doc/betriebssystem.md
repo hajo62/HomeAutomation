@@ -24,6 +24,18 @@ network={
 ```
 Die SD-Karte in den Raspberry einlegen und diesen einschalten. Nach vielleicht einer Minute sollte sich der Raspberry im Netzwerk angemeldet haben und über `ssh pi@<ip-adresse>` erreichbar sein. Das Kennwort für den User pi lautet `raspberry` und natürlich sofort geändert werden.
 
+### Raspi konfigurieren
+Mit `sudo raspi-config` die passenden Einstellungen vornehmen:
+- Localization: de_DE.UTF-8 UTF-8
+- Timezone Europe / Berlin
+
+Ggf. noch die `locale` z.B. auf `de_DE.UTF-8 UTF-8` setzten. Dazu in der Datei `/etc/locale.gen` die entsprechende Zeile entkommentieren.
+```
+sudo nano /etc/locale.gen
+sudo /usr/sbin/locale-gen
+```
+
+### Updates
 Nun gilt es noch ggf. vorhandene Updates einzuspielen:
 Dazu einloggen auf dem Raspberry Pi und mit apt-get aktualisieren.
 ```
@@ -45,11 +57,6 @@ NTP synchronized: yes
 ```
 Nach meiner Interpretation bedeuten  `Network time on: yes` und `NTP synchronized: yes`, dass dies per Default aktiviert ist.  
 Sollte die Zeitzone nicht korrekt sein, diese mit `sudo dpkg-reconfigure tzdata` korrigieren.  
-Ggf. noch die `locale` z.B. auf `de_DE.UTF-8 UTF-8` setzten. Dazu in der Datei `/etc/locale.gen` die entsprechende Zeile entkommentieren.
-```
-sudo nano /etc/locale.gen
-sudo /usr/sbin/locale-gen
-```
 
 ### aliases einrichten
 Ich bin gewohnt, dass man `ls -l` durch das Kommando `ll` abkürzen kann.
