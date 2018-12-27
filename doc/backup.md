@@ -17,13 +17,13 @@ Der Restore erfolgt mit dem gleichen Kommando wie die Sicherung, aber mit vertau
 Für meine [32GB-Karte](./hardware.md#Speicher) hat dies ca. 35 Minuten gedauert.
 
 Anschließend die SD-Karte in den Raspi stecken und booten. Das ist erstaunlich einfach und hat gut funktioniert.  
-Als ssh mit einer Fehlermeldung antwortet, habe ich in der Datei known_hosts die betreffende Zeile entfernt. 
+Als ssh mit einer Fehlermeldung antwortet, habe ich in der Datei known_hosts die betreffende Zeile entfernt.
 ´´´
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @       WARNING: POSSIBLE DNS SPOOFING DETECTED!          @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-The ECDSA host key for [iep5kcna91d8zgc4.myfritz.net]:53122 has changed,
-and the key for the corresponding IP address [83.135.131.172]:53122
+The ECDSA host key for [pip5knackd8zgc4.myfritz.net]:53122 has changed,
+and the key for the corresponding IP address [88.133.131.172]:53122
 is unknown. This could either mean that
 DNS SPOOFING is happening or the IP address for the host
 and its host key have changed at the same time.
@@ -34,11 +34,11 @@ IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
 Someone could be eavesdropping on you right now (man-in-the-middle attack)!
 It is also possible that a host key has just been changed.
 The fingerprint for the ECDSA key sent by the remote host is
-SHA256:ntUENAIdbA98+hlDrnKDS581oGZdJBsOQvVBB3MMdts.
+SHA256:ntUENAIdbA98+hlDrnKDS581oGZdJBsOQvVBB3MMd.
 Please contact your system administrator.
 Add correct host key in /Users/hajo/.ssh/known_hosts to get rid of this message.
 Offending ECDSA key in /Users/hajo/.ssh/known_hosts:28
-ECDSA host key for [iep5kcna91d8zgc4.myfritz.net]:53122 has changed and you have requested strict checking.
+ECDSA host key for [pip5knackd8zgc4.myfritz.net]:53122 has changed and you have requested strict checking.
 Host key verification failed.
 ´´´
 
@@ -90,13 +90,13 @@ Als erster Schritt wird das Script mit dem Parameter `setup` aufgerufen; hierdur
 
 ### crontab
 Die crontab-Datei wird mit `crontab -e` editiert. Hier fügt man zwei Zeilen ein:  
-`30 11 * * * /root/backup.sh backup`: Tägliche Sicherung um 11:30 Uhr
+`30 11 * * * /root/backup.sh backup`: Tägliche Sicherung um 11:30 Uhr  
 `30 12 * * 0 /root/backup.sh prune `: Sonntags um 12:30 Uhr nicht mehr benötigte Dateien aus dem Repository entfernen.
 
 ## Vollständiger Restore vom NAS
-Auf einem **Mac** ist der Restore nicht möglich!  
+Auf einem **Mac** ist der Restore nicht möglich, da das rootfs nicht gemounted werden kann!  
 Um den Restore auf einem **Linux**-Rechner durchführen zu können, muss zuerst der Sicherungs-Share gemountet werden. Evtl. muss dazu einmalig das Paket nfs-common installiert werden: `sudo apt-get install nfs-common`  
 Anschließend mounten des Shares: `sudo mount 192.168.178.2:/nfs/homeassistant /mnt/myCloud/`
 
 - Image auf SD-Karte schreiben: `sudo dd if=32gb.img of=/dev/mmcblk0 bs=4M`  
-- Aktualisieren auf den letzten Sicherungsstand:
+- Aktualisieren auf den letzten Sicherungsstand: `sudo restic restore -r /mnt/myCloud/restic.repo `

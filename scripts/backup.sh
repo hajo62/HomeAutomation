@@ -69,15 +69,22 @@ setup() {
     /bin/umount /mnt/myCloud
 }
 
-help() {
-    echo Wrapper script for backing up the home directory to B2 with restic
-    echo -e '\t' $0 backup: Execute a backup with restic.
-    echo -e '\t' $0 config: Print the restic repository.
-    echo -e '\t' $0 prune:  Delete unneeded data to reduce repo size.
-    echo -e '\t' $0 setup:  Setup restic for backup on my NAS.
+snapshots() {
+    read_config
+    restic snapshots
+    /bin/umount /mnt/myCloud
 }
 
-if [[ $1 =~ ^(backup|config|prune|setup|help)$ ]]; then
+help() {
+    echo Wrapper script for backing up the home directory to B2 with restic
+    echo -e '\t' $0 backup:    Execute a backup with restic.
+    echo -e '\t' $0 config:    Print the restic repository.
+    echo -e '\t' $0 prune:     Delete unneeded data to reduce repo size.
+    echo -e '\t' $0 setup:     Setup restic for backup on my NAS.
+    echo -e '\t' $0 snapshots: List snapshots in repo.
+}
+
+if [[ $1 =~ ^(backup|config|prune|setup|snapshots|help)$ ]]; then
   "$@"
 else
   help

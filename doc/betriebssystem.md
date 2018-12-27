@@ -80,7 +80,7 @@ Den VNC-Viewer für MAC gibt es [hier](https://www.realvnc.com/en/connect/downlo
 
 ### Zusätzliche Software-Pakete
 #### node
-Ein Beschreibung findest sich z.B. [hier](https://www.instructables.com/id/Install-Nodejs-and-Npm-on-Raspberry-Pi/):
+Ein Beschreibung findet sich z.B. [hier](https://www.instructables.com/id/Install-Nodejs-and-Npm-on-Raspberry-Pi/):
 ```
 cd /tmp
 wget https://nodejs.org/dist/v10.14.2/node-v10.14.2-linux-armv6l.tar.xz
