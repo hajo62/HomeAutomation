@@ -1,4 +1,4 @@
-## Home Assistant
+# Home Assistant
 
 [Hier](https://www.home-assistant.io/docs/installation) gibt es Beschreibungen zu verschiedenen Installationsverfahren für **Home Assistant**. Ich habe mich für die [hier](https://www.home-assistant.io/docs/installation/raspberry-pi/) beschriebene manuelle Installation auf einen bereits vorbereiteten Raspberry Pi entschieden.
 ```
@@ -25,7 +25,7 @@ Nachdem man einen User angelegt hat, muss man sich ein erstes mal anmelden:
 >**Hinweis:** Bei mir hat der Login nicht funktioniert.
 >Erst nachdem ich den hass-Prozess gestoppt und erneut gestartet habe.
 
-### Autostart aktivieren
+## Autostart aktivieren
 [Hier](https://www.home-assistant.io/docs/autostart/systemd) gibt es eine Bescheibung, wie man ein Programm beim Systemstart automatisch startet. Mit `sudo nano /etc/systemd/system/home-assistant@homeassistant.service` wird die Datei `home-assistant@homeassistant.service` mit folgendem Inhalt angelegt:
 
 ```
@@ -58,7 +58,7 @@ Autostart deaktivieren:
 
 `sudo systemctl disable home-assistant@homeassistant`
 
-### (Optional) Installation von hass.io-Konfigurator
+## (Optional) Installation von hass.io-Konfigurator
 Beim **hass.io-Konfigurator**-Plugin - verfügbar auf [GitHub](https://github.com/danielperna84/hass-configurator) - handelt es sich um einen Web-basierten Editor für die Home Assistant-Konfigurationsdateien mit Syntax-Highlighting. Zur Installation wird die Datei [configurator.py](https://github.com/danielperna84/hass-configurator/blob/master/configurator.py) ins HASS-Homeverzeichnis kopiert, ausführrbar gemacht und ausgeführt.
 ```
 cd /home/homeassistant/.homeassistant
@@ -106,7 +106,7 @@ Anschließend sollte der Konfigurator im Menü des Home Assistant erschienen sei
 
 <img src="../images4git/configurator.jpg" width="500" border="1">
 
-#### Autostart des Konfigurators
+### Autostart des Konfigurators
 Analog zu [Autostart aktivieren](#autostart-aktivieren) für den Home Assistant muss im Verzeichnis  `/etc/systemd/system` mit dem Befehl `sudo nano /etc/systemd/system/hass-configurator@homeassistant.service` (Der Dateiname kann beliebig vergeben werden.) eine Datei mit folgendem Inhalt angelegt werden:
 ```
 [Unit]
@@ -129,7 +129,7 @@ sudo systemctl start hass-configurator@homeassistant.service
 sudo systemctl enable hass-configurator@homeassistant.service
 ```
 
-### Erste Einstellungen
+## Erste Einstellungen
 In der Datei `/home/homeassistant/.homeassistant/configuration.yaml` folgende Einstellungen eingeben:
 
 ```
