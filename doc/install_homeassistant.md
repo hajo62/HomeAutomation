@@ -159,4 +159,38 @@ http.api_password: <password>
 
 > Umrechnung der eigenen Adresse in Latitude und Longitude kann man z.B. [hier](https://www.latlong.net/convert-address-to-lat-long.html) machen.
 
+Im nginx Reverse Proxy muss nun noch die Weiterleitung auf die Home Assistant Anwendung konfiguriert werden. Dazu noch die bei der [Installation von nginx](./nginx.md) erstellte Konfigurationsdatei mit `sudo nano /etc/nginx/conf.d/<mydomain>.conf` auf die entsprechenden location-Informationen ändern bzw. erweitern und nginx mit `sudo service nginx restart` neu starten:
+```
+location / {
+    proxy_pass http://localhost:8123;
+    proxy_set_header Host $host;
+    #proxy_redirect http:// https://;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_intercept_errors on;
+    error_page 404 = @404;
+}
+
+location /api/websocket {
+    proxy_pass http://localhost:8123/api/websocket;
+    proxy_set_header Host $host;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_intercept_errors on;
+    error_page 404 = @404;
+}
+```
+Die jeweils beiden letzten Zeilen leiten auf eine [individuelle Error-Seite](./nginx.md#Custom-Error-Pages) weiter. Dazu muss wie schon für Error 403 noch nachfolgender Eintrag erstellt werden.
+```
+    error_page 404 = @404;
+    location @404 {
+        root /var/www/html/;
+        try_files /404.html =404;
+    }
+```
+
+
+
 Fehlt: Reverse Proxy so einstellen, dass auch über die externe IP-Adresse auf das System zugegriffen werden kann.
