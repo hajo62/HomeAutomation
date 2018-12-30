@@ -196,6 +196,5 @@ Die jeweils beiden letzten Zeilen leiten auf eine [individuelle Error-Seite](./n
 ## iOS App
 [![AppleAppStore](https://linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg)](https://itunes.apple.com/us/app/home-assistant-open-source-home-automation/id1099568401?mt=8)
 
-Die iOS App für Home Assistant gibt's im [Apple App Store](https://itunes.apple.com/us/app/home-assistant-open-source-home-automation/id1099568401?mt=8).  
 Die App erkannte meine Installation automatisch; allerdings unter der lokalen IP-Adresse und nicht unter der _von außen_. Dies korrigiert und dann endlich gefunden, dass im Hintergrund der Login-Screen erschienen ist.  
 Nicht sehr intuitiv, aber man bekommt es hin.

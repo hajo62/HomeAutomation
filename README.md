@@ -17,5 +17,5 @@ Da mir die kommerziellen Produkte aber zu abgeschlossen sind, habe ich im Herbst
 ---
 
 Und nun?
-- PlatformIO um Firebeetle anzuschließen
+- [PlatformIO um Firebeetle](doc/firebeetle.md) anzuschließen
 - zwave Stick konfigurieren
