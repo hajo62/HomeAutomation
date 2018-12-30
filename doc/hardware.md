@@ -53,7 +53,9 @@ Ansonsten gibt's [hier](https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_
 
 
 ---
+
 \* Wenn Du die Sachen nirgendwo günstiger findest, freue ich mich, wenn Du die o.a. Links zum Kauf nutzt. Bin mal gespannt, ob das überhaupt jemand findet und/oder nutzt...
+
 ---
 
 |                         |  Preis  |
@@ -63,5 +65,4 @@ Ansonsten gibt's [hier](https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_
 | HDMI-Kabel              |  4,95 € |
 | USB-Tastatur            |       - |
 | Raspberry Pi 3 Netzteil | 13,84 € |
-| ----------------------- | -------:|
-|                         | 68,73 € |
+| Summe:                  | 68,73 € |
