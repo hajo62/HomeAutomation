@@ -142,7 +142,7 @@ unit_system: metric
 time_zone: Europe/Berlin
 ```
 
-`secrets.yaml`:
+`/home/homeassistant/.homeassistant/secrets.yaml`:
 
 ```
 # Use this file to store secrets like usernames and passwords.
@@ -152,9 +152,11 @@ time_zone: Europe/Berlin
 homeassistant.name: <name>
 latitude: <lat>
 longitude: <lang>
-Fritz_url: http://<PI-IP>
+Fritz_url: http://<FritzBox-IP>
 configurator_url: http://<PI-IP>:3218
 http.api_password: <password>
 ```
 
-Umrechnung der eigenen Adresse in Latitude und Longitude kann man z.B. [hier](https://www.latlong.net/convert-address-to-lat-long.html) machen.
+> Umrechnung der eigenen Adresse in Latitude und Longitude kann man z.B. [hier](https://www.latlong.net/convert-address-to-lat-long.html) machen.
+
+Fehlt: Reverse Proxy so einstellen, dass auch über die externe IP-Adresse auf das System zugegriffen werden kann.

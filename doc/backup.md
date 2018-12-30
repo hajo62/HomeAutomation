@@ -86,6 +86,8 @@ sudo umount /mnt/myCloud
 
 Als erster Schritt wird das Script mit dem Parameter `setup` aufgerufen; hierdurch wird das Kennwort und die Backup-Konfigurationsdatei gespeichert und die Datei mit den nicht zu sichernden Verzeichnissen angelegt. Mit dem Aufruf `./backup.sh backup` wird eine Sicherung durchgeführt.
 
+> Im script noch einen Check einbauen, ob das Verzeichnis gemounted ist. Da der mountpoint existiert, wird sonst auf der SD-Karte selbst "gesichert.""
+
 ### crontab
 Die crontab-Datei wird mit `crontab -e` editiert. Hier fügt man zwei Zeilen ein:  
 `30 11 * * * /root/backup.sh backup`: Tägliche Sicherung um 11:30 Uhr  
