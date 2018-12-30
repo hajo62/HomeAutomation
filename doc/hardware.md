@@ -1,6 +1,6 @@
 # Hardware
 Hier die Liste der benötigten Dinge:
-- [Raspberry Pi](#raspberry pi 3 model b+)
+- [Raspberry Pi](#raspberry-pi-3-model-b+)
 - [SD-Karte als Speichermedium](#speicher)
 - [Stromversorgung](#netzteil)
 - [Monitor-Kabel](#hdmi-kabel)
@@ -54,3 +54,14 @@ Ansonsten gibt's [hier](https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_
 
 ---
 \* Wenn Du die Sachen nirgendwo günstiger findest, freue ich mich, wenn Du die o.a. Links zum Kauf nutzt. Bin mal gespannt, ob das überhaupt jemand findet und/oder nutzt...
+---
+
+|                         |  Preis  |
+| ----------------------- | -------:|
+| Raspberry Pi 3 Model B+ | 39,95 € |
+| 32 GB SD-Karte          |  9,99 € |
+| HDMI-Kabel              |  4,95 € |
+| USB-Tastatur            |       - |
+| Raspberry Pi 3 Netzteil | 13,84 € |
+| ----------------------- | -------:|
+|                         | 68,73 € |

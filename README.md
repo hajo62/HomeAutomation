@@ -13,3 +13,9 @@ Da mir die kommerziellen Produkte aber zu abgeschlossen sind, habe ich im Herbst
 * [nginx](doc/nginx.md) installieren und als Remote Proxy konfigurieren.
 * [Backup & Recovery](doc/backup.md).
 * Installation von [Home Assistant](doc/install_homeassistant.md).
+
+---
+
+Und nun?
+- PlatformIO um Firebeetle anzuschließen
+- zwave Stick konfigurieren
