@@ -11,5 +11,4 @@ Die [Installationsmedien](https://platformio.org/platformio-ide) von PlatformIO 
 - Ein neues Projekt anlegen.
 Im Projekt-Wizard einen Namen vergeben und das richtige Board (für meines **FireBeetle-ESP32 (DFRobot)**) anwählen.
 - Im File `src/main.cpp` folgenden [Code](../firebeetle/morse_example/main.cpp) eingeben.
-- Nun einfach den FireBeetle mit einem USB-Kabel anschließen und das **PlatformIO: Upload**-Ikon drücken.
-<img src="../images4git/platformio-morsen.jpg" width="500" border="1" align="center">
+- Nun einfach den FireBeetle mit einem USB-Kabel anschließen und das **PlatformIO: Upload**-Ikon (Pfeil nach rechts in der blauen Status-Leiste) drücken. <img src="../images4git/platformio-morsen.jpg" width="500" border="1" align="center">
