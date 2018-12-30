@@ -191,6 +191,4 @@ Die jeweils beiden letzten Zeilen leiten auf eine [individuelle Error-Seite](./n
     }
 ```
 
-
-
-Fehlt: Reverse Proxy so einstellen, dass auch über die externe IP-Adresse auf das System zugegriffen werden kann.
+> Fehlt: Reverse Proxy auf für lokalen Zugriff?! Braucht man das bzw. macht das Sinn?
