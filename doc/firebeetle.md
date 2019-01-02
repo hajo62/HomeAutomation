@@ -9,6 +9,6 @@ Die [Installationsmedien](https://platformio.org/platformio-ide) von PlatformIO 
 ### Blink-Beispiel
 Überraschend einfach konnte ich in Anlehnung an dieses kleine [Tutorial](https://techtutorialsx.com/2017/06/15/firebeetle-esp32-blinking-the-on-board-led/) meine erstes kleines Programm erstellen, dass die kleine blaue LED meinen Namen im Morse-Code blinken lässt.  
 - Ein neues Projekt anlegen.
-Im Projekt-Wizard einen Namen vergeben und das richtige Board (für meines **FireBeetle-ESP32 (DFRobot)**) anwählen.
+Im Projekt-Wizard einen Namen vergeben und das richtige Board (für Meines: **FireBeetle-ESP32 (DFRobot)**) anwählen.
 - Im File `src/main.cpp` folgenden [Code](../firebeetle/morse_example/main.cpp) eingeben.
 - Nun einfach den FireBeetle mit einem USB-Kabel anschließen und das **PlatformIO: Upload**-Ikon (Pfeil nach rechts in der blauen Status-Leiste) drücken. <img src="../images4git/platformio-morsen.jpg" width="500" border="1" align="center">
