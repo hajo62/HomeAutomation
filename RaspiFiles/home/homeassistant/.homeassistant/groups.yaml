@@ -1,0 +1,28 @@
+System_Info:                        # Group for RaspberryPi System Information 
+    name: System Info
+    entities:
+    - sensor.CPU_Temperature
+    - sensor.processor_use
+    - sensor.memory_use_percent
+    - sensor.memory_free
+    - sensor.disk_use_percent_home
+    - sensor.disk_free_home
+#    - sensor.Wireless_in
+#    - sensor.Wireless_out
+    - sensor.network_in_wlan0
+    - sensor.network_out_wlan0
+    - sensor.date_last_boot
+    - sensor.UpTime
+    - sensor.HA_Time_Online
+    - sensor.HA_Cert_Expiry
+    - sensor.FritzBox_Cert_Expiry
+    - sensor.ha_version
+
+ha_mode:                            # Show/Set global mode
+    name: Mode
+    control: hidden # No group switch
+    entities:
+      - input_boolean.ha_mode_home
+      - input_boolean.ha_mode_night
+      - input_boolean.ha_mode_away
+      - input_boolean.ha_mode_holiday

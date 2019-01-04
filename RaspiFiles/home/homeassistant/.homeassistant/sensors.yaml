@@ -1,0 +1,90 @@
+####################################################
+# Raspberry PI system Monitoring                   #
+####################################################
+  - platform: systemmonitor
+    resources:
+      - type: processor_use         # Processur use in %
+      - type: memory_use_percent    # Memory used in %
+      - type: memory_free           # Memory free in MB
+      - type: disk_use_percent      # Disk used in %
+        arg: /home                  # arg does really not matter because all folders are in / filesystem located on SD card
+      - type: disk_free             # Disk free in MB
+        arg: /home
+      - type: last_boot             # Time of last boot - needed for template sensor date_last_boot
+        #hidden: true               # If hidden, the date_last_boot sensor shows unknown
+      - type: network_in            # Network trafic in MB
+        arg: wlan0
+      - type: network_out
+        arg: wlan0
+        
+  - platform: template
+    sensors:
+      date_last_boot:               # Last boot in a nicer format: yyyy-mm-dd
+        friendly_name: "Date last boot"
+        value_template: '{{ states.sensor.last_boot.state.split("T")[0] }}'
+
+  - platform: command_line
+    name: CPU Temperature           # CPU Temperatur in °C
+    command: "cat /sys/class/thermal/thermal_zone0/temp"
+    unit_of_measurement: "°C"       # If errors occur, remove degree symbol below
+    value_template: '{{ value | multiply(0.001) | round(1) }}'
+    
+  - platform: command_line
+    name: UpTime                    # PIs uptime in days
+    command: 'uptime -p | cut -d "," -f 1-2'
+    #command "uptime | sed 's/.*up \([^,]*\), .*/\1/'"
+    scan_interval: 3600
+    icon: mdi:clock
+    
+  - platform: version               # Home Assistant Software Version
+    name: 'HA Version'
+  - platform: uptime
+    name: 'HA Time Online'
+    unit_of_measurement: days
+    scan_interval: 3600
+    
+  - platform: cert_expiry           # LetsEncrypt Certificate expiry for Home Assistant
+    name: "HA Cert Expiry"
+    host: myHost.myfritz.net
+    port: 443
+    scan_interval: 3600
+
+  - platform: cert_expiry           # LetsEncrypt Certificate expiry for FritzBox
+    name: "FritzBox Cert Expiry"
+    host: myHost.myfritz.net
+    port: 44478
+    scan_interval: 3600
+      
+#  - platform: cpuspeed             #  Does not show anything?!
+
+####################################################
+# HA MODE SENSOR                                   #
+####################################################
+  - platform: template
+    sensors:
+      ha_mode:
+        friendly_name: 'HA Mode'
+        entity_id: input_boolean.ha_mode_home,
+                   input_boolean.ha_mode_away,
+                   input_boolean.ha_mode_holiday, 
+                   input_boolean.ha_mode_night
+        value_template: >-
+         {% if is_state('input_boolean.ha_mode_home', 'on') %}
+            home
+         {% elif is_state('input_boolean.ha_mode_away', 'on') %}
+            away
+         {% elif is_state('input_boolean.ha_mode_night', 'on') %}
+           night
+         {% elif is_state('input_boolean.ha_mode_holiday', 'on') %}
+           holiday
+         {% endif %}
+#        icon_template: >-
+#          {% if is_state('input_boolean.ha_mode_home', 'on') %}
+#             mdi:home-account
+#          {% elif is_state('input_boolean.ha_mode_away', 'on') %}
+#             mdi:walk
+#          {% elif is_state('input_boolean.ha_mode_night', 'on') %}
+#             mdi:weather-night
+#          {% elif is_state('input_boolean.ha_mode_holiday', 'on') %}
+#            mdi:airplane-takeoff
+#          {% endif %}
