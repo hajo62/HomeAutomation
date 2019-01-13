@@ -82,7 +82,8 @@ panel_iframe:
     url: !secret configurator_url
 [...]    
 ```
-Nun mit `sudo nano configurator.py` editieren und ein frei gewähltes Kenntwort eintragen:
+Hierbei darauf achten, dass das Kennwort in der secrets-Datei ohne **"** eingetragen wird, in der Datei `configurator.py` jedoch mit!  
+Nun mit `sudo nano configurator.py` editieren und das Kenntwort eintragen:
 ```
 [...]  
 HASS_API_PASSWORD = "<password>"
