@@ -13,6 +13,7 @@ sensor: !include_dir_merge_list sensors
 # Sensoren gruppieren
 Ohne eine entsprechende Einstellung werden alle Sensoren auf der Hauptseite (default_view) als Kreise dargstellt.  
 <img src="../images4git/sensors.jpg" width="700">
+
 Das erste Mittel zum Ordnen des Chaos' sind **Gruppen**. Einlesen der Datei `groups.yaml`.  
 `configuration.yaml`:
 ```
