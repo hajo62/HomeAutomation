@@ -36,7 +36,7 @@ SystemInfo_group:                        # Group for RaspberryPi System Informat
 
 ## Tabs
 Wenn die Zahl der Sensoren und Gruppen weiter steigt, kann man die Sensoren und/oder die Gruppen in verschiedenen Tabs darstellen. Leider erscheinen die Gruppen dann trotzdem noch auf dem Default_view. Dies kann man zwar dadurch verhindern, dass man explizit Einstellungen für den Tab (default_view) vornimmt; dies hat jedoch den Nachteil, dass dann neue Sensoren nirgends sichtbar sind, bis diese einem Tab zugeordnet sind. Da ich noch experimentiere und sich noch viel ändert, habe ich diese Einstellung noch nicht vorgenommen.  
-'groups.yaml':
+`groups.yaml`:
 ```
 #default_view:
 #  view: true
