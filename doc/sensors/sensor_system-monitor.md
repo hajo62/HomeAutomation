@@ -1,7 +1,7 @@
 # Sensoren
 ## System Monitor
 Die ersten Sensoren, die man zur Verfügung hat, sind die, die der Raspberry Pi - genauer das Betriebssystem - selbst zu Verfügung stellt und die dabei helfen, den Systemzustand im Auge zu behalten. Die verfügbaren Sensoren sind (größtenteils) in der [systemmonitor-Plattform](https://www.home-assistant.io/components/sensor.systemmonitor) zusammen gestellt.  
-<img src="../images4git/system_info.jpg" width="400">
+<img src="../../images4git/system_info.jpg" width="400">
 
 Um diese Sensoren zu aktivieren/darzustellen, müssen die Dateien `sensors.yaml` und `groups.yaml` wie folgt erweitert werden:  
 `sensors.yaml`:
@@ -32,6 +32,6 @@ Um diese Sensoren zu aktivieren/darzustellen, müssen die Dateien `sensors.yaml`
 ```
 
 Nach dem Neustart des HA sind die Sensoren (im Bild sind weitere Sensoren enthalten) in der Übersichtszeile sichtbar:  
-<img src="../images4git/sensors.jpg" width="400">
+<img src="../../images4git/sensors.jpg" width="400">
 
 Damit Sensoren, wie im unteren Teil des Bildes angedeuteet, gesammelt in einer Gruppe dargestellt werden, müssen diese gruppiert werden. Wie das geht, ist [hier](../homeassistant_groups_tabs.md) beschrieben.  
