@@ -202,4 +202,4 @@ Nicht sehr intuitiv, aber man bekommt es hin.
 
 ---
 
-Als nächstes kehrt [Ordnung über Gruppen](./homeassistant_groups_tabs.md) und Tabs ein.
+Als nächstes kehrt Ordnung über [Gruppen und Tabs](./homeassistant_groups_tabs.md) ein.
