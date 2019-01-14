@@ -50,6 +50,8 @@ Erstellen des Mount-Point: `sudo mkdir /mnt/myCloud`
 
 Mounten des Shares: `sudo mount 192.168.178.2:/nfs/homeassistant /mnt/myCloud/`
 
+
+### Restic installieren oder aktualisieren
 Für die eigentliche Sicherung gibt es eine Vielzahl von Möglichkeiten. Ich nutze aktuell [restic](https://restic.net/):  
 Die Installation könnte einfach aus dem Package Manager oder mit `apt-get install restic` erfolgen. Allerdings ist die Version (v0.3.3-1) ziemlich alt.  
 Besser ist der Download von [hier](https://github.com/restic/restic/releases/latest). Ich habe im Dezember 2018 die Datei `restic_0.9.3_linux_arm.bz2` herunter geladen.
@@ -60,7 +62,9 @@ bzip2 -d restic_0.9.3_linux_arm.bz2
 chmod a+x restic_0.9.3_linux_arm
 sudo mv restic_0.9.3_linux_arm /bin/restic
 ```
+Um restic zu aktualisieren (im Januar 2019 auf 0.9.4), verwendet man die selben Kommandos mit angepassten Versionsbezeichnern.
 
+### Restic konfigurieren
 Als nächstes eine Datei mit allen _**nicht**_ zu sichernden Dateien und Verzeichnissen anlegen:
 ```
 sudo echo "/mnt/*
@@ -74,7 +78,7 @@ sudo echo "/mnt/*
 Nun das Restic-Repository anlegen: `sudo restic init -r /mnt/myCloud/restic.repo`  
 **Wichtig**: Kennwort merken, da man das nicht mehr anzeigen lassen kann!
 
-Durchführen der Sicherung:
+### Durchführen der Sicherung:
 ```
 sudo mount 192.168.178.2:/nfs/homeassistant /mnt/myCloud/
 sudo restic backup --exclude-file ~/.restic/restic.excludes -r /mnt/myCloud/restic.repo /
@@ -101,6 +105,11 @@ Anschließend mounten des Shares: `sudo mount 192.168.178.2:/nfs/homeassistant /
 - Image auf SD-Karte schreiben: `sudo dd if=32gb.img of=/dev/mmcblk0 bs=4M`  
 - Aktualisieren auf den letzten Sicherungsstand: `sudo restic restore -r /mnt/myCloud/restic.repo`  
 Da die SD-Karte nicht leer ist, schmeisst restic tausende von Fehlern für Dateien, die es nicht restaurieren kann, weil sie schon vorhanden sind. Im Ergbnis erhält man aber trotzdem einen wiederhergestellen Raspi.
+
+## Restore einer einzelnen Datei vom NAS
+Hier ein Beispiel für die Datei `/home/homeassistant/.homeassistant/configurator.py`:  
+`restic restore efb09d02 --target /tmp -r /mnt/myCloud/restic.repo/ --include /home/homeassistant/.homeassistant/configurator.py`  
+Datei kontrollieren und anschließend an die Originalstelle kopieren.
 
 ---
 

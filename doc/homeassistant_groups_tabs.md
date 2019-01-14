@@ -35,11 +35,12 @@ SystemInfo_group:                        # Group for RaspberryPi System Informat
 <img src="../images4git/first_groups.jpg" width="700">
 
 ## Tabs
-Wenn die Zahl der Sensoren und Gruppen weiter steigt, kann man die Sensoren und/oder die Gruppen in verschiedenen Tabs darstellen. Leider erscheinen diese dann trotzdem noch auf dem Default_view. Dies kann man zwar dadurch verhindern, dass man explizit EInstellungen für diese Tab vornimmt; dies hat jedoch den Nachteil, dass dann neue Sensoren nirgends sichtbar sind, bis diese einem Tab zugeordnet sind. Da sich bei noch viel ändert, habe ich diese Einstellung noch nicht vorgenommen.  
+Wenn die Zahl der Sensoren und Gruppen weiter steigt, kann man die Sensoren und/oder die Gruppen in verschiedenen Tabs darstellen. Leider erscheinen die Gruppen dann trotzdem noch auf dem Default_view. Dies kann man zwar dadurch verhindern, dass man explizit Einstellungen für den Tab (default_view) vornimmt; dies hat jedoch den Nachteil, dass dann neue Sensoren nirgends sichtbar sind, bis diese einem Tab zugeordnet sind. Da ich noch experimentiere und sich noch viel ändert, habe ich diese Einstellung noch nicht vorgenommen.  
 'groups.yaml':
 ```
 #default_view:
 #  view: true
+#  icon: mdi:home
 #  entities:
 
 SystemInfo_view:
