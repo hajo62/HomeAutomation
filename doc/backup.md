@@ -113,4 +113,4 @@ Datei kontrollieren und anschließend an die Originalstelle kopieren.
 
 ---
 
-Nun noch die [Installation von HomeAssistant](./install_homeassistant.md) und dann kann es _endlich_ losgehen.
+Nun noch die [Installation von HomeAssistant](./homeassistant_install.md) und dann kann es _endlich_ losgehen.
