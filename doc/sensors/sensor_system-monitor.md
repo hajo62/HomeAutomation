@@ -175,3 +175,6 @@ Der [Speedtest.net](https://www.home-assistant.io/components/sensor.speedtest/) 
       - upload
     value_template: '{{ value | round(0) }}'  
 ```
+
+Das Ergebnis schaut bei mir dann so aus:  
+<img src="../../images4git/system_info-dashboard.jpg" width="500">
