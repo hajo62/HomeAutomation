@@ -13,12 +13,12 @@ Da mir die kommerziellen Produkte aber zu abgeschlossen sind, habe ich im Herbst
 * [nginx](doc/nginx.md) installieren und als Remote Proxy konfigurieren.
 * [Backup & Recovery](doc/backup.md).
 * Installation von [Home Assistant](doc/homeassistant_install.md).
-* [Gruppen und Tabs](doc/homeassistant_groups_tabs.md) erstellen, um Sensoren geordnet darstellen zu können.
+ * Erste  [Sensoren](doc/sensors/sensor_system-monitor.md) konfigurieren.
+ * [Gruppen und Tabs](doc/homeassistant_groups_tabs.md) erstellen, um Sensoren geordnet darstellen zu können.
 
 ---
 
-Und nun?
-- *Sensoren* konfigurieren?
+Und wie weiter?
 - [PlatformIO um Firebeetle](doc/firebeetle.md) anzuschließen?
 - **zwave Stick** konfigurieren?
 - oder sich mit **Zigbee2mqtt** versuchen?
