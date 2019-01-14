@@ -75,7 +75,7 @@ Der angeführte Sensor zeigt die Tage bis zum Ablauf des entsprechenden Zertifik
 ```
 Soll z.B. auch die Gültigkeit für das Zertifikat der Fritzbox angezeigt werden, muss einfach ein weiterer Eintrag ergänzt werden (Standardport für Fritzbox-Webinterface: 44478).
 
-## Fritz!box
+## Fritz!Box
 ### Sensor fritzbox_netmonitor
 Über den [FRITZ!Box Net Monitor](https://www.home-assistant.io/components/sensor.fritzbox_netmonitor/) lassen sich Netzwerkstatistiken von der Fritzbox abrufen. Bevor der Sensor verwendet werden kann, muss zusätzliche Software auf dem Raspi installiert werden.  
 ```
