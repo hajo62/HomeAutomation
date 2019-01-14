@@ -61,3 +61,16 @@ Mit dem [Command Line Sensor](https://www.home-assistant.io/components/sensor.co
 ```
 Hier ein Beispiel für die Ausgabe des Temperatur-Sensors. Um einen solchen Graphen zu erhalten, ist es wichtig, den Parameter `unit_of_measurement` zu pflegen.   
 <img src="../../images4git/temperatur.jpg" width="200">
+
+### Sensor Certificate expiry
+Let's Encrypt Zertifikate haben ein Gültigkeit von 90 Tagen und müssen regelmäßig erneuert werden. Die [Fritz!Box](../fritzbox.md#Certificate) macht dies automatisch; das Zertifikat für den [nginx Reverse Proxy](../nginx.md) muss selbst erneuert werden (dies kann natürlich auch per crontab automatisiert werden).
+Der angeführte Sensor zeigt die Tage bis zum Ablauf des entsprechenden Zertifikates an:  
+`sensors/sensors.yaml`:
+```
+- platform: cert_expiry           # LetsEncrypt Certificate expiry for Home Assistant
+  name: "HA Cert Expiry"
+  host: xxxxxxxxxxxxxxxx.myfritz.net
+  port: 443
+  scan_interval: 21600            # Aktualisieren alle 6 Stunden
+```
+Soll z.B. auch die Gültigkeit für das Zertifikat der Fritzbox angezeigt werden, muss einfach ein weiterer Eintrag ergänzt werden (Standardport für Fritzbox-Webinterface: 44478).
