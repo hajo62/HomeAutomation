@@ -91,3 +91,64 @@ pip3 install lxml
 ```
 
 > Bei mir hatte dieses Kommando beim ersten mal nicht funktioniert. Ein paar Tage später ging es auf einmal...
+
+Dieser Sensor besteht aus _einem_ Sensor mit mehreren Attributen. Deshalb wird der Sensor selbst mit `hidden: true` auf nicht anzeigen gestellt. Anschließend werden die einzelnen Attribute mit `value_templates` einzeln angezeigt und ggf. noch umgerechnet.
+
+`sensors/sensors.yaml`:  
+```
+- platform: fritzbox_netmonitor
+  hidden: true
+- platform: template
+  sensors:
+    fritz_is_linked:
+      friendly_name: "Linked to Provider"
+      value_template: "{{ states.sensor.fritz_netmonitor.attributes.is_linked }}"
+      icon_template: mdi:earth
+    fritz_is_connected:
+      friendly_name: "Online"
+      value_template: "{{ states.sensor.fritz_netmonitor.attributes.is_connected }}"
+      icon_template: mdi:earth
+    fritz_wan_access_type:
+      friendly_name: "Anschluss"
+      value_template: "{{ states.sensor.fritz_netmonitor.attributes.wan_access_type }}"
+      icon_template: mdi:ethernet-cable
+    fritz_external_ip:
+      friendly_name: "IP"
+      value_template: "{{ states.sensor.fritz_netmonitor.attributes.external_ip }}"
+      icon_template: mdi:link
+    fritz_uptime:
+      friendly_name: "Uptime"
+      value_template: "{{ states.sensor.fritz_netmonitor.attributes.uptime }}"
+      icon_template: mdi:clock
+      unit_of_measurement: s
+    fritz_bytes_sent:
+      friendly_name: "Bytes sent"
+      value_template: "{{ states.sensor.fritz_netmonitor.attributes.bytes_sent | multiply(0.000001) | round(1) }}"
+      icon_template: mdi:arrow-up-bold
+      unit_of_measurement: MByte
+    fritz_bytes_received:
+      friendly_name: "Bytes received"
+      value_template: "{{ states.sensor.fritz_netmonitor.attributes.bytes_received | multiply(0.000001) | round(1) }}"
+      icon_template: mdi:arrow-down-bold
+      unit_of_measurement: MByte
+    fritz_rate_up:
+      friendly_name: "Upload"
+      value_template: "{{ states.sensor.fritz_netmonitor.attributes.transmission_rate_up }}"
+      icon_template: mdi:arrow-up-bold
+      unit_of_measurement: Byte/s
+    fritz_rate_down:
+      friendly_name: "Download"
+      value_template: "{{ states.sensor.fritz_netmonitor.attributes.transmission_rate_down }}"
+      icon_template: mdi:arrow-down-bold
+      unit_of_measurement: Byte/s
+    fritz_rate_up_max:
+      friendly_name: "Upload Max"
+      value_template: "{{ states.sensor.fritz_netmonitor.attributes.max_byte_rate_up | multiply(0.001) | round(1) }}"
+      icon_template: mdi:arrow-up-bold
+      unit_of_measurement: kByte/s
+    fritz_rate_down_max:
+      friendly_name: "Download Max"
+      value_template: "{{ states.sensor.fritz_netmonitor.attributes.max_byte_rate_down | multiply(0.001) | round(1) }}"
+      icon_template: mdi:arrow-down-bold
+      unit_of_measurement: kByte/s
+```
