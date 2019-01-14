@@ -74,3 +74,20 @@ Der angeführte Sensor zeigt die Tage bis zum Ablauf des entsprechenden Zertifik
   scan_interval: 21600            # Aktualisieren alle 6 Stunden
 ```
 Soll z.B. auch die Gültigkeit für das Zertifikat der Fritzbox angezeigt werden, muss einfach ein weiterer Eintrag ergänzt werden (Standardport für Fritzbox-Webinterface: 44478).
+
+## Fritz!box
+### Sensor fritzbox_netmonitor
+Über den [FRITZ!Box Net Monitor](https://www.home-assistant.io/components/sensor.fritzbox_netmonitor/) lassen sich Netzwerkstatistiken von der Fritzbox abrufen. Bevor der Sensor verwendet werden kann, muss zusätzliche Software auf dem Raspi installiert werden.  
+```
+sudo apt-get install libxslt-dev libxml2-dev python3-lxml
+sudo apt-get install libxml2-dev libxslt1-dev # War in meiner history. Ob hierbei was installiert wurde, weiß ich nicht mehr
+```
+
+Anschließend im virtualenv:  
+```
+cd /srv/homeassistant
+source bin/activate
+pip3 install lxml
+```
+
+> Bei mir hatte dieses Kommando beim ersten mal nicht funktioniert. Ein paar Tage später ging es auf einmal...
