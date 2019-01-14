@@ -152,3 +152,26 @@ Dieser Sensor besteht aus _einem_ Sensor mit mehreren Attributen. Deshalb wird d
       icon_template: mdi:arrow-down-bold
       unit_of_measurement: kByte/s
 ```
+
+## Netzwerk
+### Sensor speedtest.net
+Der [Speedtest.net](https://www.home-assistant.io/components/sensor.speedtest/) Sensor misst die Bandbreite und die Performance des Netzwerkes. Die Konfiguration ist recht einfach; jedoch sollte man bedenken, dass die Tests relativ viel Datenvolumen (ca. 40 MB download und ca 10 MB upload) produzieren, während der Zeit der Test das Netzwerk voll auslasten und auch erheblich Speicher auf dem Raspi belegen. Daher führe ich den Test zum Ausprobieren 5 mal pro Tag aus:
+
+`sensors/sensors.yaml`:  
+```
+  - platform: speedtest
+    server_id: 6670
+    hour:
+    - 07
+    - 11
+    - 15
+    - 19
+    - 23
+    minute:
+    - 58
+    monitored_conditions:
+      - ping
+      - download
+      - upload
+    value_template: '{{ value | round(0) }}'  
+```
