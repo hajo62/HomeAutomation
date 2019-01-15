@@ -21,4 +21,4 @@ Da mir die kommerziellen Produkte aber zu abgeschlossen sind, habe ich im Herbst
 Und wie weiter?
 - [PlatformIO um Firebeetle](doc/firebeetle.md) anzuschließen?
 - **zwave Stick** konfigurieren?
-- oder sich mit **Zigbee2mqtt** versuchen?
+- oder sich mit [**Zigbee2mqtt**](doc/sensors/zigbee2mqtt.md) versuchen?
