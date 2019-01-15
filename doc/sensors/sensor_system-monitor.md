@@ -1,4 +1,4 @@
-# Sensoren zum Monitoren des Raspberry Pis, des Netzwerkes und der Fritzbox
+# Sensoren zum Monitoren des Raspberry Pis, der Fritzbox und des Netzwerkes 
 ## Raspberry Pi
 ### Sensor System Monitor
 Die ersten Sensoren, die man zur Verfügung hat, sind die, die der Raspberry Pi - genauer das Betriebssystem - selbst zur Verfügung stellt und die dabei helfen, den Systemzustand im Auge zu behalten. Die verfügbaren Sensoren sind (größtenteils) in der [systemmonitor-Plattform](https://www.home-assistant.io/components/sensor.systemmonitor) zusammen gestellt.  
