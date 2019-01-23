@@ -5,6 +5,7 @@ Hier die Liste der benötigten Dinge:
 - [Stromversorgung](#netzteil)
 - [Monitor-Kabel](#hdmi-kabel)
 - [Tastatur](#tastatur)
+- [aeotec Z-Wave-Stick](#aeotec-z-stick-gen5)
 
 
 ## Raspberry Pi 3 Model B+
@@ -48,8 +49,10 @@ Für's initiale Einrichten ist eine USB-Tastatur hilfreich. Ich habe dazu eine _
 <img src="https://snpi.dell.com/snp/images/products/large/de-de~580-ADHEr1/580-ADHEr1.jpg" width="200">  
 Ansonsten gibt's [hier](https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_id=114&ipn=icep&toolid=20004&campid=5338436153&mpre=https%3A%2F%2Fwww.ebay.de%2Fsch%2Fi.html%3F_sop%3D15%26LH_ItemCondition%3D1000%26Tastatur%25252FKeypad%3DTastatur%26_oaa%3D1%26Schnittstelle%3DUSB%26_osacat%3D33963%26_odkw%3Dusb%2Btastatur%2B-numerisch%26LH_BIN%3D1%26Tastaturlayout%3DQWERTZ%252520%252528Standard%252529%26_dcat%3D33963%26rt%3Dnc%26Verbindung%3DKabelgebunden%26_from%3DR40%26_trksid%3Dm570.l1313%26_nkw%3Dusb%2Btastatur%2B-numerische%26_sacat%3D33963) günstige Tastaturen.
 
+## aeotec Z-Stick Gen5
+<img src="../images4git/aeotec-zwave-stick.jpg"> Der Aeon Labs Stick verbindet z.B. einen RPi über die USB-Schnittstelle mit einem Z-Wave-Netz, so dass die SmartHome-Zentrale z-wave-Geräte steuern kann.  
 
-
+Im November 2018 gab es für unter 50€. Aktuelle Angebote z.B. [hier](https://www.ebay.de/sch/i.html?_from=R40&_nkw=Aeotec++Z-Stick+Gen5&_sacat=0&_sop=15&rt=nc&LH_PrefLoc=2).
 
 
 ---
@@ -58,11 +61,12 @@ Ansonsten gibt's [hier](https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_
 
 ---
 
-|                         |  Preis  |
-| ----------------------- | -------:|
-| Raspberry Pi 3 Model B+ | 39,95 € |
-| 32 GB SD-Karte          |  9,99 € |
-| HDMI-Kabel              |  4,95 € |
-| USB-Tastatur            |       - |
-| Raspberry Pi 3 Netzteil | 13,84 € |
-| **Summe:**              | **68,73 €** |
+|                         |    Preis   |
+| ----------------------- | ----------:|
+| Raspberry Pi 3 Model B+ |    39,95 € |
+| 32 GB SD-Karte          |     9,99 € |
+| HDMI-Kabel              |     4,95 € |
+| USB-Tastatur            |          - |
+| Raspberry Pi 3 Netzteil |    13,84 € |
+| aeotec Z-Stick Gen5     |    47,78 € |
+| **Summe:**              | **116,51 €** |
