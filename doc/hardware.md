@@ -53,11 +53,6 @@ Der Aeon Labs Stick verbindet z.B. einen RPi über die USB-Schnittstelle mit ein
 
 Im November 2018 gab es den Stick [hier](https://www.jacob.de/q/2395131) für unter 50€. Aktuelle Angebote gibt es z.B. [hier](https://www.ebay.de/sch/i.html?_from=R40&_nkw=Aeotec++Z-Stick+Gen5&_sacat=0&_sop=15&rt=nc&LH_PrefLoc=2)\*.
 
-
----
-
-\* Wenn Du die Sachen nirgendwo günstiger findest, freue ich mich, wenn Du die o.a. Links zum Kauf nutzt. Bin mal gespannt, ob das überhaupt jemand findet und/oder nutzt...
-
 ---
 
 |                         |    Preis   |
@@ -69,3 +64,7 @@ Im November 2018 gab es den Stick [hier](https://www.jacob.de/q/2395131) für un
 | Raspberry Pi 3 Netzteil |    13,84 € |
 | aeotec Z-Stick Gen5     |    47,78 € |
 | **Summe:**              | **116,51 €** |
+
+---
+
+\* Wenn Du die Sachen nirgendwo günstiger findest, freue ich mich, wenn Du die o.a. Links zum Kauf nutzt. Bin mal gespannt, ob das überhaupt jemand findet und/oder nutzt...
