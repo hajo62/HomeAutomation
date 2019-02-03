@@ -12,3 +12,19 @@ Neben der bereits sehr guten Beschreibung des [Autors](https://github.com/Koenkk
 Leider kommen die Teile aus China, so dass es bis zu zwei Monaten dauert, bis sie ankommen. Wer es eiliger hat, findet bei [ebay-Kleinanzeigen](https://www.ebay-kleinanzeigen.de/s-cc2531-zigbee/k0) fertig präperierte Sticks und [hier](https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_id=114&ipn=icep&toolid=20004&campid=5338436153&mpre=https%3A%2F%2Fwww.ebay.de%2Fsch%2Fi.html%3F_from%3DR40%26_trksid%3Dm570.l1313%26_nkw%3DWSDCGQ11LM%26_sacat%3D0) für ein paar Euro mehr den Xiaomi Aqara Sensor geliefert aus Deutschland.
 
 Ich werde mit diesem Teil erst mal bis Ende Februar warten, da ich das Flashen selbst machen möchte und die anderen Teile nicht in Deutschland gefunden habe...
+
+
+---
+
+## Flashing der Firmware auf den CC2531 USB Stick
+### Vorbereitungen auf dem Mac
+[Hier](https://koenkk.github.io/zigbee2mqtt/getting_started/flashing_the_cc2531.html) die Bescheibung, um das `cc-tool` zu erstellen:  
+```
+xcode-select --install
+brew install autoconf automake libusb boost pkgconfig libtool
+git clone https://github.com/dashesy/cc-tool.git
+cd cc-tool
+./bootstrap
+./configure
+make
+```
