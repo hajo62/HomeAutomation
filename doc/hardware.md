@@ -1,12 +1,15 @@
 # Hardware
 Hier die Liste der benötigten Dinge:
-- [Raspberry Pi](#raspberry-pi-3-model-b+)
-- [SD-Karte als Speichermedium](#speicher)
-- [Stromversorgung](#netzteil)
-- [Monitor-Kabel](#hdmi-kabel)
-- [Tastatur](#tastatur)
-- [aeotec Z-Wave-Stick](#aeotec-z-stick-gen5)
 
+|                                                     |    Preis   |
+| --------------------------------------------------- | ----------:|
+| [Raspberry Pi 3 Model B+](#raspberry-pi-3-model-b+) |    39,95 € |
+| [32 GB SD-Karte als Speichermedium](#speicher)      |     9,99 € |
+| [Raspberry Pi 3 Netzteil](#netzteil)                |    13,84 € |
+| [HDMI-Monitor-Kabel](#hdmi-kabel)                   |     4,95 € |
+| [USB-Tastatur](#tastatur)                           |          - |
+| [aeotec Z-Wave-Stick](#aeotec-z-stick-gen5)         |    47,78 € |
+| **Summe:**                                          | **116,51 €** |
 
 ## Raspberry Pi 3 Model B+
 Das aktuelle Modell (Nov 2018) hat einen 64-Bit-Quad-Core-Prozessor mit 1.4GHz, 1 GB RAM, Dualband-WLAN mit 2.4GHz und 5GHz, Bluetooth 4.2/BLE und schnelleres Ethernet.
@@ -51,19 +54,10 @@ Ansonsten gibt's [hier](https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_
 <img src="../images4git/aeotec-zwave-stick.jpg">  
 Der Aeon Labs Stick verbindet z.B. einen RPi über die USB-Schnittstelle mit einem Z-Wave-Netz, so dass die SmartHome-Zentrale z-wave-Geräte steuern kann.  
 
-Im November 2018 gab es den Stick [hier](https://www.jacob.de/q/2395131) für unter 50€. Aktuelle Angebote gibt es z.B. [hier](https://www.ebay.de/sch/i.html?_from=R40&_nkw=Aeotec++Z-Stick+Gen5&_sacat=0&_sop=15&rt=nc&LH_PrefLoc=2)\*.
+Im November 2018 gab es den Stick [hier](https://www.jacob.de/q/2395131) für unter 50€. Aktuelle Angebote gibt es z.B. [hier](https://rover.ebay.com/rover/1/707-53477-19255-0/1?icep_id=114&ipn=icep&toolid=20004&campid=5338436153&mpre=https%3A%2F%2Fwww.ebay.de%2Fsch%2Fi.html%3F_from%3DR40%26_nkw%3DAeotec%2B%2BZ-Stick%2BGen5%26_sacat%3D0%26_sop%3D15%26rt%3Dnc%26LH_PrefLoc%3D2)\*.
 
 ---
 
-|                         |    Preis   |
-| ----------------------- | ----------:|
-| Raspberry Pi 3 Model B+ |    39,95 € |
-| 32 GB SD-Karte          |     9,99 € |
-| HDMI-Kabel              |     4,95 € |
-| USB-Tastatur            |          - |
-| Raspberry Pi 3 Netzteil |    13,84 € |
-| aeotec Z-Stick Gen5     |    47,78 € |
-| **Summe:**              | **116,51 €** |
 
 ---
 

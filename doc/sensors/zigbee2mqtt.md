@@ -16,7 +16,7 @@ Ich werde mit diesem Teil erst mal bis Ende Februar warten, da ich das Flashen s
 
 ---
 
-## Flashing der Firmware auf den CC2531 USB Stick
+## Flashen der Firmware auf den CC2531 USB Stick
 ### Vorbereitungen auf dem Mac
 [Hier](https://koenkk.github.io/zigbee2mqtt/getting_started/flashing_the_cc2531.html) die Bescheibung, um das `cc-tool` zu erstellen:  
 ```
@@ -28,3 +28,5 @@ cd cc-tool
 ./configure
 make
 ```
+
+Download der Firmware [CC2531ZNP-Prod.hex](https://github.com/Koenkk/Z-Stack-firmware/tree/master/coordinator/CC2531/bin).
