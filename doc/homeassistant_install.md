@@ -201,6 +201,8 @@ Die jeweils beiden letzten Zeilen leiten auf eine [individuelle Error-Seite](./n
 Die App erkannte meine Installation automatisch; allerdings unter der lokalen IP-Adresse und nicht unter der _von außen_. Dies korrigiert und dann endlich gefunden, dass im Hintergrund der Login-Screen erschienen ist.  
 Nicht sehr intuitiv, aber man bekommt es hin.
 
+Seit kurzen (Feb 2019) gibt es (als beta) eine neue [iOS App](https://community.home-assistant.io/t/hassapp-an-alternative-ios-app-to-empower-your-ha/97713)... Ausprobiert habe ich diese noch nicht.
+
 ## Update von Home Assistant
 Update gem. dieser [Beschreibung](https://www.home-assistant.io/docs/installation/updating/)
 
