@@ -1,4 +1,5 @@
 # Home Assistant
+## Installation
 
 [Hier](https://www.home-assistant.io/docs/installation) gibt es Beschreibungen zu verschiedenen Installationsverfahren für **Home Assistant**. Ich habe mich für die [hier](https://www.home-assistant.io/docs/installation/raspberry-pi/) beschriebene manuelle Installation auf einen bereits vorbereiteten Raspberry Pi entschieden.
 ```
@@ -25,7 +26,7 @@ Nachdem man einen User angelegt hat, muss man sich ein erstes mal anmelden:
 >**Hinweis:** Bei mir hat der Login nicht funktioniert.
 >Erst nachdem ich den hass-Prozess gestoppt und erneut gestartet habe.
 
-## Autostart aktivieren
+### Autostart aktivieren
 [Hier](https://www.home-assistant.io/docs/autostart/systemd) gibt es eine Bescheibung, wie man ein Programm beim Systemstart automatisch startet. Mit `sudo nano /etc/systemd/system/home-assistant@homeassistant.service` wird die Datei `home-assistant@homeassistant.service` mit folgendem Inhalt angelegt:
 
 ```
@@ -58,7 +59,7 @@ Autostart deaktivieren:
 
 `sudo systemctl disable home-assistant@homeassistant`
 
-## (Optional) Installation von hass.io-Konfigurator
+### (Optional) Installation von hass.io-Konfigurator
 Beim **hass.io-Konfigurator**-Plugin - verfügbar auf [GitHub](https://github.com/danielperna84/hass-configurator) - handelt es sich um einen Web-basierten Editor für die Home Assistant-Konfigurationsdateien mit Syntax-Highlighting. Zur Installation wird die Datei [configurator.py](https://github.com/danielperna84/hass-configurator/blob/master/configurator.py) ins HASS-Homeverzeichnis kopiert, ausführrbar gemacht und ausgeführt.
 ```
 cd /home/homeassistant/.homeassistant
@@ -107,7 +108,7 @@ Anschließend sollte der Konfigurator im Menü des Home Assistant erschienen sei
 
 <img src="../images4git/configurator.jpg" width="500" border="1">
 
-### Autostart des Konfigurators
+#### Autostart des Konfigurators
 Analog zu [Autostart aktivieren](#autostart-aktivieren) für den Home Assistant muss im Verzeichnis  `/etc/systemd/system` mit dem Befehl `sudo nano /etc/systemd/system/hass-configurator@homeassistant.service` (Der Dateiname kann beliebig vergeben werden.) eine Datei mit folgendem Inhalt angelegt werden:
 ```
 [Unit]
@@ -130,7 +131,7 @@ sudo systemctl start hass-configurator@homeassistant.service
 sudo systemctl enable hass-configurator@homeassistant.service
 ```
 
-## Erste Einstellungen
+### Erste Einstellungen
 In der Datei `/home/homeassistant/.homeassistant/configuration.yaml` folgende Einstellungen eingeben:
 
 ```
@@ -194,11 +195,27 @@ Die jeweils beiden letzten Zeilen leiten auf eine [individuelle Error-Seite](./n
 
 > Fehlt: Reverse Proxy auf für lokalen Zugriff?! Braucht man das bzw. macht das Sinn?
 
-## iOS App
+### iOS App
 [![AppleAppStore](https://linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg)](https://itunes.apple.com/us/app/home-assistant-open-source-home-automation/id1099568401?mt=8)
 
 Die App erkannte meine Installation automatisch; allerdings unter der lokalen IP-Adresse und nicht unter der _von außen_. Dies korrigiert und dann endlich gefunden, dass im Hintergrund der Login-Screen erschienen ist.  
 Nicht sehr intuitiv, aber man bekommt es hin.
+
+## Update von Home Assistant
+Update gem. dieser [Beschreibung](https://www.home-assistant.io/docs/installation/updating/)
+
+Vor dem Update - und danach - habe ich ein [bootfähiges Update](./backup.md#Erstellen-eines-bootfähigen-Images) erstellt.
+
+Der Update von Version [0.84.6](https://github.com/home-assistant/home-assistant/releases/tag/0.86.4) auf Version [0.87.1](https://github.com/home-assistant/home-assistant/releases/tag/0.87.1) (im Februar 2019) war sehr einfach.  
+```
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
+pip3 install --upgrade homeassistant
+```
+Anschließend noch HA neu starten. Am einfachsten dazu den RasPi rebooten.  
+Es bietet sich an, auch gleich noch die letzten [Betriebssystem-Updates einzuspielen](./betriebssystem.md#Updates).
+
+Wie im Kapitel [Backup](./backup.md) beschrieben, erstelle ich nun noch ein weiteres Image und beginne ein neues Restic-Repository.
 
 ---
 
