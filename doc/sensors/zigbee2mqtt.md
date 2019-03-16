@@ -41,7 +41,7 @@ Nun den CC debugger mit dem Downloader cable an den CC2531 USB Sniffer anschlie√
 sudo ./cc-tool -e -w CC2531ZNP-Prod.hex
 ```
 
-## Z igbee2mqtt installieren
+## Zigbee2mqtt installieren
 Zur Installation bin ich dieser [Anleitung](https://github.com/Koenkk/zigbee2mqtt.io/blob/master/getting_started/running_zigbee2mqtt.md) gefolgt.
 
 `ls -l /dev/serial/by-id` zeigt an, als welches Device der Sniffer erkannt wird. Bei mir war dies `/dev/ttyACM0`.
@@ -91,6 +91,6 @@ mqtt:
 serial:
   # Location of CC2531 USB sniffer
   port: /dev/ttyACM0
-  ```
+```
 
-https://github.com/Koenkk/zigbee2mqtt.io/blob/master/information/virtual_environment.md
+Bevor Zigbee2mqtt gestartet wird, sollte der mqtt-Broker (siehe ./mqtt.md) laufen.
