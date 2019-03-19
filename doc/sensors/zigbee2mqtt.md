@@ -94,3 +94,45 @@ serial:
 ```
 
 Bevor Zigbee2mqtt gestartet wird, sollte der mqtt-Broker (siehe ./mqtt.md) laufen.
+
+#### Zigbee2mqtt starten
+```
+cd /opt/zigbee2mqtt
+npm start
+```
+Stoppen mit <CTRL + C>.
+
+
+
+
+Xiamo pairen
+
+In shell erscheint die NUmmer des Devices.
+
+In /opt/zigbee2mqtt/data/configuration.yaml das Device ergänzen:
+```
+devices:
+  '0x00158d0002b5196f':
+    friendly_name: 'Temperatur Wohnzimmer'
+    retain: false
+```
+
+Im HA bei Einstellungen / Integrationen / MQTT findet man die ersten Werte...
+
+
+sudo nano /etc/systemd/system/zigbee2mqtt.service
+
+[Unit]
+Description=zigbee2mqtt
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/npm start
+WorkingDirectory=/opt/zigbee2mqtt
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
