@@ -37,7 +37,7 @@ setup() {
 
     mkdir -p ~/.restic
 
-    RESTIC_REPOSITORY=/mnt/myCloud/restic.repo
+    RESTIC_REPOSITORY=/mnt/myCloud/HA-0.87.1-restic.repo
     RESTIC_PASSWORD_FILE=~/.restic/passwd
     RESTIC_EXCLUDE_FILE=~/.restic/restic.excludes
 
@@ -51,7 +51,7 @@ setup() {
     /proc/*
     /sys/*
     /tmp/*
-    /var/log/*" > ~/.restic/restic.excludes
+    /var/log/*" > $RESTIC_EXCLUDE_FILE
 
     echo -n "Enter repository password: "
     read -s REPO_PASSWORD

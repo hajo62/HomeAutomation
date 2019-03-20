@@ -1,4 +1,5 @@
 # Projekt Home Automation
+![Latest Version](https://img.shields.io/github/release/hajo62/Homeautomation.svg)
 
 ## Wie es begann
 Im Herbst 2017 hatte ich mich für Home Automation mit dem Hauptziel der Steuerung mehrerer Heizkörper in meiner angemieteten Wohnung interessiert. Eine zwingende Anforderung war also, dass alle Teile der Home Automation einfach und ohne Zustimmung des Eigentümers zu montieren bzw. wieder zu demontieren sein müssen. Außerdem wollte ich mit Sensoren und Aktoren nicht an einen bestimmten Hersteller gebunden sein. Meine Wahl ist hier auf den Funkstandart [z-wave](https://www.z-wave.com/) gefallen.
@@ -15,10 +16,9 @@ Da mir die kommerziellen Produkte aber zu abgeschlossen sind, habe ich im Herbst
 - Installation von [Home Assistant](doc/homeassistant_install.md).
     - Erste  [Sensoren](doc/sensors/sensor_system-monitor.md) konfigurieren.
     - [Gruppen und Tabs](doc/homeassistant_groups_tabs.md) erstellen, um Sensoren geordnet darstellen zu können.
-
+    - [**Zigbee2mqtt**](doc/sensors/zigbee2mqtt.md) konfigurieren, um Zigbee-Sensoren anschließen zu können.
 ---
 
 Und wie weiter?
 - [PlatformIO um Firebeetle](doc/firebeetle.md) anzuschließen?
 - **zwave Stick** konfigurieren?
-- oder sich mit [**Zigbee2mqtt**](doc/sensors/zigbee2mqtt.md) versuchen?

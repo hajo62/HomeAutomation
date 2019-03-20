@@ -22,7 +22,7 @@ network={
        key_mgmt=WPA-PSK
 }
 ```
-Die SD-Karte in den Raspberry einlegen und diesen einschalten. Nach vielleicht einer Minute sollte sich der Raspberry im Netzwerk angemeldet haben und über `ssh pi@<ip-adresse>` erreichbar sein. Das Kennwort für den User pi lautet `raspberry` und natürlich sofort geändert werden.
+Die SD-Karte in den Raspberry einlegen und diesen einschalten. Nach vielleicht einer Minute sollte sich der Raspberry im Netzwerk angemeldet haben und über `ssh pi@<ip-adresse>` erreichbar sein. Das Kennwort für den User pi lautet `raspberry` und sollte natürlich sofort geändert werden.
 
 ### Raspi konfigurieren
 Mit `sudo raspi-config` die passenden Einstellungen vornehmen:

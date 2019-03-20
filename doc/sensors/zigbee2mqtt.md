@@ -48,6 +48,7 @@ Zur Installation bin ich dieser [Anleitung](https://github.com/Koenkk/zigbee2mqt
 
 Prüfen, ob node (>V10.x) und npm (>v6.x) mit den benötigten Versionen installiert sind. Falls nicht, diese installieren.
 ```
+# Checken der node.js- und npm-Versionen und installation von node.js
 node --version
 npm --version
 # Setup Node.js repository
@@ -105,9 +106,9 @@ Stoppen mit <CTRL + C>.
 
 
 
-Xiamo pairen
+Xiamo pairen. Dazu den Knopf 5 Sekunden gedrückt halten.
 
-In shell erscheint die NUmmer des Devices.
+In shell erscheint die Nummer des Devices.
 
 In /opt/zigbee2mqtt/data/configuration.yaml das Device ergänzen:
 ```
@@ -116,6 +117,13 @@ devices:
     friendly_name: 'Temperatur Wohnzimmer'
     retain: false
 ```
+
+.homeassistant/configuration.yaml:
+```
+discovery: true
+discovery_prefix: homeassistant
+```
+
 
 Im HA bei Einstellungen / Integrationen / MQTT findet man die ersten Werte...
 
@@ -136,3 +144,16 @@ User=pi
 
 [Install]
 WantedBy=multi-user.target
+
+
+# Start zigbee2mqtt
+sudo systemctl start zigbee2mqtt
+
+# Show status
+systemctl status zigbee2mqtt.service
+
+sudo systemctl enable zigbee2mqtt.service
+
+
+# View the log of zigbee2mqtt
+sudo journalctl -u zigbee2mqtt.service -f

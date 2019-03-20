@@ -2,8 +2,13 @@ In configuration.yaml:
 ```
 # Enable internal mqtt broker
 mqtt:
+  discovery: false
+  discovery_prefix: homeassistant
   password: !secret mqtt_password
 ```
+
+Wenn neue Sensoren automatisch gefunden werden sollen, muss der Wert auf `discovery: true` geändert werden.
+
 Erstes Beispiel: https://www.home-assistant.io/cookbook/python_component_mqtt_basic
 Anschließend auf Entwicklerwerkzeuge gehen und über Service den erstellten Service aufrufen. Payload steht im Beispiel.
 
