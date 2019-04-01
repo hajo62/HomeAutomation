@@ -7,14 +7,15 @@ Um nicht erst nach Ende der Heizsaison fertig zu sein, habe ich für die Zentral
 
 Da mir die kommerziellen Produkte aber zu abgeschlossen sind, habe ich im Herbst 2018 begonnen, an einer [Raspberry Pi](https://de.wikipedia.org/wiki/Raspberry_Pi) basierten Lösung zu *basteln*.
 
-- Welche [Hardware](doc/hardware.md) wird benötigt?
-- [Betriebssystem](doc/betriebssystem.md) und einige weitere Pakete installieren und ein paar Einstellungen vornehmen.
-- Grundlegende Maßnahmen zur [Absicherung](doc/security.md) des Systems durchführen.
-- [Internetzugriff](doc/fritzbox.md) auf die FritzBox mit festem Namen zulassen.
-- [nginx](doc/nginx.md) installieren und als Remote Proxy konfigurieren.
-- [Backup & Recovery](doc/backup.md).
-- Installation von [Home Assistant](doc/homeassistant_install.md).
-    - Erste  [Sensoren](doc/sensors/sensor_system-monitor.md) konfigurieren.
+- Welche **[Hardware](doc/hardware.md)** wird benötigt?
+- [**Betriebssystem**](doc/betriebssystem.md) und einige weitere Pakete installieren und ein erste Einstellungen vornehmen.
+- Grundlegende Maßnahmen zur [**Absicherung**](doc/security.md) des Systems durchführen.
+- [**Internetzugriff**](doc/fritzbox.md) auf die FritzBox mit festem DNS-Namen zulassen.
+- [**nginx**](doc/nginx.md) installieren und als Remote Proxy konfigurieren.
+- [**Backup & Recovery**](doc/backup.md) mit dd und restic.
+- #### Home Assistant
+    - **Installation** sowie **Updates** von [**Home Assistant**](doc/homeassistant_install.md).
+    - Erste [**Sensoren**](doc/sensors/sensor_system-monitor.md) konfigurieren.
     - [Gruppen und Tabs](doc/homeassistant_groups_tabs.md) erstellen, um Sensoren geordnet darstellen zu können.
     - [**Zigbee2mqtt**](doc/sensors/zigbee2mqtt.md) konfigurieren, um Zigbee-Sensoren anschließen zu können.
 ---

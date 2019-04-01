@@ -1,11 +1,41 @@
-# Sensoren zum Monitoren des Raspberry Pis, der Fritzbox und des Netzwerkes 
+# Sensoren zum Monitoren des Raspberry Pis, der Fritzbox und des Netzwerkes
+Generell sind Sensoren im Bereich `sensor:` in der Datei `configuration.yaml` einzutragen. Um die Übersichtlichkeit zu verbessern, kann man Sensoren in eigene Dateien eintragen und diese in der Datei `configuration.yaml` einlesen. Um dann alle Dateien im Unterverzeichnis `sensors` einzulesen, ist folgende Zeile in die Datei `configuration.yaml` einzutragen:  
+```
+sensor: !include_dir_merge_list sensors
+```
+
+## Home Assistant System
+### Größe der Home Assistant Datenbank
+Um die Größe der Home Assistant zu beobachten, gibt es den [filesize-Sensor](https://www.home-assistant.io/components/sensor.filesize/). Dieser wird in der im Sensors-Bereich der Datei configurations.yaml aktiviert:
+```
+- platform: filesize
+  file_paths:
+    - /home/homeassistant/.homeassistant/home-assistant_v2.db
+```
+Damit das System auf die Datei zugreifen kann, muss das Verzeichnis noch in die Whitelist (Datei configurations.yaml) eingetragen werden:
+```
+whitelist_external_dirs:
+  -  /home/homeassistant/.homeassistant
+```
+
+### Version von Home Assistant und Zeit-online
+```
+- platform: version                   # Home Assistant Software Version
+  name: 'HA Version'
+  scan_interval: 3600                 # Aktualisieren jede Stunde
+- platform: uptime                    # Onlinezeit der HA-Anwendung in Stunden
+  name: 'HA Time Online'
+  unit_of_measurement: hours
+  scan_interval: 3600                 # Aktualisieren jede Stunde
+```
+
 ## Raspberry Pi
 ### Sensor System Monitor
 Die ersten Sensoren, die man zur Verfügung hat, sind die, die der Raspberry Pi - genauer das Betriebssystem - selbst zur Verfügung stellt und die dabei helfen, den Systemzustand im Auge zu behalten. Die verfügbaren Sensoren sind (größtenteils) in der [systemmonitor-Plattform](https://www.home-assistant.io/components/sensor.systemmonitor) zusammen gestellt.  
 <img src="../../images4git/system_info.jpg" width="300">
 
-Um diese Sensoren zu aktivieren/darzustellen, müssen die Dateien `sensors.yaml` und `groups.yaml` wie folgt erweitert werden:  
-`sensors/sensors.yaml`:
+Um diese Sensoren zu aktivieren/darzustellen, müssen die Dateien `sensors/sensors_systeminfo.yaml` und `groups.yaml` wie folgt erweitert werden:  
+`sensors/sensors_systeminfo.yaml`:
 ```
 ####################################################
 # Raspberry PI system Monitoring                   #
