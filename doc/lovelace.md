@@ -12,8 +12,8 @@ Im lovelace Raw-Editor den Quellcode referenzieren:
 resources:
   - type: module
     url: /local/custom_ui/bignumber-card.js
-    ```
-Nun die Card konfigurieren:
+```
+Nun die Card konfigurieren:  
 ```
 cards:
   - type: 'custom:bignumber-card'
