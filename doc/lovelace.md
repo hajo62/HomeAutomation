@@ -3,8 +3,8 @@
 Custom cards herunterladen und in `config` ablegen. config entspricht (bei mir) dem Verzeichnis `/home/homeassistant/.homeassistant/www`. Ich habe darin noch ein Unterverzeichnis `custom_ui` angelegt.
 
 ### bignumber-card
-Den Wert eines Sensor als große Zahl darstellen. <img src="../images4git/card_bignumber.jpg" width="300">  
-
+<img src="../images4git/card_bignumber.jpg" width="300">  
+Den Wert eines Sensor als große Zahl darstellen.  
 Den Quellcode gibt es [hier](https://github.com/ciotlosm/custom-lovelace/tree/master/bignumber-card).  
 Die Datei `bignumber-card.js` herunterladen und in `config/custom_ui` abspeichern.  
 Im lovelace Raw-Editor den Quellcode referenzieren:  
