@@ -4,6 +4,7 @@ Custom cards herunterladen und in `config` ablegen. config entspricht (bei mir) 
 
 ### bignumber-card
 <img src="../images4git/card_bignumber.jpg" width="300">  
+
 Den Wert eines Sensor als große Zahl darstellen.  
 Den Quellcode gibt es [hier](https://github.com/ciotlosm/custom-lovelace/tree/master/bignumber-card).  
 Die Datei `bignumber-card.js` herunterladen und in `config/custom_ui` abspeichern.  
@@ -13,6 +14,7 @@ resources:
   - type: module
     url: /local/custom_ui/bignumber-card.js
 ```
+
 Nun die Card konfigurieren:  
 ```
 cards:
