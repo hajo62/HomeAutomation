@@ -16,8 +16,12 @@ Da mir die kommerziellen Produkte aber zu abgeschlossen sind, habe ich im Herbst
 - #### Home Assistant
     - **Installation** sowie **Updates** von [**Home Assistant**](doc/homeassistant_install.md).
     - Erste [**Sensoren**](doc/sensors/sensor_system-monitor.md) konfigurieren.
-    - [Gruppen und Tabs](doc/homeassistant_groups_tabs.md) erstellen, um Sensoren geordnet darstellen zu können.
     - [**Zigbee2mqtt**](doc/sensors/zigbee2mqtt.md) konfigurieren, um Zigbee-Sensoren anschließen zu können.
+    - [**Lovelace ui**](doc/lovelace.md)
+    - Alt:
+        - ~~[Gruppen und Tabs](doc/homeassistant_groups_tabs.md) erstellen, um Sensoren geordnet darstellen zu können.~~  
+          Dies entfällt durch Einsatz der (neuen) [Lovelace-Oberfläche](https://www.home-assistant.io/lovelace/).
+
 ---
 
 Und wie weiter?
