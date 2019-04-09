@@ -14,7 +14,7 @@ Für meine [32GB-Karte](./hardware.md#Speicher) hat dies knapp 30 Minuten gedaue
 ### Restore eines Images
 Der Restore erfolgt mit dem gleichen Kommando wie die Sicherung, aber mit vertauschtem In- und Output.
 - Image auf SD-Karte schreiben: `sudo dd if=32gb.img of=/dev/mmcblk0 bs=4M`  
-Für meine [32GB-Karte](./hardware.md#Speicher) hat dies ca. 35 Minuten gedauert.
+Für meine [32GB-Karte](./hardware.md#Speicher) hat dies **(mit LAN-Kabel-Verbindung)** ca. 35 Minuten gedauert. Über WLAN dauert es erheblich länger.
 
 Anschließend die SD-Karte in den Raspi stecken und booten. Das ist erstaunlich einfach und hat gut funktioniert.  
 Als ssh mit einer Fehlermeldung antwortet, habe ich in der Datei known_hosts die betreffende Zeile entfernt.
@@ -99,11 +99,12 @@ Die crontab-Datei wird mit `crontab -e` editiert. Hier fügt man zwei Zeilen ein
 
 ## Vollständiger Restore vom NAS
 Auf einem **Mac** ist der Restore nicht möglich, da das rootfs nicht gemounted werden kann!  
+
 Um den Restore auf einem **Linux**-Rechner durchführen zu können, muss zuerst der Sicherungs-Share gemountet werden. Evtl. muss dazu einmalig das Paket nfs-common installiert werden: `sudo apt-get install nfs-common`  
 Anschließend mounten des Shares: `sudo mount 192.168.178.2:/nfs/homeassistant /mnt/myCloud/`
 
 - Image auf SD-Karte schreiben: `sudo dd if=32gb.img of=/dev/mmcblk0 bs=4M`  
-- Aktualisieren auf den letzten Sicherungsstand: `sudo restic restore -r /mnt/myCloud/restic.repo`  
+- Aktualisieren auf den letzten Sicherungsstand: `sudo restic restore efb09d02 --target /media/hajo/rootfs -r /mnt/myCloud/restic.repo`  
 Da die SD-Karte nicht leer ist, schmeisst restic tausende von Fehlern für Dateien, die es nicht restaurieren kann, weil sie schon vorhanden sind. Im Ergbnis erhält man aber trotzdem einen wiederhergestellen Raspi.
 
 ## Restore einer einzelnen Datei vom NAS
