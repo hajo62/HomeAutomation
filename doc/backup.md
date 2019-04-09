@@ -103,8 +103,11 @@ Auf einem **Mac** ist der Restore nicht möglich, da das rootfs nicht gemounted 
 Um den Restore auf einem **Linux**-Rechner durchführen zu können, muss zuerst der Sicherungs-Share gemountet werden. Evtl. muss dazu einmalig das Paket nfs-common installiert werden: `sudo apt-get install nfs-common`  
 Anschließend mounten des Shares: `sudo mount 192.168.178.2:/nfs/homeassistant /mnt/myCloud/`
 
-- Image auf SD-Karte schreiben: `sudo dd if=32gb.img of=/dev/mmcblk0 bs=4M`  
-- Aktualisieren auf den letzten Sicherungsstand: `sudo restic restore efb09d02 --target /media/hajo/rootfs -r /mnt/myCloud/restic.repo`  
+- Image auf SD-Karte schreiben:  
+`sudo dd if=32gb.img of=/dev/mmcblk0 bs=4M`  
+- Aktualisieren auf den letzten Sicherungsstand:  
+`sudo restic restore efb09d02 --target /media/hajo/rootfs -r /mnt/myCloud/restic.repo`  
+(Verzeichnisse und Snapshot-ID sind natürlich anzupassen.)  
 Da die SD-Karte nicht leer ist, schmeisst restic tausende von Fehlern für Dateien, die es nicht restaurieren kann, weil sie schon vorhanden sind. Im Ergbnis erhält man aber trotzdem einen wiederhergestellen Raspi.
 
 ## Restore einer einzelnen Datei vom NAS
