@@ -44,8 +44,6 @@ sudo ./cc-tool -e -w CC2531ZNP-Prod.hex
 ## Zigbee2mqtt installieren
 Zur Installation bin ich dieser [Anleitung](https://github.com/Koenkk/zigbee2mqtt.io/blob/master/getting_started/running_zigbee2mqtt.md) gefolgt.
 
-`ls -l /dev/serial/by-id` zeigt an, als welches Device der Sniffer erkannt wird. Bei mir war dies `/dev/ttyACM0`.
-
 Prüfen, ob node (>V10.x) und npm (>v6.x) mit den benötigten Versionen installiert sind. Falls nicht, diese installieren.
 ```
 # Checken der node.js- und npm-Versionen und installation von node.js
@@ -70,7 +68,10 @@ npm install
 ```
 
 #### Konfiguration
-Mit `nano /opt/zigbee2mqtt/data/configuration.yaml` die Konfigurationsdatei editieren. Hier den MQTT Server, User, Kennwort und den Port prüfen bzw. eintragen. Ich verwende derzeit den im Home Assistant _enthaltenen_ MQTT Broker, so dass die Datei wie folgt ausschaut:  
+Mit `nano /opt/zigbee2mqtt/data/configuration.yaml` die Konfigurationsdatei editieren. Hier den MQTT Server, User, Kennwort und den Port prüfen bzw. eintragen.  
+`ls -l /dev/serial/by-id` zeigt an, als welches Device der Sniffer erkannt wird. Bei mir war dies `/dev/ttyACM0`. Es kam allerdings vor, dass dies nach dem booten sporadisch auch `/dev/ttyACM01` gewesen ist, so dass ich lieber gleich die Ausgabe von `ls -l /dev/serial/by-id` nutze.
+
+Ich verwende derzeit den im Home Assistant _enthaltenen_ MQTT Broker, so dass die Datei wie folgt ausschaut:  
 ```
 # Home Assistant integration (MQTT discovery)
 homeassistant: false
@@ -91,7 +92,7 @@ mqtt:
 # Serial settings
 serial:
   # Location of CC2531 USB sniffer
-  port: /dev/ttyACM0
+  port: /dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B00193648CA-if00
 ```
 
 Bevor Zigbee2mqtt gestartet wird, sollte der mqtt-Broker (siehe ./mqtt.md) laufen.
@@ -103,10 +104,9 @@ npm start
 ```
 Stoppen mit <CTRL + C>.
 
-
-
-
-Xiamo pairen. Dazu den Knopf 5 Sekunden gedrückt halten.
+## Devices pairen
+###Xiaomi Aqara pairen.
+Dazu den Knopf 5 Sekunden gedrückt halten.
 
 In shell erscheint die Nummer des Devices.
 
@@ -117,7 +117,7 @@ devices:
     friendly_name: 'Temperatur Wohnzimmer'
     retain: false
 ```
-
+0x00158d0002e23355
 .homeassistant/configuration.yaml:
 ```
 discovery: true
