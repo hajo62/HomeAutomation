@@ -105,31 +105,31 @@ npm start
 Stoppen mit <CTRL + C>.
 
 ## Devices pairen
-###Xiaomi Aqara pairen.
-Dazu den Knopf 5 Sekunden gedrückt halten.
+### Xiaomi Aqara pairen
+Dazu den Knopf am Sensor 5 Sekunden lang gedrückt halten.
 
-In shell erscheint die Nummer des Devices.
+In der Shell erscheint die Nummer des Devices.
 
-In /opt/zigbee2mqtt/data/configuration.yaml das Device ergänzen:
+In `/opt/zigbee2mqtt/data/configuration.yaml` das Device ergänzen:
 ```
 devices:
   '0x00158d0002b5196f':
     friendly_name: 'Temperatur Wohnzimmer'
     retain: false
 ```
-0x00158d0002e23355
-.homeassistant/configuration.yaml:
+
+`.homeassistant/configuration.yaml:`
 ```
-discovery: true
-discovery_prefix: homeassistant
+mqtt:
+  discovery: true
+  discovery_prefix: homeassistant
 ```
 
+Im Web-GUI des HA findet man bei Einstellungen / Integrationen / MQTT die ersten Werte...
 
-Im HA bei Einstellungen / Integrationen / MQTT findet man die ersten Werte...
-
-
-sudo nano /etc/systemd/system/zigbee2mqtt.service
-
+#### Autostart von zigbee2mqtt
+`sudo nano /etc/systemd/system/zigbee2mqtt.service`
+```
 [Unit]
 Description=zigbee2mqtt
 After=network.target
@@ -144,16 +144,14 @@ User=pi
 
 [Install]
 WantedBy=multi-user.target
+```
 
+#### Start zigbee2mqtt
+`sudo systemctl start zigbee2mqtt`
+`sudo systemctl enable zigbee2mqtt.service`
 
-# Start zigbee2mqtt
-sudo systemctl start zigbee2mqtt
+#### Show status
+`systemctl status zigbee2mqtt.service`
 
-# Show status
-systemctl status zigbee2mqtt.service
-
-sudo systemctl enable zigbee2mqtt.service
-
-
-# View the log of zigbee2mqtt
-sudo journalctl -u zigbee2mqtt.service -f
+#### View the log of zigbee2mqtt
+`sudo journalctl -u zigbee2mqtt.service -f`
