@@ -95,7 +95,7 @@ serial:
   port: /dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B00193648CA-if00
 ```
 
-Bevor Zigbee2mqtt gestartet wird, sollte der mqtt-Broker (siehe ./mqtt.md) laufen.
+mqtt.mdBevor Zigbee2mqtt gestartet wird, sollte der mqtt-Broker (siehe ()[./mqtt.md]) laufen.
 
 #### Zigbee2mqtt starten
 ```
