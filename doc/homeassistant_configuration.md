@@ -12,3 +12,12 @@ Um die Datenbank (/home/homeassistant/.homeassistant/home-assistant_v2.db) manue
 <img src="../images4git/recorder_purge.jpg" width="300" border="1">
 
 Das Verkleinern der Datenbank dauert einige Minuten.
+
+#### Regelmäßig automatisiert
+Um die Datenbank regelmäßig (täglich) zu bereinigen, ist die Datei `configuration.yaml` entsprechend zu erweitern:  
+```
+# Shrink database
+recorder:
+  purge_keep_days: 7
+  db_url: sqlite:////home/user/.homeassistant/home-assistant_v2.db
+```
