@@ -208,17 +208,17 @@ Update gem. dieser [Beschreibung](https://www.home-assistant.io/docs/installatio
 
 Vor dem Update - und danach - habe ich ein [bootfähiges Update](./backup.md#Erstellen-eines-bootfähigen-Images) erstellt.
 
-Der Update von Version [0.84.6](https://github.com/home-assistant/home-assistant/releases/tag/0.86.4) auf Version [0.87.1](https://github.com/home-assistant/home-assistant/releases/tag/0.87.1) (im Februar 2019) war sehr einfach.  
+Der Update von Version [0.84.6](https://github.com/home-assistant/home-assistant/releases/tag/0.86.4) auf Version [0.87.1](https://github.com/home-assistant/home-assistant/releases/tag/0.87.1) (im Februar 2019) war sehr einfach.   Dito auf 0.90.0 und 0.90.2 - 21.03.2019  
+Dito auf 0.90.2 und 0.91.3 - 12.04.2019   
+//Dito auf 0.91.1 und 0.92.0 - 07.04.2019.   
 ```
 sudo -u homeassistant -H -s
 source /srv/homeassistant/bin/activate
 pip3 install --upgrade homeassistant
 ```
-Anschließend noch HA neu starten. Am einfachsten dazu den RasPi rebooten.  
+Anschließend noch mit `sudo systemctl restart home-assistant@homeassistant` HA neu starten oder den RasPi rebooten.  
 Es bietet sich an, auch gleich noch die letzten [Betriebssystem-Updates einzuspielen](./betriebssystem.md#Updates).
 
 Wie im Kapitel [Backup](./backup.md) beschrieben, erstelle ich nun noch ein weiteres Image und beginne ein neues Restic-Repository.
 
 ---
-
-Als nächstes kehrt Ordnung über [Gruppen und Tabs](./homeassistant_groups_tabs.md) ein.
