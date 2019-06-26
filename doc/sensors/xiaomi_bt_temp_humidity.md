@@ -25,4 +25,4 @@ Anschließend muss man den Sensor noch bekannt machen, indem man in die Datei `s
 Nach dem Restart erscheinen die Sensoren:  
 <img src="../../images4git/xiaomi_bt_temp_humidity.jpg" width="300" border="1">
 
-Warum der Batterie-Zustand nicht angezeigt wird, weiß ich noch nicht...
+[//]: # (Warum der Batterie-Zustand nicht angezeigt wird, weiß ich noch nicht...)
