@@ -44,7 +44,7 @@ Neustart von HomeAssistant erfolgt mit dem Kommando `docker-compose restart`.
 ---
 
 ## Installation - Manuell in Raspbian
-(&#x1F534;) ** Abgelöst durch docker ** (&#x1F534;)  
+&#x1F534; **Abgelöst durch docker** &#x1F534;  
 [Hier](https://www.home-assistant.io/docs/installation) gibt es Beschreibungen zu verschiedenen Installationsverfahren für **Home Assistant**. Ich habe mich für die [hier](https://www.home-assistant.io/docs/installation/raspberry-pi/) beschriebene manuelle Installation auf einen bereits vorbereiteten Raspberry Pi entschieden.
 ```
 sudo apt-get install python3 python3-venv python3-pip
