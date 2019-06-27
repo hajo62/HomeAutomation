@@ -6,8 +6,8 @@ Wie die Mac-Adresse des Sensors bestimmt wird, steht ebenfalls in dem obigen Lin
 $ sudo hcitool lescan
 LE Scan ...
 [...]
-4C:65:A8:xx:xx:xx (unknown)
-4C:65:A8:xx:xx:xx MJ_HT_V1
+71:AB:1A:xx:xx:xx (unknown)
+4C:65:A8:DD:xx:xx MJ_HT_V1
 [...]
 ```
 

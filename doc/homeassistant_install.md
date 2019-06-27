@@ -1,6 +1,50 @@
 # Home Assistant
-## Installation
+## Installation mit docker
+Eine Beschreibung zur Installation von HomeAssistant-Docker-Containern findet sich [hier](https://www.home-assistant.io/docs/installation/docker/). Es wird davon ausgegangen, dass docker und docker-compose bereits installiert ist.
 
+### Installation von docker und docker-compose
+#### docker
+Auf docker.com gibt es ein Skript zur Installation und zum Update von docker. Mit dem nachfolgenden Befehl läd man Skript herunter und installiert docker. Der zweite Befehl ermöglicht, dass der User `Pi` docker ausführen kann.
+```
+curl -sSL https://get.docker.com | sh
+sudo usermod -aG docker pi
+```
+#### docker-compose
+```
+sudo pip3 install docker-compose
+```
+
+### Installation des HomeAssistant-Containers
+**ACHTUNG:** Wenn man auf diese Weise einen Docker-Container herunter lädt und startet, führt dies zu einem Fehler, wenn man einen Container selben Namens mit docker-compose erstellt. Hier müsste dann der bestehende Container mit `docker rename /home-assistant /home-assistant-native-docker` umbenannt werden. Sollte der Container bereits laufen, muss mit `docker update 2aed9c29a1d0 --restart no` der Container auf kein restart gesetzt werden. Mit `docker stop 2aed9c29a1d0` wird der laufende Container gestoppt. Alles in Allem habe ich alles entfernt und erneut mit docker-compose begonnen. 
+```
+docker run --init -d --name="home-assistant" -v /home/pi/homeassistant:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant
+```
+
+Nach kurzer Zeit ist Home Assistant unter `http://192.168.178.111:8123` erreichbar.  
+<img src="../images4git/ha-nach-der-installation.jpg" width="600">
+
+### docker-compose
+Um nach dem booten oder nach einem Fehler HA automatisch neu zu starten, bietet sich der Start über docker-compose an. Dazu wird die Datei `/home/pi/docker-compose.yml` mit folgendem Inhalt angelegt:  
+```
+  version: '3'
+  services:
+    homeassistant:
+      container_name: home-assistant
+      image: homeassistant/home-assistant
+      volumes:
+        - /home/pi/homeassistant:/config
+        - /etc/localtime:/etc/localtime:ro
+      restart: always
+      network_mode: host
+```
+
+Mit `docker-compose up -d` wird nun der Container gestartet, bzw. wenn er noch nicht da ist, herunter geladen.  
+Neustart von HomeAssistant erfolgt mit dem Kommando `docker-compose restart`.
+
+---
+
+## Installation - Manuell in Raspbian
+<span style="color:red">** Abgelöst durch docker **</span>
 [Hier](https://www.home-assistant.io/docs/installation) gibt es Beschreibungen zu verschiedenen Installationsverfahren für **Home Assistant**. Ich habe mich für die [hier](https://www.home-assistant.io/docs/installation/raspberry-pi/) beschriebene manuelle Installation auf einen bereits vorbereiteten Raspberry Pi entschieden.
 ```
 sudo apt-get install python3 python3-venv python3-pip
@@ -222,3 +266,23 @@ Es bietet sich an, auch gleich noch die letzten [Betriebssystem-Updates einzuspi
 Wie im Kapitel [Backup](./backup.md) beschrieben, erstelle ich nun noch ein weiteres Image und beginne ein neues Restic-Repository.
 
 ---
+
+## Update auf python 3.7
+
+wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tar.xz
+tar xJf Python-3.7.3.tar.xz
+cd Python-3.7.3
+./configure
+   oder
+./configure --enable-shared --enable-loadable-sqlite-extensions
+make
+sudo make install
+sudo ldconfig -v
+sudo pip3 install --upgrade pip
+
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
+pip3 install --upgrade homeassistant
+
+ 1562  sudo systemctl restart home-assistant@homeassistant
+ 1563  python3
