@@ -1,3 +1,34 @@
+# mosquitto MQTT Broker
+## Installation von mosquitto
+Da der interne MQTT-Broker abgekündigt wurde, habe ich mich nun für den [mosquitto broker](mosquitto.org) in einer Docker-Installation entschieden.
+Den Container herunterladen und starten (mit `-d` kehrt man sofort zurück zur Shell und sieht nicht die Ausgaben des Containers):
+```
+docker run -it [-d] -p 1883:1883 -p 9001:9001 fstehle/rpi-mosquitto
+```
+### Senden von Messages
+Recht einfach kann man mit `mosquitto_pub` Nachrichten an den Message-Broker senden.
+
+#### mosquitto_pub installieren mit:
+`sudo apt-get install mosquitto-clients`
+
+#### Message senden mit mosquitto_pub
+Zwei Beispiele:
+```
+mosquitto_pub  -V mqttv311 -t "some_mqtt/topic/here" -m "Meine erste MQTT-Message"
+mosquitto_pub  -V mqttv311 -u homeassistant -P hajo -t "homeassistant/stimmung" -m "Meine erste MQTT-Message"
+```
+
+#### Message-Queue ansehen
+Es gibt diverse MQTT-Clients. Ich nutzt den [MQTT-Explorer](www.mqtt-explorer.com), den ex für Mac [hier](https://github.com/thomasnordquist/MQTT-Explorer/releases/tag/v0.3.0) gibt. Im Client dann einfach unter Connections mqtt://<ip>:1883 eintragen und schon kann man die Message-Queue anschauen.
+
+
+
+
+
+---
+
+&#x1F534; **Abgelöst durch docker-Installtion** &#x1F534;  
+
 In configuration.yaml:
 ```
 # Enable internal mqtt broker
@@ -20,8 +51,7 @@ sensor:
     name: "Stimmung"
     state_topic: "home-assistant/hajo/stimmung"
 ```
-Message senden mit `mosquitto_pub  -V mqttv311 -u homeassistant -P hajo -t "some_mqtt/topic/here" -m "Meine erste MQTT-Message"`.
-mosquitto_pub installieren mit: `sudo apt-get install mosquitto-clients`
+
 
 
 Für MQTT in PlatformIO die PubSubClient-Library installieren.
