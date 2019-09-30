@@ -30,13 +30,13 @@ make
 ```
 
 ### Flashen der Firmware
-Download der Firmware [CC2531ZNP-Prod.hex](https://github.com/Koenkk/Z-Stack-firmware/tree/master/coordinator/CC2531/bin).
+Download der Firmware CC2531ZNP-Prod.hex unter https://www.zigbee2mqtt.io/.
 
 Flashen der Firmware:
 ```
-sudo ./cc-tool -e -w /tmp/CC2531ZNP-Prod_20190223/CC2531ZNP-Prod.hex
+sudo ./cc-tool -e -w /private/tmp/CC2531_DEFAULT_20190608/CC2531ZNP-Prod.hex
 ```
-Nun den CC debugger mit dem Downloader cable an den CC2531 USB Sniffer anschließen und denSniffer und den Debugger per USB an den Rechner anschließen. Das Flashen der neuen Firmware erfolgt mit diesem Kommando:
+Nun den CC debugger mit dem Downloader cable an den CC2531 USB Sniffer anschließen und den Sniffer und den Debugger per USB an den Rechner anschließen. Das Flashen der neuen Firmware erfolgt mit diesem Kommando:
 ```
 sudo ./cc-tool -e -w CC2531ZNP-Prod.hex
 ```
@@ -155,3 +155,9 @@ WantedBy=multi-user.target
 
 #### View the log of zigbee2mqtt
 `sudo journalctl -u zigbee2mqtt.service -f`
+
+
+
+
+
+https://community.home-assistant.io/t/zigbee2mqtt-lovelace-custom-card-to-show-zigbee2mqtt-network-map/132088
